@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "source_sha": "f1603b3493789414fdde771eef1795db4966adf4",
+  "result": "SUCCESS",
+  "build_number": 1,
+  "duration_ms": 27067,
+  "verified_at": "2026-10-30T23:33:46.052532+00:00",
+  "controller_executors": 0,
+  "isolated_agent": true,
+  "aws_credentials": false
+}

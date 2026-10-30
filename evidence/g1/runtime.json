@@ -1,0 +1,77 @@
+{
+  "scope": "local-runtime",
+  "source_sha": "f1603b3493789414fdde771eef1795db4966adf4",
+  "working_tree_dirty": false,
+  "platform_mode": "argocd-published:f1603b3493789414fdde771eef1795db4966adf4",
+  "hardware": {
+    "cpu_count": 16,
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "checks": {
+    "authentication_and_catalog_validation": true,
+    "event_lifecycle_and_idempotency": {
+      "incident_id": "532d7ed6-49f8-48c8-b7da-d852a16ca696"
+    },
+    "alert_fired_from_persisted_incident": true,
+    "incident_resolution_is_idempotent": true,
+    "trace_received_by_tempo": {
+      "trace_id": "e9217b8cbe619e8fd2771409b2a831a7"
+    },
+    "prometheus_scrapes_each_api_replica": true,
+    "grafana_provisioned_dashboard_api": {
+      "uid": "financial-operations",
+      "panels": 4
+    },
+    "load": {
+      "kind": "local-synthetic-benchmark",
+      "transport": "kubectl port-forward service/showcase-api to one selected replica",
+      "load_balancing_verified": false,
+      "duration_requested_seconds": 120,
+      "rate_requested_per_second": 20,
+      "requests": 2400,
+      "elapsed_seconds": 119.955,
+      "p95_milliseconds": 4.564,
+      "non_201": 0,
+      "http_5xx": 0,
+      "transport_errors": 0,
+      "acceptance_profile": true,
+      "passed": true
+    },
+    "api_restart_preserves_incident": true,
+    "postgres_restart_preserves_pvc_data": true,
+    "database_app_role_is_restricted": true,
+    "backup_restore_to_separate_database": {
+      "event_incident_counts": "3091|5",
+      "dump_bytes": 108491,
+      "ordered_rows_md5": [
+        "550e94c80125215c09bc9e144408ce37",
+        "d5f02624fbf3ef3f63fbb05a7d47671c"
+      ],
+      "restore_elapsed_seconds": 0.666,
+      "recovery_scope": "local logical snapshot with synthetic writes paused",
+      "lost_rows_relative_to_snapshot": 0
+    },
+    "calico_allowed_denied_and_dns": true,
+    "api_has_no_secret_read_rbac": true,
+    "argocd_exact_sha_and_drift_correction": {
+      "revision": "f1603b3493789414fdde771eef1795db4966adf4",
+      "replicas_restored": 2
+    }
+  },
+  "passed": true,
+  "runtime_images": [
+    {
+      "pod": "showcase-api-68799c648b-n5prh",
+      "image_id": "docker.io/library/import-2026-10-30@sha256:711575b5e045e24273250b39a574563c05f468065a1b68125ddf6b84e9b48927"
+    },
+    {
+      "pod": "showcase-api-68799c648b-rmxxm",
+      "image_id": "docker.io/library/import-2026-10-30@sha256:711575b5e045e24273250b39a574563c05f468065a1b68125ddf6b84e9b48927"
+    }
+  ],
+  "loaded_kind_image": {
+    "image_id": "sha256:be4c85a49303725b336760d31bf0e79e0ab163456d7d226b80dc6e9549ba0a69",
+    "source_revision": "f1603b3493789414fdde771eef1795db4966adf4",
+    "working_tree_dirty": "false"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "local-synthetic-benchmark",
+  "transport": "kubectl port-forward service/showcase-api to one selected replica",
+  "load_balancing_verified": false,
+  "duration_requested_seconds": 120,
+  "rate_requested_per_second": 20,
+  "requests": 2400,
+  "elapsed_seconds": 119.955,
+  "p95_milliseconds": 4.564,
+  "non_201": 0,
+  "http_5xx": 0,
+  "transport_errors": 0,
+  "acceptance_profile": true,
+  "passed": true
+}
