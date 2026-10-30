@@ -1,0 +1,12 @@
+# Adapter only: SaaS execution remains pending. This runs the same Make targets.
+image: python:3.14.10-slim-trixie@sha256:3cabfd7d7aaf394e6040e79fa1eec6ca1c52b74ed9188650472695d9a9326999
+pipelines:
+  default:
+    - step:
+        name: Shared application and infrastructure contracts
+        script:
+          - apt-get update && apt-get install -y --no-install-recommends git make ca-certificates
+          - make bootstrap
+          - make check unit-test infra-test helm-check
+        artifacts:
+          - artifacts/**

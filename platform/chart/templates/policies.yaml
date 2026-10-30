@@ -1,0 +1,232 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: showcase-budget
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  hard:
+    requests.cpu: "4"
+    requests.memory: 3Gi
+    limits.cpu: "10"
+    limits.memory: 5Gi
+    persistentvolumeclaims: "3"
+    requests.storage: 3Gi
+    pods: "20"
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: showcase-limits
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 500m
+        memory: 256Mi
+      defaultRequest:
+        cpu: 50m
+        memory: 32Mi
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-dns
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  podSelector: {}
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: database-clients
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  podSelector:
+    matchLabels:
+      access: database
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: postgres
+      ports:
+        - port: 5432
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres-ingress
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  podSelector:
+    matchLabels:
+      app: postgres
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              access: database
+      ports:
+        - port: 5432
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: api-telemetry
+spec:
+  podSelector:
+    matchLabels:
+      app: showcase-api
+  policyTypes: [Ingress, Egress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: prometheus
+      ports:
+        - port: 8080
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: otel-collector
+      ports:
+        - port: 4318
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: collector
+spec:
+  podSelector:
+    matchLabels:
+      app: otel-collector
+  policyTypes: [Ingress, Egress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: showcase-api
+      ports:
+        - port: 4318
+    - from:
+        - podSelector:
+            matchLabels:
+              app: prometheus
+      ports:
+        - port: 8889
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: tempo
+      ports:
+        - port: 4317
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: prometheus
+spec:
+  podSelector:
+    matchLabels:
+      app: prometheus
+  policyTypes: [Ingress, Egress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: grafana
+      ports:
+        - port: 9090
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: showcase-api
+      ports:
+        - port: 8080
+    - to:
+        - podSelector:
+            matchLabels:
+              app: otel-collector
+      ports:
+        - port: 8889
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: grafana
+spec:
+  podSelector:
+    matchLabels:
+      app: grafana
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: prometheus
+      ports:
+        - port: 9090
+    - to:
+        - podSelector:
+            matchLabels:
+              app: tempo
+      ports:
+        - port: 3200
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: tempo
+spec:
+  podSelector:
+    matchLabels:
+      app: tempo
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: otel-collector
+      ports:
+        - port: 4317
+    - from:
+        - podSelector:
+            matchLabels:
+              app: grafana
+      ports:
+        - port: 3200

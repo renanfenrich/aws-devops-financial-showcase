@@ -1,0 +1,24 @@
+rule_files:
+  - chart/config/alerts.yml
+evaluation_interval: 5s
+tests:
+  - interval: 5s
+    input_series:
+      - series: 'showcase_open_incidents'
+        values: '0 1 1 1 0 0'
+    alert_rule_test:
+      - eval_time: 5s
+        alertname: SyntheticIncidentOpen
+        exp_alerts: []
+      - eval_time: 15s
+        alertname: SyntheticIncidentOpen
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+              environment: local-synthetic
+            exp_annotations:
+              summary: Synthetic incident requires acknowledgement
+              runbook_url: https://github.com/renanfenrich/aws-devops-financial-showcase/blob/develop/docs/runbooks.md
+      - eval_time: 25s
+        alertname: SyntheticIncidentOpen
+        exp_alerts: []

@@ -1,0 +1,12 @@
+version: 3
+automerge: false
+projects:
+  - name: aws-foundation
+    dir: infra/terraform/aws-foundation
+    workspace: default
+    terraform_version: v1.17.1
+    autoplan:
+      enabled: false
+      when_modified: ['*.tf', '.terraform.lock.hcl']
+# G1: configuration prepared only. GitHub PR/webhook and AWS plan are NOT connected.
+# Offline mocked terraform test is run through scripts/infra-check.sh, outside Atlantis.
