@@ -1,0 +1,16 @@
+# Working agreement
+
+- Keep progress narration terse. Preserve user-owned work.
+- G1 is a local-only financial operations showcase with synthetic data. No AWS
+  provisioning, remote Atlantis webhook, real financial operations, or paid APIs.
+- renanfenrich owns development and Git flow. main is stable; develop is
+  integration; feature/* targets develop. All implementation changes use PRs.
+- octavariumdigitalpartners is the mandatory human reviewer and approver.
+  Stop at READY FOR HUMAN REVIEW. Never approve or merge your own work.
+- Make targets are the shared local/CI contract. Run checks relevant to changes.
+- Keep versions pinned; record official source, date, integrity, and compatibility.
+- Never commit secrets, Terraform state/plans, database dumps, or raw private logs.
+- Evidence must distinguish local runtime, mocked IaC, pending integrations, and
+  verified AWS. A passed mock is not a deployed resource or human approval.
+- Terraform owns AWS foundations; Argo CD owns application releases. Avoid dual
+  ownership. Atlantis G1 has no cloud credentials, kubeconfig, or Docker socket.
