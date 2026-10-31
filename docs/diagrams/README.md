@@ -28,12 +28,12 @@ ownership limits. Local kind is not EKS; PostgreSQL is not RDS. S3, KMS and IAM
 are outside the VPC. AWS arrows are declarations or policy contracts, not traffic.
 See [validation evidence](validation.md) for the checks actually run.
 
-The presentation follows the supplied AWS architecture reference: a white canvas,
-large original AWS marks, labels below, thin rectangular grouping frames and
-neutral connectors. Solid/dashed relationship meaning is preserved. Non-AWS
-tools retain generic native symbols. New viewers default to Light; theme controls
-still work, while the architecture canvas stays white for reference-style reading
-and exports. Styling changes no topology, ownership or evidence category.
+The presentation follows the supplied AWS reference through large original AWS
+marks, labels below, thin rectangular groups and neutral connectors. Backgrounds,
+masks, labels, flows, borders and controls follow the selected Light/Dark theme.
+Native URL, saved-choice and system-preference resolution is preserved. Official
+AWS artwork retains its original colors; non-AWS tools keep generic symbols.
+Solid/dashed meaning, topology, ownership and evidence categories are unchanged.
 
 ## Updating a PR
 
@@ -93,8 +93,9 @@ The builder also exercises theme switching, Finder input, source-backed focus
 and directed Route Probe with native clicks/text in a real headless Chrome,
 using Archify's pinned browser test helper. It checks runtime errors, offline
 loading and the expected AWS image count on each actual output.
-It also checks the Light default, white canvas in Dark, 64px icon dimensions,
-labels below the marks, original aspect ratios and absence of lifted-card shadows.
+It also checks Light/Dark palette changes, readable labels/flows/controls, saved
+theme and URL selection, 64px icons, labels below, original aspect ratios and no
+lifted-card shadows. SVG-local styles use native theme tokens for export parity.
 `receipts.json` retains portable input/output hashes and outcomes; complete receipts
 and browser captures remain under ignored `.cache/diagrams/`.
 Missing browser support is a failed/incomplete build, never a fabricated success.

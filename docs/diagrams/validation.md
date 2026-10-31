@@ -13,7 +13,7 @@ remain those integrated in G1/G2-A. Input and output hashes are in
 | --- | --- |
 | `python3 scripts/bootstrap.py --only node` | Official Node 26.13.0 archive checksum verified; checkout-local binary only |
 | `make diagram-build` | All four actual candidates passed Archify showcase validate, deliver, strict check and browser-check |
-| Builder's `scripts/diagram-browser-smoke.mjs` | All four outputs passed native Chrome theme click, Finder typing/selection, source focus and directed route clicks; zero runtime errors/external requests; expected AWS image counts 0/0/10/2. Light default, white canvas in Dark, 64px marks, labels below, original aspect ratios and no card shadows verified. |
+| Builder's `scripts/diagram-browser-smoke.mjs` | All four outputs passed native Chrome Light/Dark palette/contrast checks, saved-theme and URL selection, Finder typing/selection, source focus and route clicks; zero runtime errors/external requests; AWS image counts 0/0/10/2. Original 64px marks, labels below, proportions and no card shadows verified. |
 | Archify `visual-check` on each checked HTML | Four viewport captures per view: light/dark at 1440×900 and 2048×1320; automatic containment/readability/chrome checks passed |
 | Agent inspection of captures | All four views inspected at 1440×900 light and 2048×1320 dark; labels/routes and official AWS symbols remain visible; long views use normal document scrolling |
 | `make check unit-test` | Passed: repository/diagram/Python/workflow contracts and 41 offline unit/harness tests (9 integration cases deselected); 24 diagram cases included |
@@ -58,8 +58,9 @@ ownership and completeness still require current-head review by
 `octavariumdigitalpartners`; no automated result grants a merge.
 
 The 31 October appearance revision follows the user's AWS example: primary 64px
-official marks, labels below, neutral arrows, thin square group frames, sans-serif
-diagram text and a white canvas in both viewer themes. A semantic comparison of
+official marks, labels below, neutral arrows, thin square group frames and sans-serif
+text. As clarified by the user, canvas, masks, labels, flows, borders and controls
+follow the selected theme; no background or Light default is forced. A comparison of
 all four candidates against the previous versions found only per-node position,
 size and decorative icon changes; nodes, edges, labels, sources and evidence
 statements are unchanged. Input bindings now include CSS and builder bytes, so a

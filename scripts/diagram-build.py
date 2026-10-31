@@ -148,19 +148,11 @@ def build():
             )
             canvas_style = (
                 "<style>html[data-preset] .diagram-container {"
-                "background:#fff; border-radius:0; box-shadow:none;"
-                "--panel:#fff; --panel-border:#d5dbdb; --text:#232f3e;"
-                "--text-muted:#545b64; --text-dim:#687078;"
-                "--toolbar-text:#545b64; --toolbar-hover:#eef2f4;}"
+                "background:var(--bg); border-radius:0; box-shadow:none;}"
                 "</style>"
             )
-            light_template = template.replace(
-                "theme = window.matchMedia('(prefers-color-scheme: light)').matches "
-                "? 'light' : 'dark';",
-                "theme = 'light';",
-            )
             template_path.write_text(
-                light_template.replace("</head>", metadata + canvas_style + "\n</head>")
+                template.replace("</head>", metadata + canvas_style + "\n</head>")
             )
             output = cache / f"{view}.html"
             command = [

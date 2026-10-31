@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-31T04:21:06.641663+00:00",
-  "review_note": "AWS-reference appearance: unchanged semantics; regenerated views and input bindings; corrected Dark node fills/control contrast; all native browser and light/dark capture checks passed",
+  "reviewed_at": "2026-10-31T04:33:34.875545+00:00",
+  "review_note": "Corrected requested theme behavior: AWS-style symbols/groups/labels/flows preserved; native selected background/palette, saved choice and URL priority restored; contrast and four-view Light/Dark browser/visual checks passed",
   "source_globs": [
     "infra/**",
     "platform/**",
@@ -218,10 +218,10 @@
       "sha256": "d253808cafdc7b3761a86a63badebe08d892bd008f919da3197d08cdafb0def2"
     },
     "scripts/diagram-browser-smoke.mjs": {
-      "sha256": "7f6091048330495a8eb5ba3efaba89f9d3adefc80255d47ea18176180bb14576"
+      "sha256": "52bbfc2446df267c4a565dcea978d51b9d1643e1185acc24f51dd5f29c2176a0"
     },
     "scripts/diagram-build.py": {
-      "sha256": "ed8abf93986c04110def45af2ce7b596c2aba65ea2c6e1da696b77b62a04bb9c"
+      "sha256": "660a301f2328c729ec8d2646b833850b49fad4507f3384088d46de45c53a62ef"
     },
     "scripts/diagram.py": {
       "sha256": "27b5a57163f0702c869b52b051c4522e1a6073459f86dc1e9ec810644cfe80ca"
@@ -321,19 +321,19 @@
     "docs/diagrams/public/assets/aws/public-subnet.svg": "009342df9afcc20b8c6f0d82ded7620105aaa7e53eb253d74f80a9e7d3beee58",
     "docs/diagrams/public/assets/aws/s3.svg": "b92c5101cc6565dd12df37655802279f8fba0c719279f62f93106d26750b36c6",
     "docs/diagrams/public/assets/aws/vpc.svg": "4cb934198b019bccdd8efc2ef7e95d3bb200148b14919f36082a26436a9bcd8c",
-    "docs/diagrams/public/aws.html": "27c4977d9f1e1d6dec12baad4538a8ecc21c4208dd99f676b19bcc6eda12836d",
-    "docs/diagrams/public/bootstrap.html": "4ea663f630bb57f04c8f01980cef7cf317d7319374fd3ca56efb186ea1cfc0c3",
-    "docs/diagrams/public/delivery.html": "70cd50e4e8b4ebc44f7b0044bc2413a8f52aa63952142f490e94cce26156756b",
-    "docs/diagrams/public/index.html": "8281712e03de5bf0bbbb2a876be7277da898504154e563d4eeccfc5a4568748b",
+    "docs/diagrams/public/aws.html": "b5b8abbd30582cdaf78daa5b7ad0cdbcd7749b3664e78dbae41016300196c71d",
+    "docs/diagrams/public/bootstrap.html": "c1284ad72dd34e6e27ab59a3d1d0604aa70e41517cb91c07639de9ca52d87d23",
+    "docs/diagrams/public/delivery.html": "21db72c3f187d62d7cb9e9d5881307ec63b48e7af9a623a5ad64029ac8bb6ca5",
+    "docs/diagrams/public/index.html": "ccbea552f3ed4e8148d5184864ce27550dd8aa59f8a76a5da47e19c892fb1bfc",
     "docs/diagrams/public/licenses/ARCHIFY-LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "docs/diagrams/public/licenses/ARCHIFY-LICENSE-MIT": "b799ab081703e7821ae5096d2c1abdf14bbdc75e8ea1c4045998c36ed6db9706",
     "docs/diagrams/public/licenses/ARCHIFY-NOTICE": "665eb53e6fcf09cee183c9f23c8052645dc95570d9ccbbf53dc0f5213a1b5edd",
     "docs/diagrams/public/licenses/ARCHIFY-THIRD_PARTY_NOTICES.md": "b5e129197f391568f7abf287c74b24f4835f10e5388f600407c8788feaeb9015",
-    "docs/diagrams/public/local.html": "2ee9b70125e905d1ff2c332cb383fe51c2827d9d95e3ae743b7df55262459040",
-    "docs/diagrams/receipts.json": "47059f8d84661dc98a8dd63152db79b6d4c3c935dccf3e73dea73442f06e4996",
-    "docs/diagrams/style.css": "443d18c0239a5530380ad005fa823fdaa9759620377effc4648635697fce8829",
-    "docs/diagrams/validation.md": "7759a2cbf9a2702eb0090c565f96eae6cf2cd0678906b75b350b69c3d9f859df",
+    "docs/diagrams/public/local.html": "f45d22f52e38e7f42beffc1f6ab0f32128707b616dd9307cbd92a2bca847fbdc",
+    "docs/diagrams/receipts.json": "6cd88a6546976972ebce62adca2492fc44ffe52f93d327b24bb947eaa13d67a5",
+    "docs/diagrams/style.css": "f0e505a163f24e4413193a13721b77f1222face2566ba58367d5c18db9f1d032",
+    "docs/diagrams/validation.md": "2d287871056e7330bf9223dabeb05b1e5d1dc0a5d29b18e6c1e2c8567dbcee5d",
     "docs/diagrams/vendor.json": "0d4e168216751b7446a4eea3f8eb6e25fac4d53399344fb598b54aba320b4ce3",
-    "docs/diagrams/visual-review.json": "fe1954fc5a604f9ba2ddd41a99c6896e69964b57d8b6122c9ed6339a99da79ef"
+    "docs/diagrams/visual-review.json": "30634214bd0b1aba11fc024f800512c5d2ede6823d9b53ea7ba016a7e52e506c"
   }
 }

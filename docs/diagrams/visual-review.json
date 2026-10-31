@@ -3,7 +3,7 @@
   "reviewer": "Codex agent; not mandatory human approval",
   "views": {
     "local": {
-      "artifact_sha256": "2ee9b70125e905d1ff2c332cb383fe51c2827d9d95e3ae743b7df55262459040",
+      "artifact_sha256": "f45d22f52e38e7f42beffc1f6ab0f32128707b616dd9307cbd92a2bca847fbdc",
       "automated_capture_checks": {
         "containment": "pass",
         "readability": "pass",
@@ -16,10 +16,10 @@
         "1440x900 light",
         "2048x1320 dark"
       ],
-      "observations": "White reference canvas and nodes in both themes; readable canvas controls; original 64px AWS marks with labels below; square frames, neutral arrows and non-AWS generic symbols preserved."
+      "observations": "Canvas, masks, labels, neutral flows, frames and controls follow Light/Dark; original 64px AWS marks and labels below preserved; non-AWS generic shapes and document scrolling retained."
     },
     "delivery": {
-      "artifact_sha256": "70cd50e4e8b4ebc44f7b0044bc2413a8f52aa63952142f490e94cce26156756b",
+      "artifact_sha256": "21db72c3f187d62d7cb9e9d5881307ec63b48e7af9a623a5ad64029ac8bb6ca5",
       "automated_capture_checks": {
         "containment": "pass",
         "readability": "pass",
@@ -32,10 +32,10 @@
         "1440x900 light",
         "2048x1320 dark"
       ],
-      "observations": "White reference canvas and nodes in both themes; readable canvas controls; original 64px AWS marks with labels below; square frames, neutral arrows and non-AWS generic symbols preserved."
+      "observations": "Canvas, masks, labels, neutral flows, frames and controls follow Light/Dark; original 64px AWS marks and labels below preserved; non-AWS generic shapes and document scrolling retained."
     },
     "aws": {
-      "artifact_sha256": "27c4977d9f1e1d6dec12baad4538a8ecc21c4208dd99f676b19bcc6eda12836d",
+      "artifact_sha256": "b5b8abbd30582cdaf78daa5b7ad0cdbcd7749b3664e78dbae41016300196c71d",
       "automated_capture_checks": {
         "containment": "pass",
         "readability": "pass",
@@ -48,10 +48,10 @@
         "1440x900 light",
         "2048x1320 dark"
       ],
-      "observations": "White reference canvas and nodes in both themes; readable canvas controls; original 64px AWS marks with labels below; square frames, neutral arrows and non-AWS generic symbols preserved."
+      "observations": "Canvas, masks, labels, neutral flows, frames and controls follow Light/Dark; original 64px AWS marks and labels below preserved; non-AWS generic shapes and document scrolling retained."
     },
     "bootstrap": {
-      "artifact_sha256": "4ea663f630bb57f04c8f01980cef7cf317d7319374fd3ca56efb186ea1cfc0c3",
+      "artifact_sha256": "c1284ad72dd34e6e27ab59a3d1d0604aa70e41517cb91c07639de9ca52d87d23",
       "automated_capture_checks": {
         "containment": "pass",
         "readability": "pass",
@@ -64,7 +64,7 @@
         "1440x900 light",
         "2048x1320 dark"
       ],
-      "observations": "White reference canvas and nodes in both themes; readable canvas controls; original 64px AWS marks with labels below; square frames, neutral arrows and non-AWS generic symbols preserved."
+      "observations": "Canvas, masks, labels, neutral flows, frames and controls follow Light/Dark; original 64px AWS marks and labels below preserved; non-AWS generic shapes and document scrolling retained."
     }
   }
 }

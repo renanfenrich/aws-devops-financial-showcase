@@ -1,19 +1,15 @@
 /* AWS-reference presentation. Embedded in the canonical SVG before Archify checks. */
 svg[data-aws-style] {
-  --mask: #fff;
-  --text: #232f3e;
-  --text-muted: #545b64;
-  --text-dim: #687078;
-  --arrow: #545b64;
-  --arrow-emphasis: #545b64;
-  background: #fff;
-  color: #232f3e;
+  --mask: var(--bg);
+  background: var(--bg);
+  color: var(--text);
 }
 svg[data-aws-style] text { font-family: Arial, Helvetica, sans-serif; }
+svg[data-aws-style] [data-node-id] > text[data-detail="fine"] { fill: var(--text-muted); }
 svg[data-aws-style] .c-grid { stroke: none; }
 svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind] > rect.atlas-node {
-  fill: #fff;
-  stroke: #d5dbdb;
+  fill: var(--mask);
+  stroke: var(--panel-border);
   stroke-width: .8px;
   rx: 1px;
   filter: none !important; /* Override the upstream classic preset's lifted cards. */
@@ -25,36 +21,35 @@ svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind] > rect.atlas-no
 svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind]:hover > rect.atlas-node,
 svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind]:focus-visible > rect.atlas-node,
 svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind][aria-pressed="true"] > rect.atlas-node {
-  stroke: #0073bb;
+  stroke: var(--frontend-stroke);
   stroke-width: 1.8px;
 }
-svg[data-aws-style] .semantic-sigil { color: #545b64; opacity: 1; }
+svg[data-aws-style] .semantic-sigil { color: var(--text-muted); opacity: 1; }
 svg[data-aws-style] image[data-aws-icon] { pointer-events: none; }
 svg[data-aws-style][data-node-ui] .c-region {
   fill: none;
-  stroke: #5b8796;
+  stroke: var(--external-stroke);
   stroke-width: 1px;
   stroke-dasharray: none;
   rx: 0;
 }
-svg[data-aws-style][data-atlas-view="aws"] .c-region { stroke: #24883b; }
+svg[data-aws-style][data-atlas-view="aws"] .c-region { stroke: var(--backend-stroke); }
 svg[data-aws-style][data-node-ui] .c-security-group {
   fill: none;
-  stroke: #5b8796;
+  stroke: var(--external-stroke);
   stroke-dasharray: 4 3;
   rx: 0;
 }
 svg[data-aws-style][data-node-ui] [data-graph-role="structural-frame-label-mask"] {
-  fill: #fff;
+  fill: var(--mask);
   stroke: none;
   rx: 0;
 }
-svg[data-aws-style] [data-boundary-label] { fill: #3b6977; font-weight: 400; }
-svg[data-aws-style][data-atlas-view="aws"] [data-boundary-label] { fill: #24883b; }
-svg[data-aws-style] :is(.a-default, .a-emphasis, .a-security, .a-dashed) { stroke: #545b64; }
-svg[data-aws-style] :is(.m-default, .m-emphasis, .m-security, .m-dashed) { fill: #545b64; }
+svg[data-aws-style] [data-boundary-label] { fill: var(--text-muted); font-weight: 400; }
+svg[data-aws-style] :is(.a-default, .a-emphasis, .a-security, .a-dashed) { stroke: var(--text-muted); }
+svg[data-aws-style] :is(.m-default, .m-emphasis, .m-security, .m-dashed) { fill: var(--text-muted); }
 svg[data-aws-style] :is(.t-edge-default, .t-edge-emphasis, .t-edge-security, .t-edge-dashed) {
-  fill: #545b64;
+  fill: var(--text-muted);
   font-style: italic;
 }
 svg[data-aws-style][data-node-ui] g[data-edge-from] > rect.c-mask {

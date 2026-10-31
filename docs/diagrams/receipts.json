@@ -4,7 +4,7 @@
   "views": {
     "local": {
       "specification_sha256": "85d7e5055678daf0ae60fafd9991b685f3ce932f16bb36adb1a79df89558e179",
-      "artifact_sha256": "2ee9b70125e905d1ff2c332cb383fe51c2827d9d95e3ae743b7df55262459040",
+      "artifact_sha256": "f45d22f52e38e7f42beffc1f6ab0f32128707b616dd9307cbd92a2bca847fbdc",
       "gates": {
         "validate": "pass",
         "deliver": "pass",
@@ -15,7 +15,21 @@
       "visual_review": "not-requested",
       "interaction_checks": {
         "status": "pass",
-        "theme": "native-click",
+        "theme": "native-light-dark-light",
+        "theme_persistence": "bare-url-reload",
+        "theme_query": "explicit-overrides-saved",
+        "theme_contrast": {
+          "light": {
+            "labels": 5.469111107667457,
+            "edges": 5.469111107667457,
+            "controls": 5.469111107667457
+          },
+          "dark": {
+            "labels": 7.867596661581724,
+            "edges": 7.867596661581724,
+            "controls": 7.51542338426086
+          }
+        },
         "finder": "native-text-input",
         "focus": "client",
         "source_evidence": "present",
@@ -33,7 +47,7 @@
     },
     "delivery": {
       "specification_sha256": "efb79ffd15b7636c59b288b11455e466156568c977f9bc03a74ffdd74a6ab4e2",
-      "artifact_sha256": "70cd50e4e8b4ebc44f7b0044bc2413a8f52aa63952142f490e94cce26156756b",
+      "artifact_sha256": "21db72c3f187d62d7cb9e9d5881307ec63b48e7af9a623a5ad64029ac8bb6ca5",
       "gates": {
         "validate": "pass",
         "deliver": "pass",
@@ -44,7 +58,21 @@
       "visual_review": "not-requested",
       "interaction_checks": {
         "status": "pass",
-        "theme": "native-click",
+        "theme": "native-light-dark-light",
+        "theme_persistence": "bare-url-reload",
+        "theme_query": "explicit-overrides-saved",
+        "theme_contrast": {
+          "light": {
+            "labels": 5.469111107667457,
+            "edges": 5.469111107667457,
+            "controls": 5.469111107667457
+          },
+          "dark": {
+            "labels": 7.867596661581724,
+            "edges": 7.867596661581724,
+            "controls": 7.51542338426086
+          }
+        },
         "finder": "native-text-input",
         "focus": "git",
         "source_evidence": "present",
@@ -62,7 +90,7 @@
     },
     "aws": {
       "specification_sha256": "2c8809b7f1f5be5b7655d2b21de5db77d40427bc96f6c3d78ba1a18405dad25b",
-      "artifact_sha256": "27c4977d9f1e1d6dec12baad4538a8ecc21c4208dd99f676b19bcc6eda12836d",
+      "artifact_sha256": "b5b8abbd30582cdaf78daa5b7ad0cdbcd7749b3664e78dbae41016300196c71d",
       "gates": {
         "validate": "pass",
         "deliver": "pass",
@@ -73,7 +101,21 @@
       "visual_review": "not-requested",
       "interaction_checks": {
         "status": "pass",
-        "theme": "native-click",
+        "theme": "native-light-dark-light",
+        "theme_persistence": "bare-url-reload",
+        "theme_query": "explicit-overrides-saved",
+        "theme_contrast": {
+          "light": {
+            "labels": 5.469111107667457,
+            "edges": 5.469111107667457,
+            "controls": 5.469111107667457
+          },
+          "dark": {
+            "labels": 7.867596661581724,
+            "edges": 7.867596661581724,
+            "controls": 7.51542338426086
+          }
+        },
         "finder": "native-text-input",
         "focus": "vpc",
         "source_evidence": "present",
@@ -91,7 +133,7 @@
     },
     "bootstrap": {
       "specification_sha256": "5eb068adabe20ada325de99cc98522e7224785a42c747638ed2fd254b94a31a5",
-      "artifact_sha256": "4ea663f630bb57f04c8f01980cef7cf317d7319374fd3ca56efb186ea1cfc0c3",
+      "artifact_sha256": "c1284ad72dd34e6e27ab59a3d1d0604aa70e41517cb91c07639de9ca52d87d23",
       "gates": {
         "validate": "pass",
         "deliver": "pass",
@@ -102,7 +144,21 @@
       "visual_review": "not-requested",
       "interaction_checks": {
         "status": "pass",
-        "theme": "native-click",
+        "theme": "native-light-dark-light",
+        "theme_persistence": "bare-url-reload",
+        "theme_query": "explicit-overrides-saved",
+        "theme_contrast": {
+          "light": {
+            "labels": 5.469111107667457,
+            "edges": 5.469111107667457,
+            "controls": 5.469111107667457
+          },
+          "dark": {
+            "labels": 7.867596661581724,
+            "edges": 7.867596661581724,
+            "controls": 7.51542338426086
+          }
+        },
         "finder": "native-text-input",
         "focus": "gate",
         "source_evidence": "present",
