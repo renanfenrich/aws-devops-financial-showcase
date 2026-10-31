@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "run_id": "7fc81da46ea843fb96f1f38db79ec411",
+  "runner_image_id": "sha256:41603f477bedb97456427cb8a2903cf2266370c9f7fe1a35eab1ae82f9bbc6f4",
+  "passed": true,
+  "terraform_version": "1.17.1",
+  "bootstrap_enabled": false,
+  "target_configured": false,
+  "resource_changes": 0,
+  "planned_resource_instances": 0,
+  "network": "none",
+  "sdk_fields": "synthetic process-local fixtures",
+  "actual_credentials_mounted": false
+}

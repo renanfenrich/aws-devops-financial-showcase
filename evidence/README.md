@@ -26,3 +26,11 @@ the nested Docker index, `e427ec…` is the platform manifest and `be4c85…` it
 The local load path selects one replica
 through port-forward and does not establish load balancing or cloud capacity.
 Restore timing describes a paused-write local logical snapshot, not cloud RPO/RTO.
+
+## G2-A offline state evidence
+
+[Verification record](../docs/evidence-g2-a.md) and [machine-readable records](g2-a/)
+bind the offline state, Atlantis, scanner and Jenkins gates to clean source
+`e3951d995125c81537782886a12775c6ed5bebda`. These do not replace G1 runtime evidence
+or establish an active AWS state store, authenticated cloud behavior, human approval
+or merge of the G2-A PR. Synthetic SDK fixtures are not real credentials.

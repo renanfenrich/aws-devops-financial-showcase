@@ -13,6 +13,7 @@ G1 is reviewed and merged into develop. G2-A adds an
 [offline state-bootstrap design](infra/state-bootstrap/README.md): disabled-by-default
 S3/KMS storage, native-lock access contracts and stricter Atlantis project boundaries.
 AWS resources, identities, remote state and webhook execution remain unactivated.
+See the [G2-A verification record](docs/evidence-g2-a.md).
 
 ## What to review
 
