@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Local runtime: historical G1 evidence, current source model",
+    "output": ".cache/diagrams/local.html",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/renanfenrich/aws-devops-financial-showcase.git",
+      "revision": "0cef72aa583704bc5581978a3cc43b013ca78542"
+    },
+    "views": [
+      {
+        "id": "transactions",
+        "label": "Synthetic transactions",
+        "focus": [
+          "client",
+          "api",
+          "postgres"
+        ],
+        "note": "HTTP and SQL in the single-workstation lab."
+      },
+      {
+        "id": "telemetry",
+        "label": "Metrics and traces",
+        "focus": [
+          "api",
+          "collector",
+          "tempo",
+          "prometheus",
+          "grafana"
+        ],
+        "note": "Explicit configured scrape, export and query directions."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "client",
+      "type": "external",
+      "label": "Synthetic client",
+      "sublabel": "loopback port-forward",
+      "pos": [
+        40,
+        70
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "docs/runbooks.md",
+          "line": 30,
+          "end_line": 56
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "FastAPI x2",
+      "sublabel": "synthetic events only",
+      "pos": [
+        350,
+        70
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/chart/values.yaml",
+          "line": 1,
+          "end_line": 4
+        },
+        {
+          "path": "src/showcase/main.py",
+          "line": 216,
+          "end_line": 253
+        },
+        {
+          "path": "platform/chart/templates/application.yaml",
+          "line": 40,
+          "end_line": 61
+        }
+      ]
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "one StatefulSet / PVC 1Gi",
+      "pos": [
+        660,
+        70
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/chart/templates/database.yaml",
+          "line": 20,
+          "end_line": 130
+        },
+        {
+          "path": "platform/chart/values.yaml",
+          "line": 5,
+          "end_line": 7
+        },
+        {
+          "path": "scripts/lab-up.sh",
+          "line": 43,
+          "end_line": 46
+        }
+      ]
+    },
+    {
+      "id": "prometheus",
+      "type": "backend",
+      "label": "Prometheus",
+      "sublabel": "scrapes / alert rules",
+      "pos": [
+        350,
+        330
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/chart/templates/config.yaml",
+          "line": 6,
+          "end_line": 23
+        }
+      ]
+    },
+    {
+      "id": "collector",
+      "type": "backend",
+      "label": "OTel Collector",
+      "sublabel": "batch / bounded memory",
+      "pos": [
+        660,
+        330
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/chart/templates/config.yaml",
+          "line": 24,
+          "end_line": 67
+        }
+      ]
+    },
+    {
+      "id": "grafana",
+      "type": "frontend",
+      "label": "Grafana",
+      "sublabel": "provisioned dashboards",
+      "pos": [
+        350,
+        590
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/chart/templates/config.yaml",
+          "line": 98,
+          "end_line": 123
+        },
+        {
+          "path": "docs/runbooks.md",
+          "line": 17,
+          "end_line": 28
+        }
+      ]
+    },
+    {
+      "id": "tempo",
+      "type": "database",
+      "label": "Tempo",
+      "sublabel": "local ephemeral traces",
+      "pos": [
+        660,
+        590
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/chart/templates/config.yaml",
+          "line": 68,
+          "end_line": 97
+        },
+        {
+          "path": "platform/SOURCES.md",
+          "line": 14,
+          "end_line": 16
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Local kind / showcase namespace / one control plane",
+      "wraps": [
+        "api",
+        "postgres",
+        "prometheus",
+        "collector",
+        "grafana",
+        "tempo"
+      ],
+      "pad": 26
+    }
+  ],
+  "connections": [
+    {
+      "from": "client",
+      "to": "api",
+      "label": "HTTP :8080",
+      "variant": "emphasis"
+    },
+    {
+      "from": "api",
+      "to": "postgres",
+      "label": "SQL :5432",
+      "variant": "emphasis"
+    },
+    {
+      "from": "api",
+      "to": "collector",
+      "label": "OTLP :4318",
+      "variant": "default"
+    },
+    {
+      "from": "collector",
+      "to": "tempo",
+      "label": "gRPC :4317",
+      "variant": "default"
+    },
+    {
+      "from": "prometheus",
+      "to": "api",
+      "label": "scrape :8080",
+      "variant": "default"
+    },
+    {
+      "from": "prometheus",
+      "to": "collector",
+      "label": "scrape :8889",
+      "variant": "default"
+    },
+    {
+      "from": "grafana",
+      "to": "prometheus",
+      "label": "HTTP :9090",
+      "variant": "default"
+    },
+    {
+      "from": "grafana",
+      "to": "tempo",
+      "label": "HTTP :3200",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Historical local execution",
+      "items": [
+        "G1 runtime/E2E was verified on 2026-10-30 at f1603b3; this diagram is newly generated from the pinned repository revision.",
+        "API and database pod replacement, network isolation, local recovery, alerts and traces have historical evidence; no new lab run is implied.",
+        "Open the client node for the exact loopback-only port-forward and synthetic request."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Runtime and persistence boundary",
+      "items": [
+        "kind is a single-workstation, one-control-plane Kubernetes lab; it is not EKS, Multi-AZ or a cloud deployment.",
+        "Calico enforces default-deny ingress/egress with explicit DNS, database, scrape and OTLP paths.",
+        "PostgreSQL has one 1Gi PVC, not HA or RDS. Tempo/Prometheus local retention is bounded; recovery evidence is not cloud DR."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Scope and source evidence",
+      "items": [
+        "The arrows show requests, writes, scrapes and trace export; Grafana query arrows name destination ports.",
+        "Argo CD application ownership, direct Helm alternative, CI and offline infrastructure validation are in the delivery view.",
+        "Compose also offers a separate API/PostgreSQL development profile; no connection to the planned AWS graph exists."
+      ]
+    }
+  ]
+}

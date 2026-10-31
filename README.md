@@ -55,6 +55,30 @@ A failed command remains failed evidence.
 `make jenkins-test` requires a clean committed snapshot and executes Jenkinsfile
 on a separate agent; the controller has zero executors and no Docker socket.
 
+## Explore the infrastructure diagram
+
+The [Archify views](docs/diagrams/README.md) separate the local laboratory,
+delivery controls, planned AWS foundation and inactive state bootstrap.
+Official AWS Architecture Icons are stored locally; preview needs no CDN or AWS access.
+
+```bash
+make diagram                     # http://127.0.0.1:8765/
+make diagram DIAGRAM_PORT=8877    # http://127.0.0.1:8877/
+```
+
+Stop with **Ctrl-C**. The server binds only to loopback and serves the allowlisted
+public diagram files, never the repository root. Python 3.12+ is sufficient for
+preview/checks; no laboratory startup is required.
+
+Every PR changing mapped infrastructure sources must review the diagrams, regenerate
+changed views and pass `make diagram-check` (also included in `make check` and CI).
+Changes to cited source bytes require committing the reviewed source, re-pinning
+its revision in the models and rebuilding the views. When topology is unchanged,
+record why it still applies with `make diagram-refresh NOTE="Reviewed <change>; topology unchanged because <reason>"`.
+This checks source/artifact hashes and matching passing Archify build receipts,
+then records a dated note. It does not grant human approval or prove complete
+semantic fidelity. See the [diagram maintenance procedure](docs/diagrams/README.md).
+
 ## Local service contract
 
 The API exposes `POST /v1/events`, `GET /v1/incidents`, and

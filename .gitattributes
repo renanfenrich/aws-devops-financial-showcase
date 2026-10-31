@@ -1,0 +1,2 @@
+# Preserve the exact Archify output bound to browser/delivery receipts.
+docs/diagrams/public/*.html linguist-generated=true whitespace=-blank-at-eol

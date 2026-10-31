@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "State bootstrap | disabled by default / no AWS provisioned",
+    "locale": "en",
+    "output": ".cache/diagrams/bootstrap.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/renanfenrich/aws-devops-financial-showcase.git",
+      "revision": "0cef72aa583704bc5581978a3cc43b013ca78542"
+    },
+    "views": []
+  },
+  "components": [
+    {
+      "id": "gate",
+      "type": "backend",
+      "label": "Bootstrap gate",
+      "sublabel": "false / target null",
+      "tag": "Offline contract",
+      "icon": "none",
+      "pos": [
+        40,
+        60
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/state-bootstrap/variables.tf",
+          "line": 1,
+          "end_line": 20
+        },
+        {
+          "path": "infra/terraform/state-bootstrap/main.tf",
+          "line": 1,
+          "end_line": 9
+        }
+      ]
+    },
+    {
+      "id": "state",
+      "type": "cloud",
+      "label": "Amazon S3 state",
+      "sublabel": "Enabled mock graph only",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        460,
+        60
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/state-bootstrap/main.tf",
+          "line": 50,
+          "end_line": 76
+        },
+        {
+          "path": "infra/terraform/state-bootstrap/main.tf",
+          "line": 121,
+          "end_line": 165
+        }
+      ]
+    },
+    {
+      "id": "state_kms",
+      "type": "security",
+      "label": "AWS KMS state",
+      "sublabel": "Dedicated key / guarded",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        880,
+        60
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/state-bootstrap/main.tf",
+          "line": 78,
+          "end_line": 119
+        }
+      ]
+    },
+    {
+      "id": "contract",
+      "type": "backend",
+      "label": "Backend + IAM JSON",
+      "sublabel": "Inactive / no grants",
+      "tag": "Offline contract",
+      "icon": "none",
+      "pos": [
+        460,
+        300
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/state-bootstrap/outputs.tf",
+          "line": 1,
+          "end_line": 17
+        },
+        {
+          "path": "infra/terraform/state-bootstrap/main.tf",
+          "line": 7,
+          "end_line": 47
+        }
+      ]
+    },
+    {
+      "id": "wrapper",
+      "type": "backend",
+      "label": "Terragrunt wrapper",
+      "sublabel": "No remote_state block",
+      "tag": "Offline contract",
+      "icon": "none",
+      "pos": [
+        40,
+        300
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terragrunt/state-bootstrap/terragrunt.hcl",
+          "line": 1,
+          "end_line": 6
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "gate",
+      "to": "state",
+      "label": "enabled + target only",
+      "variant": "default"
+    },
+    {
+      "from": "state",
+      "to": "state_kms",
+      "label": "SSE-KMS",
+      "variant": "security"
+    },
+    {
+      "from": "state",
+      "to": "contract",
+      "label": "configuration output",
+      "variant": "default"
+    },
+    {
+      "from": "wrapper",
+      "to": "contract",
+      "label": "same root / outputs",
+      "variant": "default"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Separate root / enabled mock graph, never active backend",
+      "wraps": [
+        "state",
+        "state_kms"
+      ],
+      "pad": 24
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "Default behavior",
+      "items": [
+        "bootstrap_enabled=false and target=null yield zero AWS resources and null outputs. The conditional arrow is not an activation.",
+        "The state bucket and key are separate from synthetic reports; both resources have prevent_destroy guards."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Access contract only",
+      "items": [
+        "Native S3 .tflock; one default-workspace state key. State Get/Put; lock Get/Put/Delete; scoped KMS via this bucket.",
+        "Outputs create no role, policy resource, attachment, trust, usable credentials or active backend. Atlantis denies this root."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Evidence and ownership",
+      "items": [
+        "Terraform/Terragrunt own this future storage graph. Tests enable it only with synthetic fixtures and mocked providers.",
+        "Default zero-resource real-provider check was network-blocked in G2-A. No AWS identity/API, apply, backend migration or webhook was verified."
+      ]
+    }
+  ]
+}

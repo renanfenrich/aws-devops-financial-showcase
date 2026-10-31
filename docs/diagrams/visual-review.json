@@ -1,0 +1,70 @@
+{
+  "reviewed_on": "2026-10-30",
+  "reviewer": "Codex agent; not mandatory human approval",
+  "views": {
+    "local": {
+      "artifact_sha256": "5f7e58adbe717dfaeca516485a26d09b9339464a8aeb16d228f45bbab8661e71",
+      "automated_capture_checks": {
+        "containment": "pass",
+        "readability": "pass",
+        "viewerChrome": "pass",
+        "themeStates": "pass",
+        "captures": "pass"
+      },
+      "agent_visual_review": "passed",
+      "inspected": [
+        "1440x900 light",
+        "2048x1320 dark"
+      ],
+      "observations": "Labels, routes and AWS image proportions visible; normal document scroll retains lower content."
+    },
+    "delivery": {
+      "artifact_sha256": "0a47df99d1e0312e1a9c0d7618767f52063e5b36ca767b2bcdfc4b9383d9f274",
+      "automated_capture_checks": {
+        "containment": "pass",
+        "readability": "pass",
+        "viewerChrome": "pass",
+        "themeStates": "pass",
+        "captures": "pass"
+      },
+      "agent_visual_review": "passed",
+      "inspected": [
+        "1440x900 light",
+        "2048x1320 dark"
+      ],
+      "observations": "Labels, routes and AWS image proportions visible; normal document scroll retains lower content."
+    },
+    "aws": {
+      "artifact_sha256": "0bfe022e30c062b68cc41ef2be01748d94c52c7345baec596beab9fd34851dd7",
+      "automated_capture_checks": {
+        "containment": "pass",
+        "readability": "pass",
+        "viewerChrome": "pass",
+        "themeStates": "pass",
+        "captures": "pass"
+      },
+      "agent_visual_review": "passed",
+      "inspected": [
+        "1440x900 light",
+        "2048x1320 dark"
+      ],
+      "observations": "Labels, routes and AWS image proportions visible; normal document scroll retains lower content."
+    },
+    "bootstrap": {
+      "artifact_sha256": "3d3cd621a0c2f2dda59a602349ddab9ff6201c692bb712e67fc7c58111af17c8",
+      "automated_capture_checks": {
+        "containment": "pass",
+        "readability": "pass",
+        "viewerChrome": "pass",
+        "themeStates": "pass",
+        "captures": "pass"
+      },
+      "agent_visual_review": "passed",
+      "inspected": [
+        "1440x900 light",
+        "2048x1320 dark"
+      ],
+      "observations": "Labels, routes and AWS image proportions visible; normal document scroll retains lower content."
+    }
+  }
+}

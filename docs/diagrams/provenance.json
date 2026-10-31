@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-31T03:02:38.451493+00:00",
+  "review_note": "Revalidated unchanged topology and artifact hashes; source inventory now labels each digest as sha256 after a scanner false positive on the public Atlantis authorization script checksum",
+  "source_globs": [
+    "infra/**",
+    "platform/**",
+    "ci/**",
+    "migrations/**",
+    ".github/workflows/**",
+    "src/showcase/**",
+    "scripts/**",
+    "tests/harness/**",
+    "compose.yaml",
+    "Dockerfile",
+    "Jenkinsfile",
+    "bitbucket-pipelines.yml",
+    "atlantis.yaml",
+    "toolchain.lock.json",
+    ".gitattributes",
+    "Makefile",
+    "AGENTS.md",
+    "README.md",
+    ".github/CODEOWNERS",
+    ".github/pull_request_template.md",
+    "docs/architecture.md",
+    "docs/evidence-g1.md",
+    "docs/evidence-g2-a.md"
+  ],
+  "sources": {
+    ".gitattributes": {
+      "sha256": "e94c9254b4dae8d2a4dbccac777336c8d0d1ddde5967d6b9a34750be314ae7cd"
+    },
+    ".github/CODEOWNERS": {
+      "sha256": "e4a2dfcd20f4bd6015e4d96577734e899425da805340fdf5c237a3e452cbcc57"
+    },
+    ".github/pull_request_template.md": {
+      "sha256": "066cfef953db6bc1fc36a05fb16e9767dc383848aad39f274081b0d9ff8e228e"
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "96fa5bcca2f7303810eedf1e8d3f3efcb1f4e1cdcd8824626b363a16ef6be021"
+    },
+    ".github/workflows/lab.yml": {
+      "sha256": "796dd8a5fb73d76bd8c042b1fd14562be9839c37ed76c3a56a4a688104d809ec"
+    },
+    "AGENTS.md": {
+      "sha256": "1fbff44ac0e16de650be2f176aa887843d113849f490d2d94c6d880c1d5d5bd3"
+    },
+    "Dockerfile": {
+      "sha256": "bbcb5c0fa28fc691577bc54c585af900551ce649952da5d6b85358bd9b8ccaab"
+    },
+    "Jenkinsfile": {
+      "sha256": "9dfb966034752678a55624e3e1410155fc75847e28d7683776018e0f9a697211"
+    },
+    "Makefile": {
+      "sha256": "d8409f7c4838b4eaece806ae59402bbec8a7fee4ec419d88dacf278a8796435c"
+    },
+    "README.md": {
+      "sha256": "71de119c4e0bc4cc5a6cb2218da49a292b3b34d2cefe7da6f638872bd19f1aee"
+    },
+    "atlantis.yaml": {
+      "sha256": "61cf47caeecebb2f1afe69f2f18c800e0e177f0d9573ee7211d7e709566f42e9"
+    },
+    "bitbucket-pipelines.yml": {
+      "sha256": "9e4c5c20121019652cf8994b1b7052d818d49ece68a3b9f9d5fe9b0c744bab79"
+    },
+    "ci/jenkins/agent.Dockerfile": {
+      "sha256": "d5d7f538f427e2e1ae26d0073dbcda843d385e4a01ca150211bf9c71f9c9827b"
+    },
+    "ci/jenkins/compose.yaml": {
+      "sha256": "7fd48d537097958d44b882f434926b7449143aa40280fa96f94a3bb8179c97b8"
+    },
+    "ci/jenkins/controller.Dockerfile": {
+      "sha256": "fe291f00711ec9025f17c08cda1aed3e097c7649d0060eeb8251492206f6588a"
+    },
+    "ci/jenkins/init.groovy": {
+      "sha256": "0c79542f70a3f97973267e05c47ba32837af75ed7b9c8105f08050b6b5655b1b"
+    },
+    "ci/jenkins/plugins.lock.json": {
+      "sha256": "d0b307e43d8c807b4e667c72211f19a5b76eb7f62e7ee7f37a9cc2cc7e17ec65"
+    },
+    "compose.yaml": {
+      "sha256": "f8344533703940a8280b06df6ee6d14c6c6fb36a57f9805409ff174bd9a5feaa"
+    },
+    "docs/architecture.md": {
+      "sha256": "216d7cfc3332b46ad138f51ec62a76376a27a3ef41462143ea3650c9d30bafd4"
+    },
+    "docs/evidence-g1.md": {
+      "sha256": "af1b75f9f5c140eece1741ca9d0e4aaf2f9de2a68d6b13cd4bcaea188c23738b"
+    },
+    "docs/evidence-g2-a.md": {
+      "sha256": "64d8b6865d870d3e904c118310aa518af8ff85149ca17a7780c87305a6b4e1a4"
+    },
+    "infra/README.md": {
+      "sha256": "212a8e3b77a48bdf0cd1c606683dfdcabcdbd2cf368773498788eceaa9338a48"
+    },
+    "infra/SOURCES.md": {
+      "sha256": "bde2c02386ddff98d2b8967e9cefc7ccc81c34e73a8d2348cbe3ce520e43fc1c"
+    },
+    "infra/atlantis/Dockerfile": {
+      "sha256": "653d07e48e3dedfc16a0aa5916d9bf20e502d307c68c36428669ed5abf5050ce"
+    },
+    "infra/atlantis/authz.sh": {
+      "sha256": "c7667b60966f6ee12be160aeb2ede6f0f057387977dc7ed8ca587709fd2d9c96"
+    },
+    "infra/atlantis/deny-apply.sh": {
+      "sha256": "47d625b49960ea0c3e5be8d8ec2f1ce03bbe841318557d899a5992f3a46d4090"
+    },
+    "infra/atlantis/repos.yaml": {
+      "sha256": "46763eb5de4c6edba4a927005319c69c05ed32bcf52b2f8c094ad00f76231a71"
+    },
+    "infra/atlantis/server.yaml": {
+      "sha256": "9896e9154313776ba42f278d1486cdf4c7d7bbb260c1b613a09861632665d208"
+    },
+    "infra/state-bootstrap/README.md": {
+      "sha256": "20807eb6febf7b565ff3fff9776db66f8ef2f2e58dde540bdb1e2f938004a029"
+    },
+    "infra/state-bootstrap/SOURCES.md": {
+      "sha256": "8e49acade5d419a082679fbf1230912c6e3812859b6ed3ab2cf2194bebc2e3d4"
+    },
+    "infra/terraform/aws-foundation/.terraform.lock.hcl": {
+      "sha256": "54a3ce3850ba17d51923db33222970246d906526d41fc336b3a3efb72e5db95b"
+    },
+    "infra/terraform/aws-foundation/main.tf": {
+      "sha256": "6deddfdd02e6adb5cd58347b6ba0da25e45120d1620940e664d492ca94eb5352"
+    },
+    "infra/terraform/aws-foundation/outputs.tf": {
+      "sha256": "81551c4eaba62db04b3f8ddea068a94fc672618b60a16a8618938513e0651bca"
+    },
+    "infra/terraform/aws-foundation/tests/foundation.tftest.hcl": {
+      "sha256": "58cf19b980531446c39f2b26433f99b597eab16f12ea255cb63923d26e822163"
+    },
+    "infra/terraform/aws-foundation/variables.tf": {
+      "sha256": "aa24567c98a56c0794b6a26c41f4f23c3270fe144fd287297b7e4cbc4e7bf42f"
+    },
+    "infra/terraform/aws-foundation/versions.tf": {
+      "sha256": "f4d68004e7af5501d18474608e3c40d0365bf99dd1510c173870d4560dfbfa77"
+    },
+    "infra/terraform/state-bootstrap/.terraform.lock.hcl": {
+      "sha256": "54a3ce3850ba17d51923db33222970246d906526d41fc336b3a3efb72e5db95b"
+    },
+    "infra/terraform/state-bootstrap/main.tf": {
+      "sha256": "c851df36789b7118eea1ef67136a24ec94055d33fc012b58536c24efe625fbf4"
+    },
+    "infra/terraform/state-bootstrap/outputs.tf": {
+      "sha256": "c1120c90206c224e5236ff7d2db6319daad1058bea1146214d10f0a2db8a0ef9"
+    },
+    "infra/terraform/state-bootstrap/tests/bootstrap.tftest.hcl": {
+      "sha256": "26483f9d58aba0a2fc69e82582a06f4bb1292ff1e7be25f51dff2f511f481037"
+    },
+    "infra/terraform/state-bootstrap/variables.tf": {
+      "sha256": "2103f8cf195220221ba21f61d65a92cf6dcdf7ac13207e51357e30233ff0c79e"
+    },
+    "infra/terraform/state-bootstrap/versions.tf": {
+      "sha256": "7c1cf8de50eb4af46b23c11c68ffd465c2b66096da4350cd1d783c2baab1aa3a"
+    },
+    "infra/terragrunt/aws-foundation/terragrunt.hcl": {
+      "sha256": "4d4d7f2cc28949fd68165e6a9a4485affb472934d5ddca9840d80c5589639fc4"
+    },
+    "infra/terragrunt/state-bootstrap/terragrunt.hcl": {
+      "sha256": "ac022c4ae7a22ae977dca8907af6be915cec04eca3f028398c8d808611e11a43"
+    },
+    "migrations/001_events_and_incidents.sql": {
+      "sha256": "1d618cd7c6c31d3ce5e57e78c219122980264e451ec9c4e421a68372526949f5"
+    },
+    "migrations/init-role.sh": {
+      "sha256": "4536067c3b273c6abda62f89b1e12952c5d6435df2ca2d94ad582fb10f684ef8"
+    },
+    "platform/SOURCES.md": {
+      "sha256": "27f79a9835bf4a514eccb3a7a8e9c76ea243e9491d45a50ff71d72d8091640c6"
+    },
+    "platform/alerts.test.yml": {
+      "sha256": "fa2fed8edaed6f48e877137bf2bec07b9c27512794a162a5194cee136a8c602c"
+    },
+    "platform/argocd-application.yaml": {
+      "sha256": "a20efbb89640faf4ca0bf9a233ca50d48c4f61836996768742ab1c994ec7eb00"
+    },
+    "platform/argocd-values.yaml": {
+      "sha256": "11353ba4744dcf3938c0b394319334ad52fdc35b7ce8658edc99963a6621beb0"
+    },
+    "platform/chart/Chart.yaml": {
+      "sha256": "606f746b1f6c99c35cfbc9b2ee4b495fd534090aa87d46a09baa20d935da8421"
+    },
+    "platform/chart/config/alerts.yml": {
+      "sha256": "da7bc2406278b9f36c0b33572cfb80034cd1bb0ab3afcfbbabd700c678fd0d84"
+    },
+    "platform/chart/dashboards/operations.json": {
+      "sha256": "742e612e87f4ae8826b959711d2b6651b4d92ec53e6f3956bbc372277b736808"
+    },
+    "platform/chart/templates/application.yaml": {
+      "sha256": "e9bf71b090687a9da0c4054baf52a3e88170f0ae9b729892513d0eddd1e30f68"
+    },
+    "platform/chart/templates/config.yaml": {
+      "sha256": "64504998ac06cacd0fa90e2445ff98e15119337a06aec51609d088c77df24e9b"
+    },
+    "platform/chart/templates/database.yaml": {
+      "sha256": "922ff483998b539f8c85781ee6e7057efcf27fcb238a246713e057e7a68f8a57"
+    },
+    "platform/chart/templates/observability.yaml": {
+      "sha256": "d5eecf4028836f5d76b7927bc04c9412d7224abbf10c7bd8b37bef7ec255ed0b"
+    },
+    "platform/chart/templates/policies.yaml": {
+      "sha256": "9a917226887d63b3c921879a5290d303c5b30e649c7fbeb0e2a7c61810bee7eb"
+    },
+    "platform/chart/values.yaml": {
+      "sha256": "2abc9dfc71410bf2884797d7913ffe82669612a7b9f834cdd3b431e51f2172f3"
+    },
+    "platform/kind.yaml": {
+      "sha256": "a0ff813e5584841a39864a2df7a5b71e164934577bb18ae03bb7a0f00812b4eb"
+    },
+    "scripts/atlantis-smoke.sh": {
+      "sha256": "50d7acabc2d47e801c1a32907eba49b3fb04f8009d8c7b775fe1d1a71a069afc"
+    },
+    "scripts/bootstrap.py": {
+      "sha256": "96ecdd107e4857c96ed1cd5175805c1d14e71a5fe5e9dca260dca72f1aac8612"
+    },
+    "scripts/check-repo.py": {
+      "sha256": "d253808cafdc7b3761a86a63badebe08d892bd008f919da3197d08cdafb0def2"
+    },
+    "scripts/diagram-browser-smoke.mjs": {
+      "sha256": "c1f8410e3d7c2ec42a47656e168b16c5e24a8c2bc18c56d757e0f7fc0def3264"
+    },
+    "scripts/diagram-build.py": {
+      "sha256": "2fb14ee7a3f359cf577a6d388fae17990110ce1e1e88f761cb1252ad002fb010"
+    },
+    "scripts/diagram.py": {
+      "sha256": "f424fbdb6662afba2eaea18f4e5466d318b9d1942289393ecba1a1f805c5e3de"
+    },
+    "scripts/doctor.py": {
+      "sha256": "10ecc7d153c04f3b8dd974fafd6efc3d1b143184ca855f043d22033bdd7db1d3"
+    },
+    "scripts/e2e.py": {
+      "sha256": "28654457706ae1d5c7e8cb826e868f733579f8c516e6d5d516a193581b9d9c74"
+    },
+    "scripts/evidence.py": {
+      "sha256": "e452fa6d55d512bc648a9239d8d3cf18cad170d5c4b856e1a2535482c6a3a835"
+    },
+    "scripts/infra-check.sh": {
+      "sha256": "26ccc154485f00f9dc5a99c05fcfd8cf839c8cf7eb24f23c74eae8aedc370cfc"
+    },
+    "scripts/jenkins-prepare.py": {
+      "sha256": "202ab29422798879781f9d705febc73fa66b53d15a2eb54203281bdeb057dcb7"
+    },
+    "scripts/jenkins-test.py": {
+      "sha256": "31594da4d9e99f8cb1d912921041629545947ab567a00f2775b53161d93dec78"
+    },
+    "scripts/jenkins-test.sh": {
+      "sha256": "ae9fadfeccf949493f5bb5d0e131401219990a47ecb0947e1813f0ec4309dc16"
+    },
+    "scripts/lab-check.sh": {
+      "sha256": "dddf54cac2658599e6f051b48c0d7e01cf6ef4c7ab2ed53eb66ca6111d00eab8"
+    },
+    "scripts/lab-common.sh": {
+      "sha256": "f462ea20c34fec833b97beb1849f5b3752f4dfdc3bd0ce774983be9200dc6855"
+    },
+    "scripts/lab-down.sh": {
+      "sha256": "eec3b33a4a88e6d1f683742584c63c18e06670389e8ef2765efa55d4528b5352"
+    },
+    "scripts/lab-e2e.sh": {
+      "sha256": "521f2c5bd594f0bcc5f9b2b06dacc3bb2a6cd2a3be63d9302948e51cf0f04edd"
+    },
+    "scripts/lab-up.sh": {
+      "sha256": "0d1510f0d1b19a211410d1297f66abb76908c774cef8bcd79d51257f90e97d36"
+    },
+    "scripts/local-env.py": {
+      "sha256": "7f4c3923f5e3089d7625dccbcaa58eb4d3a2cb3a682e03f84b8613c76aade096"
+    },
+    "scripts/security.sh": {
+      "sha256": "51be577794e9fa75ec8d186e77b08e89c5cd1c2fab41deacb3de7c5744ed0876"
+    },
+    "scripts/security_report.py": {
+      "sha256": "f3171abdf737dad44e9b49ef5ee6000312da05bbfbee24e2586115c2a09c2726"
+    },
+    "scripts/state_plan.py": {
+      "sha256": "a7ac70dcac7dcb2fe26312e3cad51cfbfa3b7acf7b9289f9f1e9aa542fcc5f4b"
+    },
+    "src/showcase/__init__.py": {
+      "sha256": "b1d01628ebacc384043f79bf00def4efd8581e393aad4146df9f632ab4c1e94f"
+    },
+    "src/showcase/config.py": {
+      "sha256": "3b5edfd26d277ae6474d4d6d5b0c0aa1e30a65e5dfd6498496863c5e57c0b3c2"
+    },
+    "src/showcase/db.py": {
+      "sha256": "2057f5e8cad4c917dc17b0f4bb0265cc1fe30d2d612fc326bc636963508f3f3f"
+    },
+    "src/showcase/main.py": {
+      "sha256": "40fabf2b3e686ffdd09dacc77cea3c694ec2d28ab95c09ce9fe3b254295d5d83"
+    },
+    "src/showcase/migrate.py": {
+      "sha256": "4400faf4157d60abbdd45088c7db280ad0c47927ad716fd25109047e29f69918"
+    },
+    "src/showcase/observability.py": {
+      "sha256": "d685741b6197610b62e1d8b3d62b52fbbee6f510d9db770749f3a3e9c9ce9927"
+    },
+    "tests/harness/test_diagram.py": {
+      "sha256": "4a564b99d96015ba4bba00ca04e9f6b44c4eba683658a3d6814cbb01bc6a1b96"
+    },
+    "tests/harness/test_evidence.py": {
+      "sha256": "ddc6b3a60dad654d3e614f0dfa323f3d259e4976f1e1605d6d24d3a5890bc2ec"
+    },
+    "tests/harness/test_integrity.py": {
+      "sha256": "1e8d495a771c68cace22ebb1416dcacbacadca2df37a9c009978243023492d14"
+    },
+    "tests/harness/test_local_env.py": {
+      "sha256": "b82191c5df7660603b244265139ef7476459c8a0900735ff25bc122a041301f5"
+    },
+    "toolchain.lock.json": {
+      "sha256": "46c2669c3f16bd460cd58c8e6b5ee45ad4eab703243fc0b8814c994af74ef931"
+    }
+  },
+  "artifacts": {
+    "docs/diagrams/aws.json": "2b25b4c981aee0c9a9af1a30b52cd6e5bada48c162c99ec68a3b21a4582eee8d",
+    "docs/diagrams/bootstrap.json": "571092e5d64a04b347efea03eb177365705bb240688226e7c368be30cfcaa5a3",
+    "docs/diagrams/delivery.json": "c54083ca6a0ea931d36c25cb2a21b0228e82d77c9f4bfa385a324410076c24cf",
+    "docs/diagrams/icons.json": "d8591668e36720499394c6c6f85d0cb2190013fd4b926ae062dad1e2591955de",
+    "docs/diagrams/local.json": "b902284eaeb14af1b05b54f6fe219c815ec2c5326483da9a98e112c32c546932",
+    "docs/diagrams/public/assets/aws/iam.svg": "3135793557c065d0481a3985ccc0574b36278d56a2e2c5d59107d0d28f51b827",
+    "docs/diagrams/public/assets/aws/igw.svg": "d31cd837a33508372a7d43a556daa0138b6e2004c94a76e2f7f8b977409659aa",
+    "docs/diagrams/public/assets/aws/kms.svg": "5b3ed298ae380707f77ca21c2f417d0a7a36e70e59bfe9a5d8f281b8447ae750",
+    "docs/diagrams/public/assets/aws/private-subnet.svg": "0666b2c8784d303a850c7cd1b40236f3d6d97012b4f4d2bad65a28c6ec614ba4",
+    "docs/diagrams/public/assets/aws/public-subnet.svg": "009342df9afcc20b8c6f0d82ded7620105aaa7e53eb253d74f80a9e7d3beee58",
+    "docs/diagrams/public/assets/aws/s3.svg": "b92c5101cc6565dd12df37655802279f8fba0c719279f62f93106d26750b36c6",
+    "docs/diagrams/public/assets/aws/vpc.svg": "4cb934198b019bccdd8efc2ef7e95d3bb200148b14919f36082a26436a9bcd8c",
+    "docs/diagrams/public/aws.html": "0bfe022e30c062b68cc41ef2be01748d94c52c7345baec596beab9fd34851dd7",
+    "docs/diagrams/public/bootstrap.html": "3d3cd621a0c2f2dda59a602349ddab9ff6201c692bb712e67fc7c58111af17c8",
+    "docs/diagrams/public/delivery.html": "0a47df99d1e0312e1a9c0d7618767f52063e5b36ca767b2bcdfc4b9383d9f274",
+    "docs/diagrams/public/index.html": "dd2203e06a028a7fb6cbfe2ed96e5ea47471027c14c7bbbdc7f4cd13d1bb9152",
+    "docs/diagrams/public/licenses/ARCHIFY-LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "docs/diagrams/public/licenses/ARCHIFY-LICENSE-MIT": "b799ab081703e7821ae5096d2c1abdf14bbdc75e8ea1c4045998c36ed6db9706",
+    "docs/diagrams/public/licenses/ARCHIFY-NOTICE": "665eb53e6fcf09cee183c9f23c8052645dc95570d9ccbbf53dc0f5213a1b5edd",
+    "docs/diagrams/public/licenses/ARCHIFY-THIRD_PARTY_NOTICES.md": "b5e129197f391568f7abf287c74b24f4835f10e5388f600407c8788feaeb9015",
+    "docs/diagrams/public/local.html": "5f7e58adbe717dfaeca516485a26d09b9339464a8aeb16d228f45bbab8661e71",
+    "docs/diagrams/receipts.json": "9275be48391edffbad7e03504a03cad2b948fbf1b1cb140e64f4a22d8de25ae8",
+    "docs/diagrams/validation.md": "fc772451658e320913e43c1f6d27f97b4691e1f84591a51d09b212241d80f925",
+    "docs/diagrams/vendor.json": "004dad80b039fb1ba3c9d1472a587407676d97a71fbec80ec2f1cd68de60f320",
+    "docs/diagrams/visual-review.json": "a0e5e5f8d7829271a63e0f00f7ec028fbb8a81ff0c492d2115a3f17ce90ee2c4"
+  }
+}

@@ -4,10 +4,12 @@ export PATH := $(CURDIR)/.tools/bin:$(PATH)
 export UV_PYTHON := 3.14.10
 UV := $(CURDIR)/.tools/bin/uv
 .DEFAULT_GOAL := help
+export DIAGRAM_PORT ?= 8765
+export NOTE ?=
 
-.PHONY: help doctor bootstrap local-env check test unit-test integration-test infra-test state-test state-plan-test helm-check verify image security atlantis-test lab-up e2e jenkins-test evidence down
+.PHONY: help doctor bootstrap local-env check test unit-test integration-test infra-test state-test state-plan-test helm-check verify image security atlantis-test lab-up e2e jenkins-test evidence down diagram diagram-build diagram-check diagram-refresh
 help:
-	@echo 'bootstrap | doctor | check | test | infra-test | state-test | state-plan-test | verify | image | lab-up | e2e | security | atlantis-test | jenkins-test | evidence | down'
+	@echo 'bootstrap | doctor | check | test | infra-test | state-test | state-plan-test | verify | image | lab-up | e2e | security | atlantis-test | jenkins-test | evidence | diagram | diagram-build | diagram-check | diagram-refresh | down'
 doctor:
 	python3 scripts/doctor.py
 bootstrap:
@@ -15,10 +17,11 @@ bootstrap:
 	$(UV) sync --frozen
 local-env:
 	python3 scripts/local-env.py
-check:
+check: diagram-check
 	$(UV) run --frozen ruff check .
 	$(UV) run --frozen ruff format --check .
 	$(UV) run --frozen python scripts/check-repo.py
+	node --check scripts/diagram-browser-smoke.mjs
 	actionlint -config-file .github/actionlint.yaml -shellcheck='' .github/workflows/*.yml
 unit-test:
 	mkdir -p artifacts
@@ -59,3 +62,12 @@ evidence:
 down:
 	bash scripts/lab-down.sh
 	docker compose --env-file .local/dev.env down
+
+diagram:
+	python3 scripts/diagram.py serve --port "$$DIAGRAM_PORT"
+diagram-build:
+	python3 scripts/diagram-build.py
+diagram-check:
+	python3 scripts/diagram.py check
+diagram-refresh:
+	python3 scripts/diagram.py refresh --note "$$NOTE"

@@ -17,3 +17,9 @@
   verified AWS. A passed mock is not a deployed resource or human approval.
 - Terraform owns AWS foundations; Argo CD owns application releases. Avoid dual
   ownership. Atlantis G1 has no cloud credentials, kubeconfig, or Docker socket.
+- Every infrastructure PR must review/update the Archify models and local official
+  AWS icons under `docs/diagrams/`, regenerate affected views, and pass
+  `make diagram-check`. The source mapping is explicit in `scripts/diagram.py`.
+  If topology is unchanged, revalidate it and run `make diagram-refresh NOTE="..."`
+  with a concrete reason. Source hashes detect drift; they do not prove semantic
+  fidelity or replace the mandatory human current-head review.

@@ -1,0 +1,66 @@
+{
+  "archify": {
+    "version": "3.2.0",
+    "commit": "f325d86230553e1dd15d3464324f1fcd01f02352",
+    "url": "https://codeload.github.com/tt-a1i/archify/tar.gz/f325d86230553e1dd15d3464324f1fcd01f02352",
+    "sha256": "74f1079671bdd352f949814eda832b1483bf96a439c68756737ffeebe7f2b6c3",
+    "source": "https://github.com/tt-a1i/archify",
+    "retrieved_on": "2026-10-30",
+    "skill_sha256": "1382cfb7108b05e500b82af93c04fd7b694430d3908039bd92d634f01c1e7181",
+    "node_compatibility": ">=18; tested Node.js 26.13.0; no npm install",
+    "licenses": [
+      "public/licenses/ARCHIFY-LICENSE",
+      "public/licenses/ARCHIFY-LICENSE-MIT",
+      "public/licenses/ARCHIFY-NOTICE",
+      "public/licenses/ARCHIFY-THIRD_PARTY_NOTICES.md"
+    ],
+    "node_version": "v26.13.0",
+    "node_source": "https://nodejs.org/dist/v26.13.0/SHASUMS256.txt",
+    "components": {
+      "SKILL.md": "1382cfb7108b05e500b82af93c04fd7b694430d3908039bd92d634f01c1e7181",
+      "assets/template.html": "9689eeec1a5918aea571eb84d66ea28c7b5bcdcbcf2ae71666bad19d44cc89bc",
+      "renderers/architecture/render-architecture.mjs": "50bf6f0748446ba99c4236e29e2e39755d5a2b8894fb598f104f7b3107063ca3",
+      "bin/archify.mjs": "3cebcee3fa339e3b98deacae8cb9a5570525e003d8823368d304d904ba9ceecd",
+      "bin/visual-check.mjs": "72a8eec9793588552da4013f228eb3fb5ad4936a3d3cf31920de883b77ca3dfd",
+      "../test/helpers/viewer-click.mjs": "8110ef8c3655358bd90bf9b89ae8abf9d24eb746e0ea3ca7921005d3f6b9dbfe"
+    },
+    "adaptation": "scripts/diagram-build.py inserts unmodified official AWS SVG bytes as images in the canonical SVG before finalize, and stamps model/icon/vendor input hashes. No post-finalize HTML edits."
+  },
+  "aws_icons": {
+    "version": "07312026",
+    "url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "sha256": "d2d166c453526471749d520e0db022c459abef759d2946cf2dd1d1c992dc6526",
+    "source": "https://aws.amazon.com/architecture/icons/",
+    "retrieved_on": "2026-10-30",
+    "assets": {
+      "assets/aws/vpc.svg": {
+        "member": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-VPC_Virtual-private-cloud-VPC_48.svg",
+        "sha256": "4cb934198b019bccdd8efc2ef7e95d3bb200148b14919f36082a26436a9bcd8c"
+      },
+      "assets/aws/public-subnet.svg": {
+        "member": "Architecture-Group-Icons_07312026/Public-subnet_32.svg",
+        "sha256": "009342df9afcc20b8c6f0d82ded7620105aaa7e53eb253d74f80a9e7d3beee58"
+      },
+      "assets/aws/private-subnet.svg": {
+        "member": "Architecture-Group-Icons_07312026/Private-subnet_32.svg",
+        "sha256": "0666b2c8784d303a850c7cd1b40236f3d6d97012b4f4d2bad65a28c6ec614ba4"
+      },
+      "assets/aws/igw.svg": {
+        "member": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-VPC_Internet-Gateway_48.svg",
+        "sha256": "d31cd837a33508372a7d43a556daa0138b6e2004c94a76e2f7f8b977409659aa"
+      },
+      "assets/aws/s3.svg": {
+        "member": "Architecture-Service-Icons_07312026/Arch_Storage/64/Arch_Amazon-Simple-Storage-Service_64.svg",
+        "sha256": "b92c5101cc6565dd12df37655802279f8fba0c719279f62f93106d26750b36c6"
+      },
+      "assets/aws/kms.svg": {
+        "member": "Architecture-Service-Icons_07312026/Arch_Security-Identity/64/Arch_AWS-Key-Management-Service_64.svg",
+        "sha256": "5b3ed298ae380707f77ca21c2f417d0a7a36e70e59bfe9a5d8f281b8447ae750"
+      },
+      "assets/aws/iam.svg": {
+        "member": "Architecture-Service-Icons_07312026/Arch_Security-Identity/64/Arch_AWS-Identity-and-Access-Management_64.svg",
+        "sha256": "3135793557c065d0481a3985ccc0574b36278d56a2e2c5d59107d0d28f51b827"
+      }
+    }
+  }
+}

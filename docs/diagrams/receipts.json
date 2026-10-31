@@ -1,0 +1,114 @@
+{
+  "archify_commit": "f325d86230553e1dd15d3464324f1fcd01f02352",
+  "node": "v26.13.0",
+  "views": {
+    "local": {
+      "specification_sha256": "b902284eaeb14af1b05b54f6fe219c815ec2c5326483da9a98e112c32c546932",
+      "artifact_sha256": "5f7e58adbe717dfaeca516485a26d09b9339464a8aeb16d228f45bbab8661e71",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "diagnostics": [],
+      "visual_review": "not-requested",
+      "interaction_checks": {
+        "status": "pass",
+        "theme": "native-click",
+        "finder": "native-text-input",
+        "focus": "client",
+        "source_evidence": "present",
+        "route": [
+          "client",
+          "api"
+        ],
+        "route_input": "native-clicks",
+        "aws_images": 0,
+        "external_resources": 0,
+        "runtime_errors": 0
+      }
+    },
+    "delivery": {
+      "specification_sha256": "c54083ca6a0ea931d36c25cb2a21b0228e82d77c9f4bfa385a324410076c24cf",
+      "artifact_sha256": "0a47df99d1e0312e1a9c0d7618767f52063e5b36ca767b2bcdfc4b9383d9f274",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "diagnostics": [],
+      "visual_review": "not-requested",
+      "interaction_checks": {
+        "status": "pass",
+        "theme": "native-click",
+        "finder": "native-text-input",
+        "focus": "git",
+        "source_evidence": "present",
+        "route": [
+          "git",
+          "argocd"
+        ],
+        "route_input": "native-clicks",
+        "aws_images": 0,
+        "external_resources": 0,
+        "runtime_errors": 0
+      }
+    },
+    "aws": {
+      "specification_sha256": "2b25b4c981aee0c9a9af1a30b52cd6e5bada48c162c99ec68a3b21a4582eee8d",
+      "artifact_sha256": "0bfe022e30c062b68cc41ef2be01748d94c52c7345baec596beab9fd34851dd7",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "diagnostics": [],
+      "visual_review": "not-requested",
+      "interaction_checks": {
+        "status": "pass",
+        "theme": "native-click",
+        "finder": "native-text-input",
+        "focus": "vpc",
+        "source_evidence": "present",
+        "route": [
+          "vpc",
+          "public"
+        ],
+        "route_input": "native-clicks",
+        "aws_images": 10,
+        "external_resources": 0,
+        "runtime_errors": 0
+      }
+    },
+    "bootstrap": {
+      "specification_sha256": "571092e5d64a04b347efea03eb177365705bb240688226e7c368be30cfcaa5a3",
+      "artifact_sha256": "3d3cd621a0c2f2dda59a602349ddab9ff6201c692bb712e67fc7c58111af17c8",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "diagnostics": [],
+      "visual_review": "not-requested",
+      "interaction_checks": {
+        "status": "pass",
+        "theme": "native-click",
+        "finder": "native-text-input",
+        "focus": "gate",
+        "source_evidence": "present",
+        "route": [
+          "gate",
+          "state"
+        ],
+        "route_input": "native-clicks",
+        "aws_images": 2,
+        "external_resources": 0,
+        "runtime_errors": 0
+      }
+    }
+  }
+}

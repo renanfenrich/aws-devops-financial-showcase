@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Local delivery: historical gates, current source model",
+    "output": ".cache/diagrams/delivery.html",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/renanfenrich/aws-devops-financial-showcase.git",
+      "revision": "0cef72aa583704bc5581978a3cc43b013ca78542"
+    },
+    "views": [
+      {
+        "id": "gitops",
+        "label": "Application ownership",
+        "focus": [
+          "git",
+          "chart",
+          "argocd",
+          "release",
+          "directhelm"
+        ],
+        "note": "Published SHA and exclusive release ownership."
+      },
+      {
+        "id": "offline",
+        "label": "Offline infrastructure checks",
+        "focus": [
+          "ci",
+          "harness",
+          "terraform",
+          "atlantis",
+          "bitbucket"
+        ],
+        "note": "Mocks and isolated smoke tests do not establish AWS or webhook integration."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "git",
+      "type": "external",
+      "label": "Published Git SHA",
+      "sublabel": "immutable source revision",
+      "pos": [
+        40,
+        70
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/argocd-application.yaml",
+          "line": 43,
+          "end_line": 51
+        },
+        {
+          "path": "scripts/lab-up.sh",
+          "line": 14,
+          "end_line": 20
+        }
+      ]
+    },
+    {
+      "id": "argocd",
+      "type": "backend",
+      "label": "Argo CD",
+      "sublabel": "application release owner",
+      "pos": [
+        350,
+        70
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/argocd-application.yaml",
+          "line": 36,
+          "end_line": 63
+        },
+        {
+          "path": "docs/architecture.md",
+          "line": 28,
+          "end_line": 30
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "type": "backend",
+      "label": "kind release",
+      "sublabel": "API / DB / observability",
+      "pos": [
+        660,
+        70
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "scripts/lab-up.sh",
+          "line": 98,
+          "end_line": 110
+        },
+        {
+          "path": "docs/architecture.md",
+          "line": 3,
+          "end_line": 6
+        },
+        {
+          "path": "docs/evidence-g1.md",
+          "line": 31,
+          "end_line": 36
+        }
+      ]
+    },
+    {
+      "id": "chart",
+      "type": "backend",
+      "label": "Helm chart",
+      "sublabel": "declarative manifests",
+      "pos": [
+        350,
+        310
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "platform/argocd-application.yaml",
+          "line": 43,
+          "end_line": 54
+        },
+        {
+          "path": "scripts/lab-up.sh",
+          "line": 78,
+          "end_line": 84
+        }
+      ]
+    },
+    {
+      "id": "directhelm",
+      "type": "backend",
+      "label": "Direct Helm",
+      "sublabel": "alternate development mode",
+      "pos": [
+        660,
+        310
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "scripts/lab-up.sh",
+          "line": 78,
+          "end_line": 84
+        },
+        {
+          "path": "docs/architecture.md",
+          "line": 28,
+          "end_line": 30
+        }
+      ]
+    },
+    {
+      "id": "ci",
+      "type": "external",
+      "label": "GitHub / Jenkins",
+      "sublabel": "shared Make contracts",
+      "pos": [
+        40,
+        310
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "line": 14,
+          "end_line": 32
+        },
+        {
+          "path": "Jenkinsfile",
+          "line": 1,
+          "end_line": 18
+        },
+        {
+          "path": "docs/evidence-g2-a.md",
+          "line": 22,
+          "end_line": 27
+        }
+      ]
+    },
+    {
+      "id": "harness",
+      "type": "backend",
+      "label": "Offline IaC checks",
+      "sublabel": "no cloud credentials / APIs",
+      "pos": [
+        40,
+        560
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "scripts/infra-check.sh",
+          "line": 1,
+          "end_line": 38
+        },
+        {
+          "path": "docs/evidence-g2-a.md",
+          "line": 22,
+          "end_line": 24
+        }
+      ]
+    },
+    {
+      "id": "terraform",
+      "type": "backend",
+      "label": "Terraform / Terragrunt",
+      "sublabel": "same roots / mocked plans",
+      "pos": [
+        350,
+        560
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "infra/terragrunt/aws-foundation/terragrunt.hcl",
+          "line": 1,
+          "end_line": 6
+        },
+        {
+          "path": "infra/terragrunt/state-bootstrap/terragrunt.hcl",
+          "line": 1,
+          "end_line": 6
+        },
+        {
+          "path": "infra/README.md",
+          "line": 3,
+          "end_line": 16
+        }
+      ]
+    },
+    {
+      "id": "atlantis",
+      "type": "security",
+      "label": "Atlantis offline",
+      "sublabel": "webhook / PR plan pending",
+      "pos": [
+        660,
+        560
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "scripts/atlantis-smoke.sh",
+          "line": 13,
+          "end_line": 33
+        },
+        {
+          "path": "infra/atlantis/server.yaml",
+          "line": 1,
+          "end_line": 20
+        },
+        {
+          "path": "infra/README.md",
+          "line": 47,
+          "end_line": 74
+        }
+      ]
+    },
+    {
+      "id": "bitbucket",
+      "type": "external",
+      "label": "Bitbucket adapter",
+      "sublabel": "SaaS execution pending",
+      "pos": [
+        40,
+        800
+      ],
+      "size": [
+        180,
+        70
+      ],
+      "sources": [
+        {
+          "path": "bitbucket-pipelines.yml",
+          "line": 1,
+          "end_line": 12
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Local kind cluster / Argo owns the application",
+      "wraps": [
+        "argocd",
+        "release"
+      ],
+      "pad": 26
+    },
+    {
+      "kind": "security-group",
+      "label": "Plan-only mocks / no remote backend",
+      "wraps": [
+        "terraform"
+      ],
+      "pad": 20
+    },
+    {
+      "kind": "security-group",
+      "label": "No network, credentials, mounts or host port",
+      "wraps": [
+        "atlantis"
+      ],
+      "pad": 20
+    }
+  ],
+  "connections": [
+    {
+      "from": "git",
+      "to": "argocd",
+      "label": "exact Git SHA",
+      "variant": "emphasis"
+    },
+    {
+      "from": "chart",
+      "to": "argocd",
+      "label": "Helm templates",
+      "variant": "default"
+    },
+    {
+      "from": "argocd",
+      "to": "release",
+      "label": "sync / self-heal",
+      "variant": "emphasis"
+    },
+    {
+      "from": "chart",
+      "to": "directhelm",
+      "label": "templates",
+      "variant": "default"
+    },
+    {
+      "from": "directhelm",
+      "to": "release",
+      "label": "before Argo only",
+      "variant": "default"
+    },
+    {
+      "from": "ci",
+      "to": "harness",
+      "label": "shared Make gates",
+      "variant": "default"
+    },
+    {
+      "from": "harness",
+      "to": "terraform",
+      "label": "plan-only mocks",
+      "variant": "default"
+    },
+    {
+      "from": "bitbucket",
+      "to": "harness",
+      "label": "adapter / pending",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Separate ownership",
+      "items": [
+        "Argo CD owns application objects after adoption; direct Helm refuses to overwrite an Argo-owned release.",
+        "Terraform owns planned AWS foundations and the separate state-bootstrap root; it does not own application releases.",
+        "The local runtime is kind, not EKS. AWS service topology is shown separately with official AWS icons."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Atlantis restrictions",
+      "items": [
+        "Historical isolated server smoke proves startup, health, readiness and metrics; GitHub webhook and PR-plan integration are pending.",
+        "Only the exact aws-foundation project/directory is eligible. State bootstrap, unknown projects, traversal and mutating commands are denied.",
+        "No AWS credentials, kubeconfig or Docker socket are supplied. No arrow to GitHub or AWS denotes an active integration."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Evidence and pending work",
+      "items": [
+        "G1 local runtime evidence is bound to f1603b3; G2-A offline gates to e3951d9. This source model does not relabel those checks.",
+        "Jenkins has a real historical local pipeline result, separate agent and zero controller executors; Bitbucket remains an adapter.",
+        "Foundation and enabled bootstrap graphs are mocked. The network-disabled real-provider bootstrap plan tested zero resources only."
+      ]
+    }
+  ]
+}

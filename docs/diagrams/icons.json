@@ -1,0 +1,18 @@
+{
+  "aws": {
+    "vpc": "assets/aws/vpc.svg",
+    "public": "assets/aws/public-subnet.svg",
+    "app": "assets/aws/private-subnet.svg",
+    "data": "assets/aws/private-subnet.svg",
+    "igw": "assets/aws/igw.svg",
+    "app_sg": "assets/aws/vpc.svg",
+    "db_sg": "assets/aws/vpc.svg",
+    "reader": "assets/aws/iam.svg",
+    "reports": "assets/aws/s3.svg",
+    "report_kms": "assets/aws/kms.svg"
+  },
+  "bootstrap": {
+    "state": "assets/aws/s3.svg",
+    "state_kms": "assets/aws/kms.svg"
+  }
+}

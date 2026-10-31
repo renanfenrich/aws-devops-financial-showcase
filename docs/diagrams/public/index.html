@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infrastructure atlas · Financial Showcase</title>
+<style>
+  :root { color-scheme: light dark; font: 16px/1.6 system-ui, sans-serif; }
+  body { margin: 0 auto; padding: 48px 24px; max-width: 1000px; }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; letter-spacing: -.03em; }
+  h2 { margin-top: 0; font-size: 21px; }
+  p { max-width: 76ch; }
+  a { color: light-dark(#175a9e, #a4d1ff); text-underline-offset: .18em; }
+  .eyebrow { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+  .views { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 32px 0; }
+  article { border: 1px solid light-dark(#ccd3dc, #46505d); border-radius: 12px; padding: 24px; }
+  article p { margin-bottom: 0; }
+  .state { font-size: 13px; font-weight: 650; }
+  footer { border-top: 1px solid light-dark(#ccd3dc, #46505d); margin-top: 32px; padding-top: 20px; font-size: 14px; }
+</style>
+<main>
+  <p class="eyebrow">AWS DevOps Financial Showcase · Archify</p>
+  <h1>Infrastructure, with evidence boundaries</h1>
+  <p>Four explorable views derived from versioned code. Local execution, offline IaC
+    checks and future AWS resources have separate meanings. <strong>No AWS resources
+    have been provisioned or verified.</strong></p>
+  <div class="views">
+    <article>
+      <p class="state">LOCAL · HISTORICAL G1 EVIDENCE</p>
+      <h2><a href="local.html">Application and observability →</a></h2>
+      <p>Docker/kind, Calico, FastAPI, PostgreSQL, metrics and traces.
+        This map generation does not rerun the laboratory.</p>
+    </article>
+    <article>
+      <p class="state">CONTROL · LOCAL / PENDING INTEGRATIONS</p>
+      <h2><a href="delivery.html">Delivery and ownership →</a></h2>
+      <p>Argo CD owns releases; Terraform owns foundations. CI adapters share
+        Make gates. Atlantis has no credentials or remote webhook.</p>
+    </article>
+    <article>
+      <p class="state">AWS · PLANNED / MOCK-VALIDATED</p>
+      <h2><a href="aws.html">Network and synthetic reports →</a></h2>
+      <p>VPC tiers, routing and security groups; separate S3, KMS and unattached
+        IAM policy. No EKS, RDS or cloud workloads are declared.</p>
+    </article>
+    <article>
+      <p class="state">AWS · DISABLED BY DEFAULT</p>
+      <h2><a href="bootstrap.html">State bootstrap and access contracts →</a></h2>
+      <p>Separate S3/KMS state design, native lock and inactive JSON contracts.
+        Defaults create zero resources; no backend or identity is active.</p>
+    </article>
+  </div>
+  <p>Inside a view, select a node to inspect its source evidence; use Search,
+    guided views, upstream/downstream reach, route tracing and Light/Dark.
+    Arrows show the documented data, control or policy relationship, not measured
+    live traffic. Return here using your browser's Back command.</p>
+  <p>Only AWS resources use official AWS icons. Network security groups carry the
+    Amazon VPC service mark; their labels identify the actual resource. Subnet icons
+    represent tiers across two illustrative AZs. Other tools use generic shapes.</p>
+</main>
+<footer>
+  Generated with <a href="https://github.com/tt-a1i/archify">Archify 3.2.0</a>;
+  <a href="licenses/ARCHIFY-NOTICE">copyright notice</a>,
+  <a href="licenses/ARCHIFY-LICENSE">Apache 2.0 license</a>,
+  <a href="licenses/ARCHIFY-LICENSE-MIT">historical MIT notice</a> and
+  <a href="licenses/ARCHIFY-THIRD_PARTY_NOTICES.md">third-party notices</a>.
+  AWS Architecture Icons © Amazon Web Services, Inc. or its affiliates;
+  <a href="https://aws.amazon.com/architecture/icons/">official source and use guidance</a>.
+  Assets from the July 31, 2026 package retain original bytes, colors and proportions.
+  These marks imply no endorsement. The software license does not grant AWS trademark rights.
+</footer>
+</html>

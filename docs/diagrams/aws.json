@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AWS foundation | planned, mock-validated only",
+    "locale": "en",
+    "output": ".cache/diagrams/aws.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/renanfenrich/aws-devops-financial-showcase.git",
+      "revision": "0cef72aa583704bc5581978a3cc43b013ca78542"
+    },
+    "views": [
+      {
+        "id": "network",
+        "label": "Network declarations",
+        "focus": [
+          "vpc",
+          "public",
+          "app",
+          "data",
+          "igw",
+          "app_sg",
+          "db_sg"
+        ]
+      },
+      {
+        "id": "storage",
+        "label": "Synthetic reports",
+        "focus": [
+          "reader",
+          "reports",
+          "report_kms"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "vpc",
+      "type": "cloud",
+      "label": "Amazon VPC",
+      "sublabel": "10.42.0.0/16",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        480,
+        70
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 63,
+          "end_line": 77
+        },
+        {
+          "path": "infra/terraform/aws-foundation/variables.tf",
+          "line": 21,
+          "end_line": 42
+        }
+      ]
+    },
+    {
+      "id": "public",
+      "type": "cloud",
+      "label": "Public tier",
+      "sublabel": "2 subnets / 2 AZs",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        40,
+        260
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 3,
+          "end_line": 16
+        },
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 70,
+          "end_line": 100
+        }
+      ]
+    },
+    {
+      "id": "app",
+      "type": "cloud",
+      "label": "Private app tier",
+      "sublabel": "2 subnets / no NAT",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        480,
+        260
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 3,
+          "end_line": 16
+        },
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 70,
+          "end_line": 108
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "type": "cloud",
+      "label": "Private data tier",
+      "sublabel": "2 subnets / no NAT",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        920,
+        260
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 3,
+          "end_line": 16
+        },
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 70,
+          "end_line": 108
+        }
+      ]
+    },
+    {
+      "id": "igw",
+      "type": "cloud",
+      "label": "Internet gateway",
+      "sublabel": "Public route only",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        40,
+        460
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 79,
+          "end_line": 100
+        }
+      ]
+    },
+    {
+      "id": "app_sg",
+      "type": "security",
+      "label": "VPC application SG",
+      "sublabel": "No workloads attached",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        480,
+        460
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 110,
+          "end_line": 140
+        }
+      ]
+    },
+    {
+      "id": "db_sg",
+      "type": "security",
+      "label": "VPC database SG",
+      "sublabel": "Policy only / no RDS",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        920,
+        460
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 117,
+          "end_line": 140
+        }
+      ]
+    },
+    {
+      "id": "reader",
+      "type": "security",
+      "label": "IAM reader policy",
+      "sublabel": "Unattached / no identity",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        40,
+        710
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 17,
+          "end_line": 49
+        },
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 208,
+          "end_line": 212
+        }
+      ]
+    },
+    {
+      "id": "reports",
+      "type": "cloud",
+      "label": "Amazon S3 reports",
+      "sublabel": "Private / versioned",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        480,
+        710
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 142,
+          "end_line": 163
+        },
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 192,
+          "end_line": 206
+        }
+      ]
+    },
+    {
+      "id": "report_kms",
+      "type": "security",
+      "label": "AWS KMS reports",
+      "sublabel": "Separate encryption key",
+      "tag": "AWS planned",
+      "icon": "none",
+      "pos": [
+        920,
+        710
+      ],
+      "size": [
+        190,
+        68
+      ],
+      "sources": [
+        {
+          "path": "infra/terraform/aws-foundation/main.tf",
+          "line": 165,
+          "end_line": 201
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "vpc",
+      "to": "public",
+      "label": "contains",
+      "variant": "default"
+    },
+    {
+      "from": "vpc",
+      "to": "app",
+      "label": "contains",
+      "variant": "default"
+    },
+    {
+      "from": "vpc",
+      "to": "data",
+      "label": "contains",
+      "variant": "default"
+    },
+    {
+      "from": "public",
+      "to": "igw",
+      "label": "0.0.0.0/0 route",
+      "variant": "default"
+    },
+    {
+      "from": "app_sg",
+      "to": "db_sg",
+      "label": "TCP 5432 policy",
+      "variant": "security"
+    },
+    {
+      "from": "reader",
+      "to": "reports",
+      "label": "reports/* read",
+      "variant": "security"
+    },
+    {
+      "from": "reports",
+      "to": "report_kms",
+      "label": "SSE-KMS",
+      "variant": "security"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Planned VPC / illustrative us-east-1 / no compute",
+      "wraps": [
+        "vpc",
+        "public",
+        "app",
+        "data",
+        "igw",
+        "app_sg",
+        "db_sg"
+      ],
+      "pad": 22
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "Evidence and legend",
+      "items": [
+        "Every AWS symbol is an official AWS Architecture Icon; arrows describe declarations, not live traffic.",
+        "Terraform owns foundations. Six /24 subnets across two illustrative AZs do not prove availability."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Network limits",
+      "items": [
+        "Three route tables; only public has an Internet default route. Public IP auto-assignment is false in all tiers.",
+        "Default SG denies ingress and egress. The app-to-database rule attaches no workload. No NAT, EKS, EC2, RDS or load balancer is declared."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Separate storage boundary",
+      "items": [
+        "Report bucket, KMS and unattached IAM policy are regional/account services outside the VPC. No S3 endpoint is declared.",
+        "No local lab connection to AWS. Mock provider checks are recorded in G1/G2-A evidence; no AWS provisioning or availability check."
+      ]
+    }
+  ]
+}
