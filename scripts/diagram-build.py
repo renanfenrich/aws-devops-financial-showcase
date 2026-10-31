@@ -40,6 +40,7 @@ def build():
             raise ValueError("Archify archive integrity mismatch")
         archive.write_bytes(data)
     icons = json.loads((FOLDER / "icons.json").read_text())
+    style = (FOLDER / "style.css").read_text()
     receipts = {}
     with tempfile.TemporaryDirectory(prefix="build-", dir=cache) as workspace:
         with tarfile.open(archive) as package:
@@ -67,32 +68,100 @@ def build():
                 data = base64.b64encode(asset_path.read_bytes()).decode()
                 x, y = component["pos"]
                 width, _ = component["size"]
-                # Official bytes/colors remain intact; the top rail keeps labels clear.
+                # Original official artwork is the primary mark, with labels below.
                 images[identifier] = (
-                    f'<image data-aws-icon="{asset}" x="{x + width - 27}" y="{y + 5}" '
-                    'width="20" height="20" preserveAspectRatio="xMidYMid meet" '
+                    f'<image data-aws-icon="{asset}" x="{x + width / 2 - 32}" y="{y + 10}" '
+                    'width="64" height="64" preserveAspectRatio="xMidYMid meet" '
                     f'href="data:image/svg+xml;base64,{data}"/>'
                 )
-            # Narrow adapter at the upstream SVG seam, before deliver/check/browser-check.
-            # No generated HTML is edited after Archify issues its artifact receipts.
-            replacement = (
-                'svg: renderSvg().replace(/(<g id="node-([^"]+)"[^>]*>[\\s\\S]*?)'
-                "(<\\/g>)/g, (all, body, id, end) => body + ("
+            # Adapt presentation inside the existing node metadata/hitbox contract.
+            start = renderer.index("function renderComponent(c) {")
+            end = renderer.index("function renderLegend()", start)
+            component_renderer = renderer[start:end]
+            edits = [
+                (
+                    "const labelY = hasSub ? c.y + c.height / 2 - 2 : c.y + c.height / 2 + 4;",
+                    "const labelY = c.y + 94;",
+                ),
+                ("c.y + c.height / 2 + 14", "c.y + 110"),
+                ("brandLabelFitWidth(c, c.width), 11, 8", "brandLabelFitWidth(c, c.width), 13, 10"),
+                (
+                    'class="${fill}"',
+                    "class=\"${fill} atlas-node${officialImages[c.id] ? ' atlas-aws' : ''}\"",
+                ),
+                (
+                    'font-weight="600" text-anchor="middle"',
+                    'font-weight="400" text-anchor="middle"',
+                ),
+                (
+                    "renderSemanticSigil(c.type, { icon: c.icon, x: c.x + 6, y: c.y + 6 })",
+                    "(officialImages[c.id] || renderSemanticSigil(c.type, "
+                    "{ icon: c.icon, x: cx - 24, y: c.y + 18, size: 48 }))",
+                ),
+            ]
+            for before, after in edits:
+                if component_renderer.count(before) != 1:
+                    raise ValueError("Pinned Archify component presentation seam changed")
+                component_renderer = component_renderer.replace(before, after)
+            adapted = (
+                renderer[:start]
+                + "const officialImages = "
                 + json.dumps(images)
-                + "[id] || '') + end),"
+                + ";\n"
+                + component_renderer
+                + renderer[end:]
+            )
+            # Keep larger annotation text and the geometry checked by Archify in sync.
+            for before, after in [
+                ("boundaryLabelFontPreferred: 9,", "boundaryLabelFontPreferred: 12,"),
+                ("sublabelPreferred: 9,", "sublabelPreferred: 10,"),
+                ("textUnits(conn.label) * 4.8 + 10", "textUnits(conn.label) * 6 + 10"),
+                ("y: ly - 10, width, height: 14", "y: ly - 12, width, height: 16"),
+                (
+                    'class="${edgeLabelAccent(conn.variant)}" font-size="8"',
+                    'class="${edgeLabelAccent(conn.variant)}" font-size="10"',
+                ),
+            ]:
+                if adapted.count(before) != 1:
+                    raise ValueError("Pinned Archify annotation geometry seam changed")
+                adapted = adapted.replace(before, after)
+            # Canonical SVG styles also survive SVG/raster exports. No post-finalize edits.
+            replacement = (
+                "svg: renderSvg().replace('<svg ', "
+                + json.dumps(f'<svg data-aws-style="reference" data-atlas-view="{view}" ')
+                + ").replace('</svg>', "
+                + json.dumps("<style>" + style + "</style></svg>")
+                + "),"
             )
             if renderer.count("svg: renderSvg(),") != 1:
                 raise ValueError("Pinned Archify SVG adapter seam changed")
-            renderer_path.write_text(renderer.replace("svg: renderSvg(),", replacement))
+            renderer_path.write_text(adapted.replace("svg: renderSvg(),", replacement))
             metadata = "\n".join(
                 f'<meta name="showcase-{name}-sha256" content="{digest(path)}">'
                 for name, path in (
                     ("spec", model_path),
                     ("icons", FOLDER / "icons.json"),
                     ("vendor", FOLDER / "vendor.json"),
+                    ("style", FOLDER / "style.css"),
+                    ("builder", Path(__file__)),
                 )
             )
-            template_path.write_text(template.replace("</head>", metadata + "\n</head>"))
+            canvas_style = (
+                "<style>html[data-preset] .diagram-container {"
+                "background:#fff; border-radius:0; box-shadow:none;"
+                "--panel:#fff; --panel-border:#d5dbdb; --text:#232f3e;"
+                "--text-muted:#545b64; --text-dim:#687078;"
+                "--toolbar-text:#545b64; --toolbar-hover:#eef2f4;}"
+                "</style>"
+            )
+            light_template = template.replace(
+                "theme = window.matchMedia('(prefers-color-scheme: light)').matches "
+                "? 'light' : 'dark';",
+                "theme = 'light';",
+            )
+            template_path.write_text(
+                light_template.replace("</head>", metadata + canvas_style + "\n</head>")
+            )
             output = cache / f"{view}.html"
             command = [
                 node,

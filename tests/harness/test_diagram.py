@@ -49,6 +49,8 @@ def bind_html(root, view):
             ("spec", folder / f"{view}.json"),
             ("icons", folder / "icons.json"),
             ("vendor", folder / "vendor.json"),
+            ("style", folder / "style.css"),
+            ("builder", root / "scripts/diagram-build.py"),
         )
     )
     (folder / "public" / f"{view}.html").write_text(
@@ -84,6 +86,9 @@ def checkout(tmp_path):
     folder = tmp_path / "docs/diagrams"
     public = folder / "public"
     public.mkdir(parents=True)
+    (folder / "style.css").write_text("/* diagram style */\n")
+    (tmp_path / "scripts").mkdir()
+    (tmp_path / "scripts/diagram-build.py").write_text("# diagram builder\n")
     (tmp_path / "infra").mkdir()
     (tmp_path / "infra/main.tf").write_text("# initial foundation\n")
     (tmp_path / "infra/other.tf").write_text("# additional foundation source\n")
@@ -287,13 +292,24 @@ def test_https_href_on_runtime_elements_is_rejected(checkout, tag):
         diagram.validate(checkout)
 
 
-@pytest.mark.parametrize("filename", ("icons.json", "vendor.json"))
-def test_icon_input_change_requires_artifact_rebuild(checkout, filename):
-    path = checkout / "docs/diagrams" / filename
-    model = json.loads(path.read_text())
-    # Harmless metadata still changes the exact build input fingerprint.
-    model["review_note"] = "Revalidated assets"
-    write_json(path, model)
+@pytest.mark.parametrize(
+    "filename",
+    (
+        "docs/diagrams/icons.json",
+        "docs/diagrams/vendor.json",
+        "docs/diagrams/style.css",
+        "scripts/diagram-build.py",
+    ),
+)
+def test_build_input_change_requires_artifact_rebuild(checkout, filename):
+    path = checkout / filename
+    if path.suffix == ".json":
+        model = json.loads(path.read_text())
+        # Harmless metadata still changes the exact build input fingerprint.
+        model["review_note"] = "Revalidated assets"
+        write_json(path, model)
+    else:
+        path.write_text(path.read_text() + "\n")
     with pytest.raises(ValueError, match="stale HTML .* binding"):
         diagram.refresh(checkout, "Inputs changed without rebuild")
 

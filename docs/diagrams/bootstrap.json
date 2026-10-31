@@ -19,14 +19,13 @@
       "label": "Bootstrap gate",
       "sublabel": "false / target null",
       "tag": "Offline contract",
-      "icon": "none",
       "pos": [
         40,
         60
       ],
       "size": [
         190,
-        68
+        132
       ],
       "sources": [
         {
@@ -49,12 +48,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        460,
+        480.0,
         60
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -77,12 +76,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        880,
+        900.0,
         60
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -98,14 +97,13 @@
       "label": "Backend + IAM JSON",
       "sublabel": "Inactive / no grants",
       "tag": "Offline contract",
-      "icon": "none",
       "pos": [
         460,
         300
       ],
       "size": [
         190,
-        68
+        132
       ],
       "sources": [
         {
@@ -126,14 +124,13 @@
       "label": "Terragrunt wrapper",
       "sublabel": "No remote_state block",
       "tag": "Offline contract",
-      "icon": "none",
       "pos": [
         40,
         300
       ],
       "size": [
         190,
-        68
+        132
       ],
       "sources": [
         {

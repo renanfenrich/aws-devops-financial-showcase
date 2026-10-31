@@ -44,12 +44,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        480,
+        500.0,
         70
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -72,12 +72,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        40,
+        60.0,
         260
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -100,12 +100,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        480,
+        500.0,
         260
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -128,12 +128,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        920,
+        940.0,
         260
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -156,12 +156,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        40,
+        60.0,
         460
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -179,12 +179,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        480,
+        500.0,
         460
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -202,12 +202,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        920,
+        940.0,
         460
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -225,12 +225,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        40,
+        60.0,
         710
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -253,12 +253,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        480,
+        500.0,
         710
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {
@@ -281,12 +281,12 @@
       "tag": "AWS planned",
       "icon": "none",
       "pos": [
-        920,
+        940.0,
         710
       ],
       "size": [
-        190,
-        68
+        150,
+        132
       ],
       "sources": [
         {

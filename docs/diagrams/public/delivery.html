@@ -26,7 +26,7 @@
           try { theme = localStorage.getItem('archify-theme'); } catch (_) {}
         }
         if (theme !== 'light' && theme !== 'dark') {
-          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          theme = 'light';
         }
         document.documentElement.setAttribute('data-theme', theme);
       } catch (_) {}
@@ -5083,9 +5083,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg { transition: none !important; }
     }
   </style>
-<meta name="showcase-spec-sha256" content="c54083ca6a0ea931d36c25cb2a21b0228e82d77c9f4bfa385a324410076c24cf">
+<meta name="showcase-spec-sha256" content="efb79ffd15b7636c59b288b11455e466156568c977f9bc03a74ffdd74a6ab4e2">
 <meta name="showcase-icons-sha256" content="d8591668e36720499394c6c6f85d0cb2190013fd4b926ae062dad1e2591955de">
-<meta name="showcase-vendor-sha256" content="004dad80b039fb1ba3c9d1472a587407676d97a71fbec80ec2f1cd68de60f320">
+<meta name="showcase-vendor-sha256" content="0d4e168216751b7446a4eea3f8eb6e25fac4d53399344fb598b54aba320b4ce3">
+<meta name="showcase-style-sha256" content="443d18c0239a5530380ad005fa823fdaa9759620377effc4648635697fce8829">
+<meta name="showcase-builder-sha256" content="ed8abf93986c04110def45af2ce7b596c2aba65ea2c6e1da696b77b62a04bb9c"><style>html[data-preset] .diagram-container {background:#fff; border-radius:0; box-shadow:none;--panel:#fff; --panel-border:#d5dbdb; --text:#232f3e;--text-muted:#545b64; --text-dim:#687078;--toolbar-text:#545b64; --toolbar-hover:#eef2f4;}</style>
 <script type="application/json" id="archify-software-notices">"NOTICE\nArchify\nCopyright (c) 2026 tt-a1i (Archify)\nCopyright (c) 2025 Cocoon AI\n\nArchify is distributed under the Apache License, Version 2.0 (LICENSE),\nexcept where a file, package manifest, or third-party notice specifies otherwise.\nThe separately versioned DeepSeek Harness adapter remains MIT; its bundled\nSkill retains the license of the immutable source selected in release.json.\n\nCode and contributions received under the MIT License through pre-transition\ncommit 25cf37080fc8b1dbe758a4efc3935b55f3327083 remain available under their\noriginal terms. Previously published releases keep their existing licenses. The complete historical MIT\ncopyright and permission notice is preserved in LICENSE-MIT. This transition\ndoes not revoke existing MIT grants or assert a new patent grant on behalf\nof historical contributors.\n\nArchify originated from Cocoon-AI/architecture-diagram-generator:\nhttps://github.com/Cocoon-AI/architecture-diagram-generator\n\nThird-party components retain their own licenses; see THIRD_PARTY_NOTICES.md\nand the license files beside those components. Names and logos do not imply\nofficial endorsement, and the software license grants no general trademark\npermission.\n\nThese software licenses cover Archify's embedded runtime and templates, not\nownership of a user's authored content, business data, or source repository.\n\nLICENSE\n\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\nLICENSE-MIT\nMIT License\n\nCopyright (c) 2026 tt-a1i (Archify)\nCopyright (c) 2025 Cocoon AI\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\nTHIRD_PARTY_NOTICES.md\n# Third-party notices\n\nArchify includes optional vector data for third-party brand marks. These marks\nare provided only to identify technologies and services in user-authored\ndiagrams. Their inclusion does not imply sponsorship, endorsement, partnership,\nor affiliation with Archify.\n\nArchify's license and historical MIT grants are described in LICENSE, NOTICE,\nand LICENSE-MIT. The software license does not\nreplace the copyright licenses, trademark policies, or brand guidelines that\napply to third-party marks. Users are responsible for confirming that their\nparticular use is permitted.\n\n## Simple Icons\n\nMost of the built-in vector paths and their metadata were generated from\n[Simple Icons 16.28.0](https://github.com/simple-icons/simple-icons/tree/16.28.0).\nSimple Icons makes its collection work available under\n[CC0 1.0 Universal](https://github.com/simple-icons/simple-icons/blob/16.28.0/LICENSE.md).\n\nAs Simple Icons explains in its\n[disclaimer](https://github.com/simple-icons/simple-icons/blob/16.28.0/DISCLAIMER.md),\nCC0 for the collection does not mean that every underlying icon is CC0. License\nand brand-guideline metadata may be incomplete or change over time. The absence\nof an individual license entry is not a grant of permission.\n\nArchify embeds the selected icons as vector-path data and may render them in a\nuser-selected color. The following individual licenses were recorded in the\npinned Simple Icons 16.28.0 metadata:\n\n| Mark | Recorded source | Recorded license | Archify treatment |\n|---|---|---|---|\n| Angular | [Angular press kit](https://angular.dev/press-kit) | [`CC-BY-4.0`](https://creativecommons.org/licenses/by/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. |\n| Apache Airflow | [Apache logos](https://apache.org/logos) | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) | Embedded as vector-path data; Apache trademarks remain subject to the [ASF trademark policy](https://www.apache.org/foundation/marks/). |\n| Apache Kafka | [Apache logos](https://apache.org/logos) | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) | Embedded as vector-path data; Apache trademarks remain subject to the [ASF trademark policy](https://www.apache.org/foundation/marks/). |\n| .NET | [.NET brand repository](https://github.com/dotnet/brand/blob/c7d0f51b8ec59531332d05fb27a5b758a7a3d689/logo/dotnet-logo.svg) | [`CC0-1.0`](https://creativecommons.org/publicdomain/zero/1.0/) | Embedded as vector-path data; color may be changed by the authored diagram. |\n| JavaScript | [JS community logo](https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/js.svg) | [`MIT`](https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/LICENSE) | Embedded as vector-path data; color may be changed by the authored diagram. |\n| Jenkins | [Jenkins artwork source](https://get.jenkins.io/art/) | [`CC-BY-SA-3.0`](https://creativecommons.org/licenses/by-sa/3.0/) | Embedded as vector-path data; color may be changed by the authored diagram. Jenkins retains its trademark rights. |\n| Rust | [Rust project](https://www.rust-lang.org) | [`CC-BY-SA-4.0`](https://creativecommons.org/licenses/by-sa/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. See the [Rust media guide](https://www.rust-lang.org/policies/media-guide). |\n| Vue.js | [Vue logo source](https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/logo.svg) | [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. The non-commercial and share-alike conditions remain applicable; see the [Vue artwork terms](https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/README.md). |\n\nThe source, guideline, and known license fields for every packaged mark are\npreserved in `renderers/shared/generated-brand-marks.mjs`.\n\n## OpenAI mark\n\nThe OpenAI vector path is recorded from the\n[OpenAI brand guidelines](https://openai.com/brand/), not from Simple Icons.\nUse remains subject to those current guidelines and any applicable trademark\nrights. Its inclusion does not state or imply endorsement by OpenAI.\n\n## JetBrains Mono\n\nDelivered Archify viewer artifacts embed the JetBrains Mono variable font\nsubsets served by Google Fonts. For characters covered by these subsets, font\nselection does not depend on a network request or a locally installed copy.\nUncovered characters (including CJK) still use the system fallback stack;\nbrowser and operating-system rasterization can differ.\nJetBrains Mono is maintained at\n[github.com/JetBrains/JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)\nand is distributed under the SIL Open Font License 1.1. The complete license\ntext is preserved in `assets/JetBrainsMono-OFL.txt` in the packaged Skill and\nin the font CSS carried by standalone HTML and SVG exports.\n\n## Pele\n\nThe explainer renders Mermaid chart fences with an unmodified subset of\n[Pele 1.3.0](https://github.com/obsidianmd/pele), copyright (c) 2026 kepano,\ndistributed under the MIT License. The subset and its license text are in\n`explainer/vendor/pele/` in the packaged Skill. Charts are rendered to static\nSVG when a page is built; delivered pages contain no Pele code.\n\n## No additional rights granted\n\nBrand names, logos, and trademarks remain the property of their respective\nowners. This notice records provenance and known terms; it does not grant rights\nthat Archify does not hold, and it does not state that every packaged mark has\nbeen cleared for every commercial, promotional, or redistributive use."</script>
 </head>
 <body>
@@ -5206,7 +5208,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / PLATE 04">
-      <svg viewBox="0 0 906 938" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg data-aws-style="reference" data-atlas-view="delivery" viewBox="0 0 906 930" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">Local delivery: historical gates, current source model</title>
         <desc id="archify-diagram-description">An architecture diagram generated by Archify.</desc>
         <!-- Definitions -->
@@ -5253,228 +5255,291 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Boundaries (behind everything) -->
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Local kind cluster / Argo owns the application" x="324" y="44" width="542" height="116" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Local kind cluster / Argo owns the application" x="324" y="43" width="542" height="179" rx="12" class="c-region" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="1" data-composition-frame-label="Plan-only mocks / no remote backend" x="330" y="536" width="220" height="114" rx="8" class="c-security-group" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="1" data-composition-frame-label="Plan-only mocks / no remote backend" x="330" y="485" width="220" height="177" rx="8" class="c-security-group" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="2" data-composition-frame-label="No network, credentials, mounts or host port" x="640" y="536" width="220" height="114" rx="8" class="c-security-group" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="2" data-composition-frame-label="No network, credentials, mounts or host port" x="640" y="486" width="220" height="176" rx="8" class="c-security-group" stroke-width="1"/>
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 220 105 L 350 105" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="git" data-edge-to="argocd" data-edge-label="exact Git SHA" data-edge-key="0" data-composition-points="220,105;350,105" data-composition-crossover="halo" data-composition-independent="true" d="M 220 105 L 350 105" class="a-emphasis" data-animate="edge" style="--step:0" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 220 136 L 350 136" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="git" data-edge-to="argocd" data-edge-label="exact Git SHA" data-edge-key="0" data-composition-points="220,136;350,136" data-composition-crossover="halo" data-composition-independent="true" d="M 220 136 L 350 136" class="a-emphasis" data-animate="edge" style="--step:0" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 440 310 L 440 140" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="chart" data-edge-to="argocd" data-edge-label="Helm templates" data-edge-key="1" data-composition-points="440,310;440,140" data-composition-crossover="halo" data-composition-independent="true" d="M 440 310 L 440 140" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 440 290 L 440 202" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="chart" data-edge-to="argocd" data-edge-label="Helm templates" data-edge-key="1" data-composition-points="440,290;440,202" data-composition-crossover="halo" data-composition-independent="true" d="M 440 290 L 440 202" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 530 105 L 660 105" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="argocd" data-edge-to="release" data-edge-label="sync / self-heal" data-edge-key="2" data-composition-points="530,105;660,105" data-composition-crossover="halo" data-composition-independent="true" d="M 530 105 L 660 105" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 530 136 L 660 136" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="argocd" data-edge-to="release" data-edge-label="sync / self-heal" data-edge-key="2" data-composition-points="530,136;660,136" data-composition-crossover="halo" data-composition-independent="true" d="M 530 136 L 660 136" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 530 345 L 660 345" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="chart" data-edge-to="directhelm" data-edge-label="templates" data-edge-key="3" data-composition-points="530,345;660,345" data-composition-crossover="halo" data-composition-independent="true" d="M 530 345 L 660 345" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 530 356 L 660 356" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="chart" data-edge-to="directhelm" data-edge-label="templates" data-edge-key="3" data-composition-points="530,356;660,356" data-composition-crossover="halo" data-composition-independent="true" d="M 530 356 L 660 356" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 750 310 L 750 140" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="directhelm" data-edge-to="release" data-edge-label="before Argo only" data-edge-key="4" data-composition-points="750,310;750,140" data-composition-crossover="halo" data-composition-independent="true" d="M 750 310 L 750 140" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 750 290 L 750 202" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="directhelm" data-edge-to="release" data-edge-label="before Argo only" data-edge-key="4" data-composition-points="750,290;750,202" data-composition-crossover="halo" data-composition-independent="true" d="M 750 290 L 750 202" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 130 380 L 130 560" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="ci" data-edge-to="harness" data-edge-label="shared Make gates" data-edge-key="5" data-composition-points="130,380;130,560" data-composition-crossover="halo" data-composition-independent="true" d="M 130 380 L 130 560" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 130 422 L 130 510" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ci" data-edge-to="harness" data-edge-label="shared Make gates" data-edge-key="5" data-composition-points="130,422;130,510" data-composition-crossover="halo" data-composition-independent="true" d="M 130 422 L 130 510" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 220 595 L 350 595" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="harness" data-edge-to="terraform" data-edge-label="plan-only mocks" data-edge-key="6" data-composition-points="220,595;350,595" data-composition-crossover="halo" data-composition-independent="true" d="M 220 595 L 350 595" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 220 576 L 350 576" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="harness" data-edge-to="terraform" data-edge-label="plan-only mocks" data-edge-key="6" data-composition-points="220,576;350,576" data-composition-crossover="halo" data-composition-independent="true" d="M 220 576 L 350 576" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 130 800 L 130 630" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="bitbucket" data-edge-to="harness" data-edge-label="adapter / pending" data-edge-key="7" data-composition-points="130,800;130,630" data-composition-crossover="halo" data-composition-independent="true" d="M 130 800 L 130 630" class="a-dashed" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 130 730 L 130 642" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="bitbucket" data-edge-to="harness" data-edge-label="adapter / pending" data-edge-key="7" data-composition-points="130,730;130,642" data-composition-crossover="halo" data-composition-independent="true" d="M 130 730 L 130 642" class="a-dashed" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
 
         <!-- Components -->
         <g id="node-git" data-node-id="git" data-node-label="Published Git SHA" tabindex="0" role="button" aria-label="Focus Published Git SHA, immutable source revision, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="immutable source revision" data-node-context="Architecture component">
           <title>Published Git SHA · immutable source revision · Architecture component</title>
-          <rect x="40" y="70" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="70" width="180" height="70" rx="8" class="c-external" data-animate="node" style="--step:0" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 76) scale(0.6875)">
+          <rect x="40" y="70" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="40" y="70" width="180" height="132" rx="8" class="c-external atlas-node" data-animate="node" style="--step:0" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(106 88) scale(3)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="130" y="103" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Published Git SHA</text>
-        <text data-detail="context" x="130" y="119" class="t-muted" font-size="9" text-anchor="middle">immutable source revision</text>
+          <text data-node-label="" data-detail-anchor="" x="130" y="164" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Published Git SHA</text>
+        <text data-detail="context" x="130" y="180" class="t-muted" font-size="10" text-anchor="middle">immutable source revision</text>
         </g>
 
         <g id="node-argocd" data-node-id="argocd" data-node-label="Argo CD" tabindex="0" role="button" aria-label="Focus Argo CD, application release owner, Local kind cluster / Argo owns the application" aria-pressed="false" data-node-kind="backend" data-node-sublabel="application release owner" data-node-context="Local kind cluster / Argo owns the application">
           <title>Argo CD · application release owner · Local kind cluster / Argo owns the application</title>
-          <rect x="350" y="70" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="350" y="70" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(356 76) scale(0.6875)">
+          <rect x="350" y="70" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="350" y="70" width="180" height="132" rx="8" class="c-backend atlas-node" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(416 88) scale(3)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="440" y="103" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Argo CD</text>
-        <text data-detail="context" x="440" y="119" class="t-muted" font-size="9" text-anchor="middle">application release owner</text>
+          <text data-node-label="" data-detail-anchor="" x="440" y="164" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Argo CD</text>
+        <text data-detail="context" x="440" y="180" class="t-muted" font-size="10" text-anchor="middle">application release owner</text>
         </g>
 
         <g id="node-release" data-node-id="release" data-node-label="kind release" tabindex="0" role="button" aria-label="Focus kind release, API / DB / observability, Local kind cluster / Argo owns the application" aria-pressed="false" data-node-kind="backend" data-node-sublabel="API / DB / observability" data-node-context="Local kind cluster / Argo owns the application">
           <title>kind release · API / DB / observability · Local kind cluster / Argo owns the application</title>
-          <rect x="660" y="70" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="660" y="70" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(666 76) scale(0.6875)">
+          <rect x="660" y="70" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="660" y="70" width="180" height="132" rx="8" class="c-backend atlas-node" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(726 88) scale(3)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="750" y="103" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kind release</text>
-        <text data-detail="context" x="750" y="119" class="t-muted" font-size="9" text-anchor="middle">API / DB / observability</text>
+          <text data-node-label="" data-detail-anchor="" x="750" y="164" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">kind release</text>
+        <text data-detail="context" x="750" y="180" class="t-muted" font-size="10" text-anchor="middle">API / DB / observability</text>
         </g>
 
         <g id="node-chart" data-node-id="chart" data-node-label="Helm chart" tabindex="0" role="button" aria-label="Focus Helm chart, declarative manifests, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="declarative manifests" data-node-context="Architecture component">
           <title>Helm chart · declarative manifests · Architecture component</title>
-          <rect x="350" y="310" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="350" y="310" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(356 316) scale(0.6875)">
+          <rect x="350" y="290" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="350" y="290" width="180" height="132" rx="8" class="c-backend atlas-node" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(416 308) scale(3)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="440" y="343" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Helm chart</text>
-        <text data-detail="context" x="440" y="359" class="t-muted" font-size="9" text-anchor="middle">declarative manifests</text>
+          <text data-node-label="" data-detail-anchor="" x="440" y="384" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Helm chart</text>
+        <text data-detail="context" x="440" y="400" class="t-muted" font-size="10" text-anchor="middle">declarative manifests</text>
         </g>
 
         <g id="node-directhelm" data-node-id="directhelm" data-node-label="Direct Helm" tabindex="0" role="button" aria-label="Focus Direct Helm, alternate development mode, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="alternate development mode" data-node-context="Architecture component">
           <title>Direct Helm · alternate development mode · Architecture component</title>
-          <rect x="660" y="310" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="660" y="310" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(666 316) scale(0.6875)">
+          <rect x="660" y="290" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="660" y="290" width="180" height="132" rx="8" class="c-backend atlas-node" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(726 308) scale(3)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="750" y="343" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Direct Helm</text>
-        <text data-detail="context" x="750" y="359" class="t-muted" font-size="9" text-anchor="middle">alternate development mode</text>
+          <text data-node-label="" data-detail-anchor="" x="750" y="384" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Direct Helm</text>
+        <text data-detail="context" x="750" y="400" class="t-muted" font-size="10" text-anchor="middle">alternate development mode</text>
         </g>
 
         <g id="node-ci" data-node-id="ci" data-node-label="GitHub / Jenkins" tabindex="0" role="button" aria-label="Focus GitHub / Jenkins, shared Make contracts, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="shared Make contracts" data-node-context="Architecture component">
           <title>GitHub / Jenkins · shared Make contracts · Architecture component</title>
-          <rect x="40" y="310" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="310" width="180" height="70" rx="8" class="c-external" data-animate="node" style="--step:5" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 316) scale(0.6875)">
+          <rect x="40" y="290" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="40" y="290" width="180" height="132" rx="8" class="c-external atlas-node" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(106 308) scale(3)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="130" y="343" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">GitHub / Jenkins</text>
-        <text data-detail="context" x="130" y="359" class="t-muted" font-size="9" text-anchor="middle">shared Make contracts</text>
+          <text data-node-label="" data-detail-anchor="" x="130" y="384" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">GitHub / Jenkins</text>
+        <text data-detail="context" x="130" y="400" class="t-muted" font-size="10" text-anchor="middle">shared Make contracts</text>
         </g>
 
         <g id="node-harness" data-node-id="harness" data-node-label="Offline IaC checks" tabindex="0" role="button" aria-label="Focus Offline IaC checks, no cloud credentials / APIs, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="no cloud credentials / APIs" data-node-context="Architecture component">
           <title>Offline IaC checks · no cloud credentials / APIs · Architecture component</title>
-          <rect x="40" y="560" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="560" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(46 566) scale(0.6875)">
+          <rect x="40" y="510" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="40" y="510" width="180" height="132" rx="8" class="c-backend atlas-node" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(106 528) scale(3)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="130" y="593" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Offline IaC checks</text>
-        <text data-detail="context" x="130" y="609" class="t-muted" font-size="9" text-anchor="middle">no cloud credentials / APIs</text>
+          <text data-node-label="" data-detail-anchor="" x="130" y="604" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Offline IaC checks</text>
+        <text data-detail="context" x="130" y="620" class="t-muted" font-size="10" text-anchor="middle">no cloud credentials / APIs</text>
         </g>
 
         <g id="node-terraform" data-node-id="terraform" data-node-label="Terraform / Terragrunt" tabindex="0" role="button" aria-label="Focus Terraform / Terragrunt, same roots / mocked plans, Plan-only mocks / no remote backend" aria-pressed="false" data-node-kind="backend" data-node-sublabel="same roots / mocked plans" data-node-context="Plan-only mocks / no remote backend">
           <title>Terraform / Terragrunt · same roots / mocked plans · Plan-only mocks / no remote backend</title>
-          <rect x="350" y="560" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="350" y="560" width="180" height="70" rx="8" class="c-backend" data-animate="node" style="--step:7" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(356 566) scale(0.6875)">
+          <rect x="350" y="510" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="350" y="510" width="180" height="132" rx="8" class="c-backend atlas-node" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(416 528) scale(3)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="440" y="593" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Terraform / Terragrunt</text>
-        <text data-detail="context" x="440" y="609" class="t-muted" font-size="9" text-anchor="middle">same roots / mocked plans</text>
+          <text data-node-label="" data-detail-anchor="" x="440" y="604" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Terraform / Terragrunt</text>
+        <text data-detail="context" x="440" y="620" class="t-muted" font-size="10" text-anchor="middle">same roots / mocked plans</text>
         </g>
 
         <g id="node-atlantis" data-node-id="atlantis" data-node-label="Atlantis offline" tabindex="0" role="button" aria-label="Focus Atlantis offline, webhook / PR plan pending, No network, credentials, mounts or host port" aria-pressed="false" data-node-kind="security" data-node-sublabel="webhook / PR plan pending" data-node-context="No network, credentials, mounts or host port">
           <title>Atlantis offline · webhook / PR plan pending · No network, credentials, mounts or host port</title>
-          <rect x="660" y="560" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="660" y="560" width="180" height="70" rx="8" class="c-security" data-animate="node" style="--step:8" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(666 566) scale(0.6875)">
+          <rect x="660" y="510" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="660" y="510" width="180" height="132" rx="8" class="c-security atlas-node" data-animate="node" style="--step:8" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(726 528) scale(3)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="750" y="593" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Atlantis offline</text>
-        <text data-detail="context" x="750" y="609" class="t-muted" font-size="9" text-anchor="middle">webhook / PR plan pending</text>
+          <text data-node-label="" data-detail-anchor="" x="750" y="604" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Atlantis offline</text>
+        <text data-detail="context" x="750" y="620" class="t-muted" font-size="10" text-anchor="middle">webhook / PR plan pending</text>
         </g>
 
         <g id="node-bitbucket" data-node-id="bitbucket" data-node-label="Bitbucket adapter" tabindex="0" role="button" aria-label="Focus Bitbucket adapter, SaaS execution pending, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="SaaS execution pending" data-node-context="Architecture component">
           <title>Bitbucket adapter · SaaS execution pending · Architecture component</title>
-          <rect x="40" y="800" width="180" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="800" width="180" height="70" rx="8" class="c-external" data-animate="node" style="--step:7" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 806) scale(0.6875)">
+          <rect x="40" y="730" width="180" height="132" rx="8" class="c-mask"/>
+          <rect x="40" y="730" width="180" height="132" rx="8" class="c-external atlas-node" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(106 748) scale(3)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="130" y="833" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Bitbucket adapter</text>
-        <text data-detail="context" x="130" y="849" class="t-muted" font-size="9" text-anchor="middle">SaaS execution pending</text>
+          <text data-node-label="" data-detail-anchor="" x="130" y="824" class="t-primary" font-size="13" font-weight="400" text-anchor="middle">Bitbucket adapter</text>
+        <text data-detail="context" x="130" y="840" class="t-muted" font-size="10" text-anchor="middle">SaaS execution pending</text>
         </g>
 
         <!-- Connection labels -->
         <g data-detail="context" data-edge-from="git" data-edge-to="argocd" data-edge-label="exact Git SHA" data-edge-key="0">
-          <rect x="248.8" y="85" width="72.4" height="14" rx="3" class="c-mask"/>
-          <text x="285" y="95" class="t-edge-emphasis" font-size="8" text-anchor="middle">exact Git SHA</text>
+          <rect x="241" y="114" width="88" height="16" rx="3" class="c-mask"/>
+          <text x="285" y="126" class="t-edge-emphasis" font-size="10" text-anchor="middle">exact Git SHA</text>
         </g>
         <g data-detail="context" data-edge-from="chart" data-edge-to="argocd" data-edge-label="Helm templates" data-edge-key="1">
-          <rect x="401.4" y="290" width="77.2" height="14" rx="3" class="c-mask"/>
-          <text x="440" y="300" class="t-edge-default" font-size="8" text-anchor="middle">Helm templates</text>
+          <rect x="393" y="268" width="94" height="16" rx="3" class="c-mask"/>
+          <text x="440" y="280" class="t-edge-default" font-size="10" text-anchor="middle">Helm templates</text>
         </g>
         <g data-detail="context" data-edge-from="argocd" data-edge-to="release" data-edge-label="sync / self-heal" data-edge-key="2">
-          <rect x="551.6" y="85" width="86.8" height="14" rx="3" class="c-mask"/>
-          <text x="595" y="95" class="t-edge-emphasis" font-size="8" text-anchor="middle">sync / self-heal</text>
+          <rect x="542" y="114" width="106" height="16" rx="3" class="c-mask"/>
+          <text x="595" y="126" class="t-edge-emphasis" font-size="10" text-anchor="middle">sync / self-heal</text>
         </g>
         <g data-detail="context" data-edge-from="chart" data-edge-to="directhelm" data-edge-label="templates" data-edge-key="3">
-          <rect x="568.4" y="325" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="595" y="335" class="t-edge-default" font-size="8" text-anchor="middle">templates</text>
+          <rect x="563" y="334" width="64" height="16" rx="3" class="c-mask"/>
+          <text x="595" y="346" class="t-edge-default" font-size="10" text-anchor="middle">templates</text>
         </g>
         <g data-detail="context" data-edge-from="directhelm" data-edge-to="release" data-edge-label="before Argo only" data-edge-key="4">
-          <rect x="706.6" y="290" width="86.8" height="14" rx="3" class="c-mask"/>
-          <text x="750" y="300" class="t-edge-default" font-size="8" text-anchor="middle">before Argo only</text>
+          <rect x="697" y="268" width="106" height="16" rx="3" class="c-mask"/>
+          <text x="750" y="280" class="t-edge-default" font-size="10" text-anchor="middle">before Argo only</text>
         </g>
         <g data-detail="context" data-edge-from="ci" data-edge-to="harness" data-edge-label="shared Make gates" data-edge-key="5">
-          <rect x="32.400000000000006" y="463" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="78.2" y="473" class="t-edge-default" font-size="8" text-anchor="middle">shared Make gates</text>
+          <rect x="12" y="457" width="112" height="16" rx="3" class="c-mask"/>
+          <text x="68" y="469" class="t-edge-default" font-size="10" text-anchor="middle">shared Make gates</text>
         </g>
         <g data-detail="context" data-edge-from="harness" data-edge-to="terraform" data-edge-label="plan-only mocks" data-edge-key="6">
-          <rect x="244" y="575" width="82" height="14" rx="3" class="c-mask"/>
-          <text x="285" y="585" class="t-edge-default" font-size="8" text-anchor="middle">plan-only mocks</text>
+          <rect x="235" y="554" width="100" height="16" rx="3" class="c-mask"/>
+          <text x="285" y="566" class="t-edge-default" font-size="10" text-anchor="middle">plan-only mocks</text>
         </g>
         <g data-detail="context" data-edge-from="bitbucket" data-edge-to="harness" data-edge-label="adapter / pending" data-edge-key="7">
-          <rect x="84.2" y="780" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="130" y="790" class="t-edge-dashed" font-size="8" text-anchor="middle">adapter / pending</text>
+          <rect x="74" y="708" width="112" height="16" rx="3" class="c-mask"/>
+          <text x="130" y="720" class="t-edge-dashed" font-size="10" text-anchor="middle">adapter / pending</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
         <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="Local kind cluster / Argo owns the application">
-          <rect data-graph-role="structural-frame-label-mask" x="328" y="50" width="258.4" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="332" y="63" class="t-cloud" font-size="9" font-weight="600">Local kind cluster / Argo owns the application</text>
+          <rect data-graph-role="structural-frame-label-mask" x="328" y="47" width="341.2" height="19" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="332" y="63" class="t-cloud" font-size="12" font-weight="600">Local kind cluster / Argo owns the application</text>
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="security-group" data-composition-frame-label="Plan-only mocks / no remote backend">
-          <rect data-graph-role="structural-frame-label-mask" x="334" y="540" width="199" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="338" y="553" class="t-security" font-size="9" font-weight="600">Plan-only mocks / no remote backend</text>
+          <rect data-graph-role="structural-frame-label-mask" x="334" y="489" width="211.99999999999997" height="17" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="338" y="502.6190476190476" class="t-security" font-size="9.619047619047619" font-weight="600">Plan-only mocks / no remote backend</text>
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="security-group" data-composition-frame-label="No network, credentials, mounts or host port">
-          <rect data-graph-role="structural-frame-label-mask" x="644" y="540" width="212" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="648" y="551.6515151515151" class="t-security" font-size="7.651515151515152" font-weight="600">No network, credentials, mounts or host port</text>
+          <rect data-graph-role="structural-frame-label-mask" x="644" y="490" width="212" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="648" y="501.6515151515151" class="t-security" font-size="7.651515151515152" font-weight="600">No network, credentials, mounts or host port</text>
         </g>
 
         <!-- Legend -->
         <g data-legend="" data-legend-bridge="">
-          <text x="40" y="902" class="t-primary" font-size="12" font-weight="650">Legend</text>
-          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="40" data-legend-baseline="922" data-legend-width="87">
-            <rect x="40" y="913" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
-            <text x="62" y="922" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          <text x="40" y="894" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="40" data-legend-baseline="914" data-legend-width="87">
+            <rect x="40" y="905" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="914" class="t-muted" font-size="10" font-weight="500">Backend</text>
           </g>
-          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Security" data-legend-x="149" data-legend-baseline="922" data-legend-width="93">
-            <rect x="149" y="913" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
-            <text x="171" y="922" class="t-muted" font-size="10" font-weight="500">Security</text>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Security" data-legend-x="149" data-legend-baseline="914" data-legend-width="93">
+            <rect x="149" y="905" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="171" y="914" class="t-muted" font-size="10" font-weight="500">Security</text>
           </g>
-          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="264" data-legend-baseline="922" data-legend-width="93">
-            <rect x="264" y="913" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
-            <text x="286" y="922" class="t-muted" font-size="10" font-weight="500">External</text>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="264" data-legend-baseline="914" data-legend-width="93">
+            <rect x="264" y="905" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="286" y="914" class="t-muted" font-size="10" font-weight="500">External</text>
           </g>
         </g>
-      </svg>
+      <style>/* AWS-reference presentation. Embedded in the canonical SVG before Archify checks. */
+svg[data-aws-style] {
+  --mask: #fff;
+  --text: #232f3e;
+  --text-muted: #545b64;
+  --text-dim: #687078;
+  --arrow: #545b64;
+  --arrow-emphasis: #545b64;
+  background: #fff;
+  color: #232f3e;
+}
+svg[data-aws-style] text { font-family: Arial, Helvetica, sans-serif; }
+svg[data-aws-style] .c-grid { stroke: none; }
+svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind] > rect.atlas-node {
+  fill: #fff;
+  stroke: #d5dbdb;
+  stroke-width: .8px;
+  rx: 1px;
+  filter: none !important; /* Override the upstream classic preset's lifted cards. */
+  --ambient-node-base-filter: none;
+}
+svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind] > rect.atlas-node.atlas-aws {
+  stroke: transparent;
+}
+svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind]:hover > rect.atlas-node,
+svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind]:focus-visible > rect.atlas-node,
+svg[data-aws-style][data-node-ui] [data-node-id][data-node-kind][aria-pressed="true"] > rect.atlas-node {
+  stroke: #0073bb;
+  stroke-width: 1.8px;
+}
+svg[data-aws-style] .semantic-sigil { color: #545b64; opacity: 1; }
+svg[data-aws-style] image[data-aws-icon] { pointer-events: none; }
+svg[data-aws-style][data-node-ui] .c-region {
+  fill: none;
+  stroke: #5b8796;
+  stroke-width: 1px;
+  stroke-dasharray: none;
+  rx: 0;
+}
+svg[data-aws-style][data-atlas-view="aws"] .c-region { stroke: #24883b; }
+svg[data-aws-style][data-node-ui] .c-security-group {
+  fill: none;
+  stroke: #5b8796;
+  stroke-dasharray: 4 3;
+  rx: 0;
+}
+svg[data-aws-style][data-node-ui] [data-graph-role="structural-frame-label-mask"] {
+  fill: #fff;
+  stroke: none;
+  rx: 0;
+}
+svg[data-aws-style] [data-boundary-label] { fill: #3b6977; font-weight: 400; }
+svg[data-aws-style][data-atlas-view="aws"] [data-boundary-label] { fill: #24883b; }
+svg[data-aws-style] :is(.a-default, .a-emphasis, .a-security, .a-dashed) { stroke: #545b64; }
+svg[data-aws-style] :is(.m-default, .m-emphasis, .m-security, .m-dashed) { fill: #545b64; }
+svg[data-aws-style] :is(.t-edge-default, .t-edge-emphasis, .t-edge-security, .t-edge-dashed) {
+  fill: #545b64;
+  font-style: italic;
+}
+svg[data-aws-style][data-node-ui] g[data-edge-from] > rect.c-mask {
+  stroke: none;
+  rx: 0;
+}
+</style></svg>
       <p class="intent-trace-status no-print" id="intent-trace-status" role="status" aria-live="polite" aria-atomic="true"></p>
       <div class="diagram-guide no-print" id="diagram-guide" hidden role="dialog" aria-modal="false" aria-labelledby="diagram-guide-title">
         <div class="diagram-guide-head">

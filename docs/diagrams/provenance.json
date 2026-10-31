@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-31T03:02:38.451493+00:00",
-  "review_note": "Revalidated unchanged topology and artifact hashes; source inventory now labels each digest as sha256 after a scanner false positive on the public Atlantis authorization script checksum",
+  "reviewed_at": "2026-10-31T04:21:06.641663+00:00",
+  "review_note": "AWS-reference appearance: unchanged semantics; regenerated views and input bindings; corrected Dark node fills/control contrast; all native browser and light/dark capture checks passed",
   "source_globs": [
     "infra/**",
     "platform/**",
@@ -218,13 +218,13 @@
       "sha256": "d253808cafdc7b3761a86a63badebe08d892bd008f919da3197d08cdafb0def2"
     },
     "scripts/diagram-browser-smoke.mjs": {
-      "sha256": "c1f8410e3d7c2ec42a47656e168b16c5e24a8c2bc18c56d757e0f7fc0def3264"
+      "sha256": "7f6091048330495a8eb5ba3efaba89f9d3adefc80255d47ea18176180bb14576"
     },
     "scripts/diagram-build.py": {
-      "sha256": "2fb14ee7a3f359cf577a6d388fae17990110ce1e1e88f761cb1252ad002fb010"
+      "sha256": "ed8abf93986c04110def45af2ce7b596c2aba65ea2c6e1da696b77b62a04bb9c"
     },
     "scripts/diagram.py": {
-      "sha256": "f424fbdb6662afba2eaea18f4e5466d318b9d1942289393ecba1a1f805c5e3de"
+      "sha256": "27b5a57163f0702c869b52b051c4522e1a6073459f86dc1e9ec810644cfe80ca"
     },
     "scripts/doctor.py": {
       "sha256": "10ecc7d153c04f3b8dd974fafd6efc3d1b143184ca855f043d22033bdd7db1d3"
@@ -293,7 +293,7 @@
       "sha256": "d685741b6197610b62e1d8b3d62b52fbbee6f510d9db770749f3a3e9c9ce9927"
     },
     "tests/harness/test_diagram.py": {
-      "sha256": "4a564b99d96015ba4bba00ca04e9f6b44c4eba683658a3d6814cbb01bc6a1b96"
+      "sha256": "6709145fce45e6535ce5d9cdfcbe288f8aa58e564e09dac186375946a04a08d1"
     },
     "tests/harness/test_evidence.py": {
       "sha256": "ddc6b3a60dad654d3e614f0dfa323f3d259e4976f1e1605d6d24d3a5890bc2ec"
@@ -309,11 +309,11 @@
     }
   },
   "artifacts": {
-    "docs/diagrams/aws.json": "2b25b4c981aee0c9a9af1a30b52cd6e5bada48c162c99ec68a3b21a4582eee8d",
-    "docs/diagrams/bootstrap.json": "571092e5d64a04b347efea03eb177365705bb240688226e7c368be30cfcaa5a3",
-    "docs/diagrams/delivery.json": "c54083ca6a0ea931d36c25cb2a21b0228e82d77c9f4bfa385a324410076c24cf",
+    "docs/diagrams/aws.json": "2c8809b7f1f5be5b7655d2b21de5db77d40427bc96f6c3d78ba1a18405dad25b",
+    "docs/diagrams/bootstrap.json": "5eb068adabe20ada325de99cc98522e7224785a42c747638ed2fd254b94a31a5",
+    "docs/diagrams/delivery.json": "efb79ffd15b7636c59b288b11455e466156568c977f9bc03a74ffdd74a6ab4e2",
     "docs/diagrams/icons.json": "d8591668e36720499394c6c6f85d0cb2190013fd4b926ae062dad1e2591955de",
-    "docs/diagrams/local.json": "b902284eaeb14af1b05b54f6fe219c815ec2c5326483da9a98e112c32c546932",
+    "docs/diagrams/local.json": "85d7e5055678daf0ae60fafd9991b685f3ce932f16bb36adb1a79df89558e179",
     "docs/diagrams/public/assets/aws/iam.svg": "3135793557c065d0481a3985ccc0574b36278d56a2e2c5d59107d0d28f51b827",
     "docs/diagrams/public/assets/aws/igw.svg": "d31cd837a33508372a7d43a556daa0138b6e2004c94a76e2f7f8b977409659aa",
     "docs/diagrams/public/assets/aws/kms.svg": "5b3ed298ae380707f77ca21c2f417d0a7a36e70e59bfe9a5d8f281b8447ae750",
@@ -321,18 +321,19 @@
     "docs/diagrams/public/assets/aws/public-subnet.svg": "009342df9afcc20b8c6f0d82ded7620105aaa7e53eb253d74f80a9e7d3beee58",
     "docs/diagrams/public/assets/aws/s3.svg": "b92c5101cc6565dd12df37655802279f8fba0c719279f62f93106d26750b36c6",
     "docs/diagrams/public/assets/aws/vpc.svg": "4cb934198b019bccdd8efc2ef7e95d3bb200148b14919f36082a26436a9bcd8c",
-    "docs/diagrams/public/aws.html": "0bfe022e30c062b68cc41ef2be01748d94c52c7345baec596beab9fd34851dd7",
-    "docs/diagrams/public/bootstrap.html": "3d3cd621a0c2f2dda59a602349ddab9ff6201c692bb712e67fc7c58111af17c8",
-    "docs/diagrams/public/delivery.html": "0a47df99d1e0312e1a9c0d7618767f52063e5b36ca767b2bcdfc4b9383d9f274",
-    "docs/diagrams/public/index.html": "dd2203e06a028a7fb6cbfe2ed96e5ea47471027c14c7bbbdc7f4cd13d1bb9152",
+    "docs/diagrams/public/aws.html": "27c4977d9f1e1d6dec12baad4538a8ecc21c4208dd99f676b19bcc6eda12836d",
+    "docs/diagrams/public/bootstrap.html": "4ea663f630bb57f04c8f01980cef7cf317d7319374fd3ca56efb186ea1cfc0c3",
+    "docs/diagrams/public/delivery.html": "70cd50e4e8b4ebc44f7b0044bc2413a8f52aa63952142f490e94cce26156756b",
+    "docs/diagrams/public/index.html": "8281712e03de5bf0bbbb2a876be7277da898504154e563d4eeccfc5a4568748b",
     "docs/diagrams/public/licenses/ARCHIFY-LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "docs/diagrams/public/licenses/ARCHIFY-LICENSE-MIT": "b799ab081703e7821ae5096d2c1abdf14bbdc75e8ea1c4045998c36ed6db9706",
     "docs/diagrams/public/licenses/ARCHIFY-NOTICE": "665eb53e6fcf09cee183c9f23c8052645dc95570d9ccbbf53dc0f5213a1b5edd",
     "docs/diagrams/public/licenses/ARCHIFY-THIRD_PARTY_NOTICES.md": "b5e129197f391568f7abf287c74b24f4835f10e5388f600407c8788feaeb9015",
-    "docs/diagrams/public/local.html": "5f7e58adbe717dfaeca516485a26d09b9339464a8aeb16d228f45bbab8661e71",
-    "docs/diagrams/receipts.json": "9275be48391edffbad7e03504a03cad2b948fbf1b1cb140e64f4a22d8de25ae8",
-    "docs/diagrams/validation.md": "fc772451658e320913e43c1f6d27f97b4691e1f84591a51d09b212241d80f925",
-    "docs/diagrams/vendor.json": "004dad80b039fb1ba3c9d1472a587407676d97a71fbec80ec2f1cd68de60f320",
-    "docs/diagrams/visual-review.json": "a0e5e5f8d7829271a63e0f00f7ec028fbb8a81ff0c492d2115a3f17ce90ee2c4"
+    "docs/diagrams/public/local.html": "2ee9b70125e905d1ff2c332cb383fe51c2827d9d95e3ae743b7df55262459040",
+    "docs/diagrams/receipts.json": "47059f8d84661dc98a8dd63152db79b6d4c3c935dccf3e73dea73442f06e4996",
+    "docs/diagrams/style.css": "443d18c0239a5530380ad005fa823fdaa9759620377effc4648635697fce8829",
+    "docs/diagrams/validation.md": "7759a2cbf9a2702eb0090c565f96eae6cf2cd0678906b75b350b69c3d9f859df",
+    "docs/diagrams/vendor.json": "0d4e168216751b7446a4eea3f8eb6e25fac4d53399344fb598b54aba320b4ce3",
+    "docs/diagrams/visual-review.json": "fe1954fc5a604f9ba2ddd41a99c6896e69964b57d8b6122c9ed6339a99da79ef"
   }
 }

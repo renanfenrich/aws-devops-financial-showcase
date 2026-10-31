@@ -47,7 +47,7 @@
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {
@@ -68,7 +68,7 @@
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {
@@ -99,7 +99,7 @@
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {
@@ -126,11 +126,11 @@
       "sublabel": "scrapes / alert rules",
       "pos": [
         350,
-        330
+        290
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {
@@ -147,11 +147,11 @@
       "sublabel": "batch / bounded memory",
       "pos": [
         660,
-        330
+        290
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {
@@ -168,11 +168,11 @@
       "sublabel": "provisioned dashboards",
       "pos": [
         350,
-        590
+        510
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {
@@ -194,11 +194,11 @@
       "sublabel": "local ephemeral traces",
       "pos": [
         660,
-        590
+        510
       ],
       "size": [
         180,
-        70
+        132
       ],
       "sources": [
         {

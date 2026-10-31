@@ -28,16 +28,22 @@ try {
   ` });
   const click = await createViewerClick({ send, run, timeout: 10000 });
   const loaded = browser.cdp.waitFor('Page.loadEventFired', session);
-  await send('Page.navigate', { url: pathToFileURL(artifact).href + '?theme=light' });
+  await send('Page.navigate', { url: pathToFileURL(artifact).href });
   await loaded;
   await run('document.fonts.ready');
   await run('Archify.viewerChromeLayout.whenStable()');
+  assert.equal(await run('document.documentElement.dataset.theme'), 'light');
+  assert.equal(await run('document.querySelector(".diagram-container > svg").dataset.awsStyle'), 'reference');
   const key = async (key, code, windowsVirtualKeyCode) => {
     await send('Input.dispatchKeyEvent', { type: 'keyDown', key, code, windowsVirtualKeyCode });
     await send('Input.dispatchKeyEvent', { type: 'keyUp', key, code, windowsVirtualKeyCode });
   };
   await click('#btn-theme');
   assert.equal(await run('document.documentElement.dataset.theme'), 'dark');
+  assert.equal(await run('getComputedStyle(document.querySelector(".diagram-container > svg")).backgroundColor'), 'rgb(255, 255, 255)');
+  assert.deepEqual(await run(`Array.from(document.querySelectorAll('rect.atlas-node'), n => getComputedStyle(n).fill)`),
+    model.components.map(() => 'rgb(255, 255, 255)'));
+  assert.equal(await run('getComputedStyle(document.getElementById("btn-node-finder")).color'), 'rgb(84, 91, 100)');
   const first = model.components[0];
   await click('#btn-node-finder');
   assert.equal(await run('Archify.finder.isOpen()'), true);
@@ -60,9 +66,22 @@ try {
   assert.deepEqual(await run(`performance.getEntriesByType('resource').map(e=>e.name).filter(n=>/^https?:/.test(n))`), []);
   const awsImages = await run('document.querySelectorAll(".diagram-container > svg image[data-aws-icon]").length');
   assert.equal(awsImages, model.components.filter(n => n.tag?.startsWith('AWS')).length);
+  const iconLayout = await run(`Array.from(document.querySelectorAll('image[data-aws-icon]'), image => ({
+    width: Number(image.getAttribute('width')), height: Number(image.getAttribute('height')),
+    labelY: Number(image.parentElement.querySelector('text[data-node-label]').getAttribute('y')),
+    bottom: Number(image.getAttribute('y')) + Number(image.getAttribute('height')),
+    aspect: image.getAttribute('preserveAspectRatio'),
+    filter: getComputedStyle(image.parentElement.querySelector('rect.atlas-node')).filter
+  }))`);
+  for (const icon of iconLayout) {
+    assert.equal(icon.width, 64); assert.equal(icon.height, 64);
+    assert.ok(icon.labelY > icon.bottom, 'AWS label must sit below the primary icon');
+    assert.equal(icon.aspect, 'xMidYMid meet'); assert.equal(icon.filter, 'none');
+  }
   console.log(JSON.stringify({ status: 'pass', theme: 'native-click', finder: 'native-text-input',
     focus: first.id, source_evidence: 'present', route: [edge.from, edge.to],
-    route_input: 'native-clicks', aws_images: awsImages, external_resources: 0, runtime_errors: 0 }));
+    route_input: 'native-clicks', aws_images: awsImages, presentation: 'aws-reference',
+    aws_icon_size: 64, external_resources: 0, runtime_errors: 0 }));
 } finally {
   await browser.close();
 }

@@ -24,7 +24,7 @@
       "bin/visual-check.mjs": "72a8eec9793588552da4013f228eb3fb5ad4936a3d3cf31920de883b77ca3dfd",
       "../test/helpers/viewer-click.mjs": "8110ef8c3655358bd90bf9b89ae8abf9d24eb746e0ea3ca7921005d3f6b9dbfe"
     },
-    "adaptation": "scripts/diagram-build.py inserts unmodified official AWS SVG bytes as images in the canonical SVG before finalize, and stamps model/icon/vendor input hashes. No post-finalize HTML edits."
+    "adaptation": "scripts/diagram-build.py preserves Archify semantic groups, source/focus/route metadata and modeled hitboxes, renders centered original AWS icons with labels below, and embeds style.css in canonical SVG before finalize. Input hashes include style and builder; no post-finalize HTML edits."
   },
   "aws_icons": {
     "version": "07312026",

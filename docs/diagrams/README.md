@@ -28,6 +28,13 @@ ownership limits. Local kind is not EKS; PostgreSQL is not RDS. S3, KMS and IAM
 are outside the VPC. AWS arrows are declarations or policy contracts, not traffic.
 See [validation evidence](validation.md) for the checks actually run.
 
+The presentation follows the supplied AWS architecture reference: a white canvas,
+large original AWS marks, labels below, thin rectangular grouping frames and
+neutral connectors. Solid/dashed relationship meaning is preserved. Non-AWS
+tools retain generic native symbols. New viewers default to Light; theme controls
+still work, while the architecture canvas stays white for reference-style reading
+and exports. Styling changes no topology, ownership or evidence category.
+
 ## Updating a PR
 
 Every infrastructure PR must review these views. The explicit `SOURCE_GLOBS` in
@@ -42,7 +49,7 @@ Bitbucket adapter reach `diagram-check` through the existing `make check` contra
    repository revision and citation ranges, then regenerate. Diagram checks compare
    cited working bytes with that commit. Jenkins archive exports can check the
    existing record, but refreshing provenance requires a Git checkout.
-3. For model, icon or vendor changes, run `make diagram-build`; old HTML fails
+3. For model, icon, vendor, `style.css` or builder changes, run `make diagram-build`; old HTML fails
    input-hash checks even if someone refreshes the manifest. Inspect the views.
 4. Revalidate a change without visual impact with a concrete reason, for example:
 
@@ -76,14 +83,18 @@ repository build requires the tested pinned version. Source:
 [Archify upstream](https://github.com/tt-a1i/archify),
 [Node release checksums](https://nodejs.org/dist/v26.13.0/SHASUMS256.txt).
 
-The small, recorded renderer adapter inserts official SVGs as base64 images in
-the canonical SVG before Archify `deliver`, strict `check` and `browser-check`.
-It adds model/icon/vendor hash metadata before generation. Published HTML is an
+The small, recorded renderer adapter inserts official SVGs as 64px base64 images
+and embeds [style.css](style.css) in the canonical SVG before Archify `deliver`,
+strict `check` and `browser-check`. Larger labels and checked label geometry stay
+in sync. Node metadata, hitboxes, sources, route/focus controls and aspect ratios
+are preserved. It adds model/icon/vendor/style/builder hash metadata before generation. Published HTML is an
 identical copy of the checked output, with no post-finalize modification.
 The builder also exercises theme switching, Finder input, source-backed focus
 and directed Route Probe with native clicks/text in a real headless Chrome,
 using Archify's pinned browser test helper. It checks runtime errors, offline
 loading and the expected AWS image count on each actual output.
+It also checks the Light default, white canvas in Dark, 64px icon dimensions,
+labels below the marks, original aspect ratios and absence of lifted-card shadows.
 `receipts.json` retains portable input/output hashes and outcomes; complete receipts
 and browser captures remain under ignored `.cache/diagrams/`.
 Missing browser support is a failed/incomplete build, never a fabricated success.

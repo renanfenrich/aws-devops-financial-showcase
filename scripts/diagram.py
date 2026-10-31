@@ -204,6 +204,8 @@ def validate(root):
             ("spec", model_path),
             ("icons", folder / "icons.json"),
             ("vendor", folder / "vendor.json"),
+            ("style", folder / "style.css"),
+            ("builder", root / "scripts/diagram-build.py"),
         ):
             if parser.bindings.get(f"showcase-{kind}-sha256") != [digest(path)]:
                 raise ValueError(
