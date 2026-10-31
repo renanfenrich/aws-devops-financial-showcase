@@ -32,3 +32,15 @@ Atlantis references: [security](https://www.runatlantis.io/docs/security.html),
 [official fake-credentials startup example](https://www.runatlantis.io/docs/access-credentials),
 [disabled API behavior in pinned source](https://github.com/runatlantis/atlantis/blob/v0.49.0/server/controllers/api_controller.go),
 [health/readiness in pinned source](https://github.com/runatlantis/atlantis/blob/v0.49.0/server/server.go).
+
+
+G2-A authorization compatibility: inspected the exact [0.49.0 external runner](https://github.com/runatlantis/atlantis/blob/v0.49.0/server/core/runtime/external_team_allowlist_runner.go#L28-L45),
+which always exports `PROJECT_NAME`, `REPO_ROOT` and `REPO_REL_PATH`.
+[Upstream authorization phases](https://www.runatlantis.io/docs/repo-and-project-permissions)
+explain the initial repository check and subsequent populated project check.
+[Server flags](https://www.runatlantis.io/docs/server-configuration#autodiscover-mode)
+support `autodiscover-mode: disabled` and
+[`silence-no-projects`](https://www.runatlantis.io/docs/server-configuration#silence-no-projects).
+The smoke verifies these flags exist in the actual pinned binary and exercises
+the image-baked policy without a VCS connection. The allowlist is not an execution
+sandbox and does not establish a real GitHub PR plan or remote-state integration.

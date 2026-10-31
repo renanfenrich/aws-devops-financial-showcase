@@ -52,3 +52,14 @@ exception was added.
 AWS runtime, real Atlantis GitHub webhook/PR plan, Bitbucket SaaS, cloud HA/DR,
 cloud cost measurements, certification, human approval and merge remain separate
 and are not claimed. No AWS provisioning was performed.
+
+## Reviewed merge, 2026-10-31 UTC
+
+After the verification above, `octavariumdigitalpartners` approved PR #1 on head
+`767ac6fb1d2e09d20bcbc279276f00900e7b6698`. With explicit owner authorization,
+the PR was squash-merged into develop as
+`b0e38eba0f73bd6f25a037977a7d114d6902f72e`. The merged tree matches the approved
+head. Only documentation/evidence differs from the runtime-tested `f1603b3`;
+application and harness code is unchanged. The historical gate JSON is not relabeled.
+See the [merge record](../evidence/g1/merge.json). This is a develop merge, not a
+main promotion, deployment, AWS activation or approval of a subsequent PR.

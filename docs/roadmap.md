@@ -11,7 +11,24 @@ The task contract is: read AGENTS.md and the relevant source ledger; change one
 bounded subsystem; run its Make gate; attach evidence and remaining limitations;
 request review. No agent framework, paid API or external memory service is needed.
 
-## G2: scoped AWS runtime (not authorized by G1)
+## G2-A: offline state bootstrap and access contracts
+
+Continue from the reviewed G1 merge in develop. Prepare a separate private,
+versioned, KMS-encrypted state bucket with a disabled-by-default Terraform root;
+validate the enabled design using mocked providers. Publish an inactive backend
+contract with native S3 lockfiles, exact state/lock permissions, and an operator
+runbook. Do not repurpose the synthetic artifact bucket for secret-bearing state.
+
+Atlantis continues to run offline with apply blocked. Its trusted configuration
+must reject the state-bootstrap project/directory before project execution; a
+repository-stage authorization alone does not grant project authorization.
+
+Acceptance: Terraform/Terragrunt and negative-input/security tests pass without
+AWS credentials; state deletion is excluded from the consumer policy while lock
+deletion is permitted; source-bound evidence and a new ready PR are published.
+No identity, remote backend, webhook, cloud resource or paid integration is activated.
+
+## G2-B: scoped AWS runtime (not authorized by G2-A)
 
 - Confirm account identity, region, allowed cost envelope, resource lifetime and
   teardown/backup ownership before provisioning. Estimate costs from current prices.

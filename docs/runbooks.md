@@ -110,3 +110,26 @@ Stop forwards, then run `make down`. Only the `financial-showcase` kind cluster
 and this project's Compose services are removed. Cluster PVC data is disposable;
 the Compose PostgreSQL volume and generated credentials are retained. No global
 Docker prune, host route/firewall change, or cleanup of other projects is allowed.
+
+## G2-A offline state validation
+
+```bash
+make state-test
+make image state-plan-test
+make evidence GATE=state
+make evidence GATE=state-plan
+```
+
+The mocked gate exercises both disabled/default and enabled designs without AWS
+credentials. The separate real-provider plan copies only Terraform code and its
+provider lock into an isolated workspace; workstation tfvars, local state and
+backend caches are excluded. Package initialization may download the pinned
+provider from its registry. Planning runs in a read-only, non-root container with
+no network, using deliberately unusable process-local SDK fields. It requires a
+successful zero-resource plan and null target/backend outputs. Raw temporary
+plans are removed; failures retain private diagnostics and failed evidence.
+
+Do not substitute a plain credential-free `terraform plan`: the SDK still needs
+credential fields even for this empty graph. Do not enable the graph, initialize
+a remote backend, migrate state or attach the policy during G2-A. See the
+[state bootstrap guide](../infra/state-bootstrap/README.md) and its official sources.

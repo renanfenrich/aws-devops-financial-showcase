@@ -13,6 +13,8 @@ allow-commands: version,plan
 allow-fork-prs: false
 allow-draft-prs: false
 disable-autoplan: true
+autodiscover-mode: disabled
+silence-no-projects: true
 automerge: false
 write-git-creds: false
 # api-secret is deliberately ABSENT: the execution API is disabled (HTTP 503).

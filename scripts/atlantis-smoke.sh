@@ -39,18 +39,32 @@ docker exec "$RESOURCE" terraform version -json | python3 -c 'import json,sys; a
 [[ "$(docker inspect -f '{{.HostConfig.ReadonlyRootfs}}' "$RESOURCE")" == true ]]
 [[ "$(docker inspect -f '{{.Config.User}}' "$RESOURCE")" == atlantis ]]
 AUTHZ=/usr/local/bin/showcase-atlantis-authz
+image_authz() {
+  docker exec -e USER_NAME="$1" -e COMMAND_NAME="$2" \
+    -e BASE_REPO_OWNER=renanfenrich -e BASE_REPO_NAME=aws-devops-financial-showcase \
+    -e PROJECT_NAME="$3" -e REPO_REL_PATH="$4" -e REPO_ROOT="$5" \
+    "$RESOURCE" "$AUTHZ"
+}
+[[ "$(image_authz renanfenrich plan aws-foundation infra/terraform/aws-foundation /offline/checkout)" == pass ]]
+# Upstream's first check has explicitly present-empty project fields; no execution yet.
+[[ "$(image_authz renanfenrich version '' '' '')" == pass ]]
+for identity in renanfenrich octavariumdigitalpartners attacker; do
+  [[ "$(image_authz "$identity" apply aws-foundation infra/terraform/aws-foundation /offline/checkout)" != pass ]]
+done
+for directory in infra/terraform/state-bootstrap infra/terraform/unknown \
+  ../aws-foundation /infra/terraform/aws-foundation \
+  infra/terraform/aws-foundation/../state-bootstrap; do
+  [[ "$(image_authz renanfenrich plan aws-foundation "$directory" /offline/checkout)" != pass ]]
+done
+[[ "$(image_authz renanfenrich plan state-bootstrap infra/terraform/aws-foundation /offline/checkout)" != pass ]]
+[[ "$(image_authz renanfenrich plan aws-foundation '' /offline/checkout)" != pass ]]
 [[ "$(docker exec -e USER_NAME=renanfenrich -e COMMAND_NAME=plan \
   -e BASE_REPO_OWNER=renanfenrich -e BASE_REPO_NAME=aws-devops-financial-showcase \
-  "$RESOURCE" "$AUTHZ")" == pass ]]
-for identity in renanfenrich octavariumdigitalpartners attacker; do
-  DENIAL="$(docker exec -e USER_NAME="$identity" -e COMMAND_NAME=apply \
-    -e BASE_REPO_OWNER=renanfenrich -e BASE_REPO_NAME=aws-devops-financial-showcase \
-    "$RESOURCE" "$AUTHZ")"
-  [[ "$DENIAL" != pass ]]
-done
+  "$RESOURCE" "$AUTHZ")" != pass ]]
+docker exec "$RESOURCE" atlantis server --help | python3 -c 'import sys; text=sys.stdin.read(); assert "--autodiscover-mode" in text and "--silence-no-projects" in text'
 if docker exec "$RESOURCE" /usr/local/bin/showcase-deny-apply >/dev/null 2>&1; then
   printf '%s\n' 'Apply refusal unexpectedly succeeded.' >&2
   exit 1
 fi
 python3 -m unittest discover -s tests/infra -p 'test_*.py' -v
-printf '%s\n' 'Atlantis offline smoke passed: startup, health/readiness, metrics, API disabled; GitHub PR/plan E2E PENDING.'
+printf '%s\n' 'Atlantis offline smoke passed: startup, health/readiness, metrics, API disabled, foundation-only authorization; GitHub PR/plan E2E PENDING.'

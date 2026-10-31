@@ -15,7 +15,7 @@ because of unresolved HIGH/CRITICAL base-package findings, not silently ignored.
 | FastAPI 0.162 | [OpenTelemetry](https://fastapi.tiangolo.com/advanced/opentelemetry/), [testing](https://fastapi.tiangolo.com/tutorial/testing/); native instrumentation, no duplicate instrumentor |
 | Psycopg / pool | [Transactions](https://www.psycopg.org/psycopg3/docs/basic/transactions.html), [pool](https://www.psycopg.org/psycopg3/docs/advanced/pool.html); bounded connections and atomic writes |
 | PostgreSQL 18.6 | [Version policy](https://www.postgresql.org/support/versioning/), [backup](https://www.postgresql.org/docs/18/backup-dump.html); current supported stable major, actual restore exercise |
-| Terraform / Terragrunt / Atlantis | [Infrastructure ledger](../infra/SOURCES.md); exact versions, mocking boundary, trusted workflows |
+| Terraform / Terragrunt / Atlantis | [Infrastructure ledger](../infra/SOURCES.md), [G2-A ledger](../infra/state-bootstrap/SOURCES.md); exact versions, native locking, mocking boundary and trusted project authorization |
 | kind / Kubernetes / Calico / Helm / Argo | [Platform ledger](../platform/SOURCES.md); tested compatibility intersection and pinned images |
 | OpenTelemetry | [Python SDK](https://opentelemetry.io/docs/languages/python/); OTLP traces with bounded metadata |
 | Prometheus | [Instrumentation](https://prometheus.io/docs/practices/instrumentation/); low-cardinality route metrics |

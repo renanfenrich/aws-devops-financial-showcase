@@ -12,6 +12,8 @@ documentation/evidence; it does not change the verified application or harness.
 - [Real Jenkins build](g1/jenkins.json) and [Jenkins gate](g1/jenkins-gate.json).
 - [Security scan](g1/security.json) and [security gate](g1/security-gate.json): filesystem and API image only.
 - [GitHub CI](g1/github-ci.json): completed remote run for the tested code revision.
+- [Reviewed G1 merge](g1/merge.json): current-head approval and the content-equivalent
+  squash into develop; historical runtime records retain their original tested SHA.
 
 Raw scanner matches, environment files, database dumps and private failure logs
 are excluded. Full source-bound run histories remain in ignored `artifacts/history/`.
@@ -24,3 +26,11 @@ the nested Docker index, `e427ec…` is the platform manifest and `be4c85…` it
 The local load path selects one replica
 through port-forward and does not establish load balancing or cloud capacity.
 Restore timing describes a paused-write local logical snapshot, not cloud RPO/RTO.
+
+## G2-A offline state evidence
+
+[Verification record](../docs/evidence-g2-a.md) and [machine-readable records](g2-a/)
+bind the offline state, Atlantis, scanner and Jenkins gates to clean source
+`e3951d995125c81537782886a12775c6ed5bebda`. These do not replace G1 runtime evidence
+or establish an active AWS state store, authenticated cloud behavior, human approval
+or merge of the G2-A PR. Synthetic SDK fixtures are not real credentials.

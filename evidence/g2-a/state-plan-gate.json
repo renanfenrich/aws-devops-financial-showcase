@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "run_id": "20261031T003455.463961Z-def79a8ef586",
+  "sha": "e3951d995125c81537782886a12775c6ed5bebda",
+  "dirty_worktree": false,
+  "source_tree_sha256": "fe2d9f10a026d4cdd511fda8d3afc746f6d696e2c57b114c4ee90ea3a0871de0",
+  "source_start": {
+    "sha": "e3951d995125c81537782886a12775c6ed5bebda",
+    "dirty_worktree": false,
+    "source_tree_sha256": "fe2d9f10a026d4cdd511fda8d3afc746f6d696e2c57b114c4ee90ea3a0871de0"
+  },
+  "source_end": {
+    "sha": "e3951d995125c81537782886a12775c6ed5bebda",
+    "dirty_worktree": false,
+    "source_tree_sha256": "fe2d9f10a026d4cdd511fda8d3afc746f6d696e2c57b114c4ee90ea3a0871de0"
+  },
+  "source_changed_during_run": false,
+  "gate": "state-plan",
+  "command": "make state-plan-test",
+  "started_at": "2026-10-31T00:34:55.463961+00:00",
+  "finished_at": "2026-10-31T00:35:01.477173+00:00",
+  "command_exit_code": 0,
+  "exit_code": 0,
+  "result": "passed",
+  "toolchain": {
+    "schema_version": 1,
+    "verified_at": "2026-10-30",
+    "platform": "linux_amd64",
+    "tools": {
+      "kind": {
+        "version": "0.33.0",
+        "url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.33.0/kind-linux-amd64",
+        "sha256": "aee6151561422756b764a4ae28e7f44cda5af5a9eead3cc9985112b1de8d8e0d",
+        "member": null,
+        "source": "https://github.com/kubernetes-sigs/kind/releases/tag/v0.33.0"
+      },
+      "uv": {
+        "version": "0.13.6",
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.6/uv-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "f29c3e94ffabd7e6f3ba521dba169a9b7ec12100bf3257087f0f24f6123f3645",
+        "member": "uv-x86_64-unknown-linux-gnu/uv",
+        "source": "https://github.com/astral-sh/uv/releases/tag/0.13.6"
+      },
+      "terragrunt": {
+        "version": "1.2.1",
+        "url": "https://github.com/gruntwork-io/terragrunt/releases/download/v1.2.1/terragrunt_linux_amd64",
+        "sha256": "f2f6238ad2348855a4e876b90fd31f3f5d106bb234794202a00b2bcc139fa753",
+        "member": null,
+        "source": "https://github.com/gruntwork-io/terragrunt/releases/tag/v1.2.1"
+      },
+      "tflint": {
+        "version": "0.65.0",
+        "url": "https://github.com/terraform-linters/tflint/releases/download/v0.65.0/tflint_linux_amd64.zip",
+        "sha256": "d4c545ed2e29d6338604b586f34f544f380f70f243aa72f7b484713835eaec61",
+        "member": "tflint",
+        "source": "https://github.com/terraform-linters/tflint/releases/tag/v0.65.0"
+      },
+      "trivy": {
+        "version": "0.76.1",
+        "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.76.1_Linux-64bit.tar.gz",
+        "sha256": "c7cbe3137fb8a48a17574bede3dd6beb16742d1e9772929940fc90082c39d9c0",
+        "member": "trivy",
+        "source": "https://github.com/aquasecurity/trivy/releases/tag/v0.76.1"
+      },
+      "actionlint": {
+        "version": "1.7.12",
+        "url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz",
+        "sha256": "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
+        "member": "actionlint",
+        "source": "https://github.com/rhysd/actionlint/releases/tag/v1.7.12"
+      },
+      "promtool": {
+        "version": "3.15.1",
+        "url": "https://github.com/prometheus/prometheus/releases/download/v3.15.1/prometheus-3.15.1.linux-amd64.tar.gz",
+        "sha256": "6a726885328ad9efebbf36e876ce2fb6225468a71fd1e7ce3ba666d5f4d97a84",
+        "member": "prometheus-3.15.1.linux-amd64/promtool",
+        "source": "https://github.com/prometheus/prometheus/releases/tag/v3.15.1"
+      },
+      "terraform": {
+        "version": "1.17.1",
+        "url": "https://releases.hashicorp.com/terraform/1.17.1/terraform_1.17.1_linux_amd64.zip",
+        "sha256": "4638628058e71a55212b1c563712eac03b902128f40740f3dc8174df12135061",
+        "member": "terraform",
+        "source": "https://github.com/hashicorp/terraform/releases/tag/v1.17.1"
+      },
+      "helm": {
+        "version": "4.2.1",
+        "url": "https://get.helm.sh/helm-v4.2.1-linux-amd64.tar.gz",
+        "sha256": "479dca836e5b45e8bd222400c5591b0e3a647378f03ff96597180db97c17fdae",
+        "member": "linux-amd64/helm",
+        "source": "https://github.com/helm/helm/releases/tag/v4.2.1"
+      },
+      "kubectl": {
+        "version": "1.36.4",
+        "url": "https://dl.k8s.io/release/v1.36.4/bin/linux/amd64/kubectl",
+        "sha256": "8b8f088da2dab964f853b38464033b1be15ede2839eca751482357c45abdd05a",
+        "member": null,
+        "source": "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/"
+      }
+    }
+  },
+  "report_sha256": {
+    "artifacts/state-plan/report.json": "bf0bc79c4aa005b5d9bb6c98dcec9582b7f9b369f3155ab73695785a250ed2d6"
+  },
+  "history_path": "artifacts/history/20261031T003455.463961Z-def79a8ef586",
+  "boundaries": {
+    "aws_provisioned": false,
+    "atlantis_pr_e2e": "pending",
+    "bitbucket_saas": "pending",
+    "human_approval": "pending"
+  }
+}
