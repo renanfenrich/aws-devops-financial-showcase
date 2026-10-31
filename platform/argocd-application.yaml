@@ -1,0 +1,63 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: financial-showcase
+  namespace: argocd
+spec:
+  description: Local synthetic showcase, one repository and namespace
+  sourceRepos:
+    - https://github.com/renanfenrich/aws-devops-financial-showcase.git
+  destinations:
+    - namespace: showcase
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: Service
+    - group: ""
+      kind: ServiceAccount
+    - group: ""
+      kind: ResourceQuota
+    - group: ""
+      kind: LimitRange
+    - group: apps
+      kind: Deployment
+    - group: apps
+      kind: StatefulSet
+    - group: batch
+      kind: Job
+    - group: policy
+      kind: PodDisruptionBudget
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: financial-showcase
+  namespace: argocd
+spec:
+  project: financial-showcase
+  source:
+    repoURL: https://github.com/renanfenrich/aws-devops-financial-showcase.git
+    targetRevision: SOURCE_REVISION
+    path: platform/chart
+    helm:
+      releaseName: financial-showcase
+      parameters:
+        - name: sourceRevision
+          value: SOURCE_REVISION
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: showcase
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - RespectIgnoreDifferences=true
+  revisionHistoryLimit: 2

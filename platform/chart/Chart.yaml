@@ -1,0 +1,7 @@
+apiVersion: v2
+name: financial-showcase
+description: Local synthetic financial operations lab, owned by Argo CD after bootstrap
+type: application
+version: 0.1.0
+appVersion: 0.1.0
+kubeVersion: ">=1.36.0-0 <1.37.0-0"

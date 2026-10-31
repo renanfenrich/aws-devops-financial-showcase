@@ -1,0 +1,20 @@
+groups:
+  - name: showcase
+    rules:
+      - alert: SyntheticIncidentOpen
+        expr: max(showcase_open_incidents) > 0
+        for: 10s
+        labels:
+          severity: warning
+          environment: local-synthetic
+        annotations:
+          summary: Synthetic incident requires acknowledgement
+          runbook_url: https://github.com/renanfenrich/aws-devops-financial-showcase/blob/develop/docs/runbooks.md
+      - alert: ShowcaseApiUnavailable
+        expr: up{job="showcase-api"} == 0
+        for: 15s
+        labels:
+          severity: critical
+          environment: local-synthetic
+        annotations:
+          summary: The synthetic operations API is unavailable

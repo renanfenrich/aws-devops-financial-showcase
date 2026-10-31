@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-30T23:36:48.263157+00:00",
+  "scope": "Previously completed read-only local image identity verification; no rebuild or new runtime test",
+  "code_sha": "f1603b3493789414fdde771eef1795db4966adf4",
+  "identity_confirmed": true,
+  "architecture": "amd64",
+  "os": "linux",
+  "docker_image_inspect_id": "sha256:8d88924c53d1ba5049dbf5864d213ec711df326bfb2159a3cd2d26b6027b2642",
+  "runtime_image_id": "docker.io/library/import-2026-10-30@sha256:711575b5e045e24273250b39a574563c05f468065a1b68125ddf6b84e9b48927",
+  "kind_cri_image_config_id": "sha256:be4c85a49303725b336760d31bf0e79e0ab163456d7d226b80dc6e9549ba0a69",
+  "runtime_image_id_note": "The pod imageID points to the export/import outer OCI index, not the linux/amd64 image manifest or the image config.",
+  "descriptor_chain": [
+    {
+      "role": "Docker save archive outer OCI index / kind runtime import index",
+      "digest": "sha256:711575b5e045e24273250b39a574563c05f468065a1b68125ddf6b84e9b48927",
+      "references": "sha256:8d88924c53d1ba5049dbf5864d213ec711df326bfb2159a3cd2d26b6027b2642"
+    },
+    {
+      "role": "Scanned Docker OCI image index",
+      "digest": "sha256:8d88924c53d1ba5049dbf5864d213ec711df326bfb2159a3cd2d26b6027b2642",
+      "linux_amd64_manifest": "sha256:e427ecbc3114d0acd6597661e5579ad8e49fd825118d503ebeeb2c4de0cb059d"
+    },
+    {
+      "role": "linux/amd64 OCI image manifest",
+      "digest": "sha256:e427ecbc3114d0acd6597661e5579ad8e49fd825118d503ebeeb2c4de0cb059d",
+      "image_config": "sha256:be4c85a49303725b336760d31bf0e79e0ab163456d7d226b80dc6e9549ba0a69"
+    },
+    {
+      "role": "Image config / CRI image ID",
+      "digest": "sha256:be4c85a49303725b336760d31bf0e79e0ab163456d7d226b80dc6e9549ba0a69"
+    }
+  ],
+  "blob_sha256_matches_docker_save_vs_kind": {
+    "sha256:711575b5e045e24273250b39a574563c05f468065a1b68125ddf6b84e9b48927": true,
+    "sha256:8d88924c53d1ba5049dbf5864d213ec711df326bfb2159a3cd2d26b6027b2642": true,
+    "sha256:e427ecbc3114d0acd6597661e5579ad8e49fd825118d503ebeeb2c4de0cb059d": true,
+    "sha256:be4c85a49303725b336760d31bf0e79e0ab163456d7d226b80dc6e9549ba0a69": true
+  },
+  "blob_bytes_identical_docker_save_vs_kind": {
+    "sha256:711575b5e045e24273250b39a574563c05f468065a1b68125ddf6b84e9b48927": true,
+    "sha256:8d88924c53d1ba5049dbf5864d213ec711df326bfb2159a3cd2d26b6027b2642": true,
+    "sha256:e427ecbc3114d0acd6597661e5579ad8e49fd825118d503ebeeb2c4de0cb059d": true,
+    "sha256:be4c85a49303725b336760d31bf0e79e0ab163456d7d226b80dc6e9549ba0a69": true
+  },
+  "ordered_rootfs_diff_ids_unchanged": true,
+  "ordered_rootfs_diff_ids": [
+    "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba",
+    "sha256:2a828849b58f2e4110e3dabf1582ecf38d386d04ad8e70a623e3b95030c9546c",
+    "sha256:476229b4f396ca2d8eb3dd65e6085c2e543f3d1741880779176f9e8c604f27ae",
+    "sha256:e4989aeff940b22953dff1ae6f6d2e2b6ba41f286a995927bb34b1330cd63086",
+    "sha256:c44d7d31686079979212ae2a4c32e07a555263c6fe8842a3c4ecf8dab6b97dbc",
+    "sha256:67f751844c91e7f995c042064d72b1493e6efa5db27bfa72820edd85ed76f827",
+    "sha256:bab7128f2480364ac0600fc63add85b81e476253300e48ce9652e791b02c6c7b",
+    "sha256:afb716e83c041282a9b6af30ecec0ade752244aa9506eb903990993708f11122",
+    "sha256:48545467dfbb9499a52477a3b1ab4350d5b6d68b4866120a134d4cdf02348b07"
+  ],
+  "labels_unchanged": true,
+  "labels": {
+    "io.showcase.dirty": "false",
+    "org.opencontainers.image.revision": "f1603b3493789414fdde771eef1795db4966adf4"
+  },
+  "execution_config_unchanged": {
+    "user": "10001:10001",
+    "working_dir": "/app",
+    "command": [
+      "uvicorn",
+      "showcase.main:create_app",
+      "--factory",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8080",
+      "--no-access-log",
+      "--no-proxy-headers"
+    ]
+  },
+  "verification_method": [
+    "Compared docker image inspect RootFS.Layers, architecture, OS and selected Config fields with kind crictl inspecti imageSpec; all nine ordered uncompressed rootfs diff IDs and labels matched.",
+    "Streamed a fresh docker image save financial-showcase-api:local tar archive in memory without extracting files; computed SHA-256 for index.json and metadata blobs.",
+    "Followed the archive outer index to the scanned Docker index, its linux/amd64 manifest and the image config.",
+    "Read the four corresponding blobs with docker exec financial-showcase-control-plane ctr -n k8s.io content get; each was byte-identical to the fresh Docker save blob and its SHA-256 matched its descriptor digest."
+  ],
+  "limitations": [
+    "This records already observed local content identity. It does not assert registry publication, cloud deployment, signature verification or human approval."
+  ]
+}

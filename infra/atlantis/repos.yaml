@@ -1,0 +1,24 @@
+# This file is baked into the image, never loaded from an incoming PR checkout.
+repos:
+  - id: github.com/renanfenrich/aws-devops-financial-showcase
+    branch: /^(develop|main)$/
+    workflow: g1-plan-only
+    allowed_overrides: []
+    allowed_workflows: [g1-plan-only]
+    allow_custom_workflows: false
+    apply_requirements: [approved, mergeable, undiverged]
+    import_requirements: [approved, mergeable, undiverged]
+workflows:
+  g1-plan-only:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - run: /usr/local/bin/showcase-deny-apply
+team_authz:
+  command: /usr/local/bin/showcase-atlantis-authz
+metrics:
+  prometheus:
+    endpoint: /metrics

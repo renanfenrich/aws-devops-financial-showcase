@@ -1,0 +1,28 @@
+name: Local lab E2E
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: local-showcase-lab
+  cancel-in-progress: false
+jobs:
+  lab:
+    # Manual opt-in only. Registering a dedicated runner is outside G1.
+    runs-on: [self-hosted, linux, x64, showcase-lab]
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: make bootstrap doctor local-env image
+      - run: bash scripts/lab-up.sh gitops "$GITHUB_SHA"
+      - run: make evidence GATE=e2e
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: lab-${{ github.sha }}
+          path: artifacts/
+          retention-days: 14
+      - run: make down
+        if: always()

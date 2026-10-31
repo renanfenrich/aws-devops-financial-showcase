@@ -1,0 +1,18 @@
+# Explicitly fake, NON-SECRET values satisfy offline startup only. No VCS access.
+gh-user: offline-placeholder
+gh-token: offline-placeholder-not-a-token
+gh-webhook-secret: offline-placeholder-not-a-secret
+repo-allowlist: github.com/renanfenrich/aws-devops-financial-showcase
+repo-config: /etc/atlantis/repos.yaml
+atlantis-url: http://127.0.0.1:4141
+port: 4141
+data-dir: /home/atlantis/.atlantis
+default-tf-version: 1.17.1
+tf-download: false
+allow-commands: version,plan
+allow-fork-prs: false
+allow-draft-prs: false
+disable-autoplan: true
+automerge: false
+write-git-creds: false
+# api-secret is deliberately ABSENT: the execution API is disabled (HTTP 503).

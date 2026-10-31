@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "run_id": "e3e335e4b50f4a1ca16e15fdeaa72411",
+  "scanned_image_id": "sha256:8d88924c53d1ba5049dbf5864d213ec711df326bfb2159a3cd2d26b6027b2642",
+  "image_source_revision": "f1603b3493789414fdde771eef1795db4966adf4",
+  "image_source_dirty": "false",
+  "scope": [
+    "checkout filesystem including development dependencies",
+    "API image only"
+  ],
+  "other_images_scanned": false,
+  "scanner_exit_codes": {
+    "filesystem": 0,
+    "image": 0,
+    "sbom": 0
+  },
+  "high_critical": [],
+  "reports_complete": true,
+  "passed": true
+}

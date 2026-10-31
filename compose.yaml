@@ -1,0 +1,55 @@
+name: aws-financial-showcase
+services:
+  db:
+    image: postgres:18.6@sha256:979bccfde35445db618c65107d27d08c6c21339d8dc3ad4c830c6633947be0e4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?}
+      POSTGRES_APP_PASSWORD: ${POSTGRES_PASSWORD:?}
+    ports:
+      - "127.0.0.1:15491:5432"
+    volumes:
+      - database:/var/lib/postgresql
+      - ./migrations/init-role.sh:/docker-entrypoint-initdb.d/001-app-role.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U postgres -d showcase"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    cpus: 1
+  api:
+    profiles: [dev]
+    image: financial-showcase-api:local
+    build: .
+    environment:
+      DATABASE_URL: ${COMPOSE_DATABASE_URL:?}
+      API_TOKEN: ${API_TOKEN:?}
+      OTEL_SERVICE_NAME: financial-showcase-api
+    ports:
+      - "127.0.0.1:18080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+    cpus: 1
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=2)"
+      interval: 10s
+      timeout: 3s
+      retries: 3
+volumes:
+  database:
