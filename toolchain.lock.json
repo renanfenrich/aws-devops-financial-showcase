@@ -72,6 +72,13 @@
       "sha256": "8b8f088da2dab964f853b38464033b1be15ede2839eca751482357c45abdd05a",
       "member": null,
       "source": "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/"
+    },
+    "node": {
+      "version": "26.13.0",
+      "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-linux-x64.tar.gz",
+      "sha256": "5848553868b402d3fabb5b09270649977780a390f832155721025a08b5104455",
+      "member": "node-v26.13.0-linux-x64/bin/node",
+      "source": "https://nodejs.org/dist/v26.13.0/SHASUMS256.txt"
     }
   }
 }
