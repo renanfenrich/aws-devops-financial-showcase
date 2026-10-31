@@ -12,6 +12,8 @@ documentation/evidence; it does not change the verified application or harness.
 - [Real Jenkins build](g1/jenkins.json) and [Jenkins gate](g1/jenkins-gate.json).
 - [Security scan](g1/security.json) and [security gate](g1/security-gate.json): filesystem and API image only.
 - [GitHub CI](g1/github-ci.json): completed remote run for the tested code revision.
+- [Reviewed G1 merge](g1/merge.json): current-head approval and the content-equivalent
+  squash into develop; historical runtime records retain their original tested SHA.
 
 Raw scanner matches, environment files, database dumps and private failure logs
 are excluded. Full source-bound run histories remain in ignored `artifacts/history/`.

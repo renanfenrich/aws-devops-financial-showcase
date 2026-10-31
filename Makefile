@@ -5,9 +5,9 @@ export UV_PYTHON := 3.14.10
 UV := $(CURDIR)/.tools/bin/uv
 .DEFAULT_GOAL := help
 
-.PHONY: help doctor bootstrap local-env check test unit-test integration-test infra-test helm-check verify image security atlantis-test lab-up e2e jenkins-test evidence down
+.PHONY: help doctor bootstrap local-env check test unit-test integration-test infra-test state-test state-plan-test helm-check verify image security atlantis-test lab-up e2e jenkins-test evidence down
 help:
-	@echo 'bootstrap | doctor | check | test | infra-test | verify | image | lab-up | e2e | security | atlantis-test | jenkins-test | evidence | down'
+	@echo 'bootstrap | doctor | check | test | infra-test | state-test | state-plan-test | verify | image | lab-up | e2e | security | atlantis-test | jenkins-test | evidence | down'
 doctor:
 	python3 scripts/doctor.py
 bootstrap:
@@ -34,6 +34,10 @@ integration-test:
 	$(UV) run --frozen pytest tests --junitxml=artifacts/junit.xml --cov=showcase --cov-report=xml:artifacts/coverage.xml
 infra-test:
 	bash scripts/infra-check.sh
+state-test:
+	bash scripts/infra-check.sh state-bootstrap
+state-plan-test:
+	$(UV) run --frozen python scripts/state_plan.py
 helm-check:
 	bash scripts/lab-check.sh
 verify: check test infra-test helm-check

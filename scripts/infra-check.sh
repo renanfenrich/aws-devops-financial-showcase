@@ -11,15 +11,29 @@ cd "$ROOT"
 [[ "$(terraform version -json | python3 -c 'import json,sys; print(json.load(sys.stdin)["terraform_version"])')" == 1.17.1 ]]
 [[ "$(terragrunt --version)" == 'terragrunt version v1.2.1' ]]
 [[ "$(tflint --version)" == 'TFLint version 0.65.0'* ]]
+roots=(aws-foundation state-bootstrap)
+if [[ $# -gt 0 ]]; then
+  roots=("$@")
+fi
+for name in "${roots[@]}"; do
+  case "$name" in
+    aws-foundation|state-bootstrap) ;;
+    *) printf 'Unsupported offline root: %s\n' "$name" >&2; exit 2 ;;
+  esac
+done
 terraform fmt -check -recursive infra/terraform
-terraform -chdir=infra/terraform/aws-foundation init -backend=false -input=false -lockfile=readonly -no-color
-terraform -chdir=infra/terraform/aws-foundation validate -no-color
-terraform -chdir=infra/terraform/aws-foundation test -no-color
-tflint --chdir=infra/terraform/aws-foundation --config="$ROOT/.tflint.hcl"
 # Terragrunt defaults to OpenTofu in this release; explicitly use the pinned Terraform.
 export TG_TF_PATH="$(command -v terraform)"
-terragrunt --working-dir infra/terragrunt/aws-foundation --non-interactive run --source-update -- init -backend=false -input=false -lockfile=readonly -no-color
-TG_NO_AUTO_INIT=true terragrunt --working-dir infra/terragrunt/aws-foundation --non-interactive run -- validate -no-color
-TG_NO_AUTO_INIT=true terragrunt --working-dir infra/terragrunt/aws-foundation --non-interactive run -- test -no-color
+for name in "${roots[@]}"; do
+  native="infra/terraform/$name"
+  wrapper="infra/terragrunt/$name"
+  terraform -chdir="$native" init -backend=false -input=false -lockfile=readonly -no-color
+  terraform -chdir="$native" validate -no-color
+  terraform -chdir="$native" test -no-color
+  tflint --chdir="$native" --config="$ROOT/.tflint.hcl"
+  terragrunt --working-dir "$wrapper" --non-interactive run --source-update -- init -backend=false -input=false -lockfile=readonly -no-color
+  TG_NO_AUTO_INIT=true terragrunt --working-dir "$wrapper" --non-interactive run -- validate -no-color
+  TG_NO_AUTO_INIT=true terragrunt --working-dir "$wrapper" --non-interactive run -- test -no-color
+done
 python3 -m unittest discover -s tests/infra -p 'test_*.py' -v
 printf '%s\n' 'IaC passed: Terraform/Terragrunt mocked tests and trusted authorization; no AWS API/deployment.'

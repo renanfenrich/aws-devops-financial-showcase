@@ -8,5 +8,6 @@ projects:
     autoplan:
       enabled: false
       when_modified: ['*.tf', '.terraform.lock.hcl']
-# G1: configuration prepared only. GitHub PR/webhook and AWS plan are NOT connected.
+# Offline allowlist: ONLY this foundation is eligible; state-bootstrap is never registered.
+# GitHub PR/webhook and AWS plan are NOT connected.
 # Offline mocked terraform test is run through scripts/infra-check.sh, outside Atlantis.

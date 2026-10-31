@@ -64,3 +64,18 @@ belong to later milestones with account, region, cost and teardown decisions.
 
 Local data recovery is tested by dump/restore into a separate database. This does
 not establish RDS PITR, a cloud RPO/RTO, or disaster recovery across regions.
+
+## G2-A: state bootstrap before cloud runtime
+
+The separate [state-bootstrap root](../infra/state-bootstrap/README.md) has no
+active backend and defaults to zero resources. Its secret-bearing state bucket
+must be separate from the synthetic reports bucket. It emits an inactive backend
+contract and a narrowly scoped, unattached policy for one default-workspace key
+and its deletable lock. No identity, trust relationship or policy grant is created.
+Cloud activation still requires a separately approved account, budget and custody
+procedure; the bootstrap cannot initially depend on the bucket it has not created.
+
+Atlantis may authorize a repository identity before it knows a project. That first
+step does not authorize execution: its later project check must match both the
+foundation name and exact directory. Bootstrap and unknown projects are denied;
+directory allowlisting does not sandbox untrusted Terraform providers or sources.

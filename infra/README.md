@@ -37,11 +37,34 @@ exit. Logs and fake VCS placeholders are local test data, never real authenticat
 
 The smoke proves the image version, trusted server configuration startup,
 `/healthz`, `/readyz`, Prometheus `/metrics`, and disabled execution APIs (503).
-Authorization tests exercise the actual image-baked script. `allow-commands`
+Authorization tests exercise the actual image-baked script, including owner
+bootstrap/traversal/missing-context denials. `allow-commands`
 contains only `version,plan`: apply/import/state are disabled for **everyone**,
 regardless of approval. A second server-side workflow also refuses apply. PRs
 cannot override requirements or define workflows. Forks, autoplan, automerge and
 Git credential persistence are disabled.
+
+G2-A tightens the server-side project boundary: the only approved tuple is
+`PROJECT_NAME=aws-foundation` and
+`REPO_REL_PATH=infra/terraform/aws-foundation`, with an absolute `REPO_ROOT`.
+State bootstrap is not registered and is denied even if a PR assigns it the
+approved project name. Unknown projects, alternate/traversal paths, unset fields
+and partial context fail closed. Server-side autodiscovery is disabled and
+`silence-no-projects` prevents targeting unregistered directories.
+
+The pinned Atlantis 0.49.0 runner performs two authorization checks. It always
+sets the three context keys: initially all are empty for the repository identity
+check, then populated for the project check. Only the owner's explicit
+present-empty repository check can pass before discovery; that pass does not
+authorize execution. A later project check must match the fixed tuple. These are
+the actual upstream `PROJECT_NAME`, `REPO_REL_PATH` and `REPO_ROOT` variables, not
+invented request parameters.
+
+This is an authorization allowlist, not a provider sandbox. It cannot make
+untrusted Terraform code in the approved directory safe: providers/data sources
+may execute during plan and plans may expose state. Real credentialed use still
+requires a separate review of code trust, provider integrity, least privilege,
+egress and private state handling. No such integration is activated here.
 
 There is **no GitHub token, App, webhook, remote tunnel, GitHub PR plan or AWS plan
 integration**. `atlantis.yaml` declares the future project; its parsing in a real

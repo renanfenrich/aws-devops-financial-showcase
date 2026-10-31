@@ -18,7 +18,7 @@ sbom_status=0
 # Raw JSON and scanner stderr may include secret matches or source excerpts: stay private.
 trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 \
   --include-dev-deps --helm-kube-version 1.36.4 \
-  --skip-dirs .local,.venv,.tools,.cache,.git,artifacts,infra/terragrunt/aws-foundation/.terragrunt-cache \
+  --skip-dirs '.local,.venv,.tools,.cache,.git,artifacts,**/.terragrunt-cache' \
   --format json --output "$raw/filesystem.json" . > "$raw/filesystem.log" 2>&1 || fs_status=$?
 trivy image --scanners vuln,secret --severity HIGH,CRITICAL --exit-code 1 \
   --format json --output "$raw/image.json" "$image_id" > "$raw/image.log" 2>&1 || image_status=$?

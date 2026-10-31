@@ -25,6 +25,8 @@ jobs:
         run: make evidence
       - name: Container and supply-chain checks
         run: make image security
+      - name: Disabled state graph with networking blocked
+        run: make evidence GATE=state-plan
       - name: Atlantis local smoke
         run: make atlantis-test
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

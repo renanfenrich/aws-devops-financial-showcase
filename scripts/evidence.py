@@ -18,6 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
     "core": "verify",
     "infra": "infra-test",
+    "state": "state-test",
+    "state-plan": "state-plan-test",
     "atlantis": "atlantis-test",
     "e2e": "e2e",
     "jenkins": "jenkins-test",

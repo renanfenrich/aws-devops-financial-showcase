@@ -16,3 +16,7 @@ updates:
     directory: /infra/terraform/aws-foundation
     schedule:
       interval: weekly
+  - package-ecosystem: terraform
+    directory: /infra/terraform/state-bootstrap
+    schedule:
+      interval: weekly

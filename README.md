@@ -9,6 +9,11 @@ integrations are separate evidence categories. No AWS resources are provisioned.
 This project demonstrates engineering practice, not employment history,
 certification, financial processing, production readiness, or cloud availability.
 
+G1 is reviewed and merged into develop. G2-A adds an
+[offline state-bootstrap design](infra/state-bootstrap/README.md): disabled-by-default
+S3/KMS storage, native-lock access contracts and stricter Atlantis project boundaries.
+AWS resources, identities, remote state and webhook execution remain unactivated.
+
 ## What to review
 
 - [Requirement-to-evidence matrix](docs/requirements.md), mapped to the
@@ -44,7 +49,8 @@ make e2e
 
 `make evidence GATE=core` runs the shared gates and records SHA, dirty-worktree
 status, versions, exit code, and fresh report hashes. Other gates are `infra`,
-`security`, `atlantis`, `e2e`, and `jenkins`. A failed command remains failed evidence.
+`security`, `atlantis`, `e2e`, `jenkins`, `state`, and `state-plan`.
+A failed command remains failed evidence.
 `make jenkins-test` requires a clean committed snapshot and executes Jenkinsfile
 on a separate agent; the controller has zero executors and no Docker socket.
 
@@ -59,6 +65,10 @@ port-forwarding; services bind to loopback and secrets stay in ignored `.local/`
 The observability stack is Prometheus, Grafana, OpenTelemetry Collector, and Tempo.
 Logs are JSON stdout; no centralized historical log search is claimed.
 Terraform/Terragrunt validate AWS VPC/S3/IAM foundations with mock providers.
+`make state-test` focuses on the separate state bootstrap. After `make image`,
+`make state-plan-test` verifies the default zero-resource graph with the real
+provider, synthetic SDK inputs and networking physically disabled. It is a Docker
+check separate from the credential-free mocked tests and does not validate AWS.
 Atlantis smoke proves its isolated server and command restrictions; GitHub webhook
 and PR-triggered plans remain pending.
 

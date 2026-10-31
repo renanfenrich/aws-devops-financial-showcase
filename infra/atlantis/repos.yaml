@@ -6,6 +6,8 @@ repos:
     allowed_overrides: []
     allowed_workflows: [g1-plan-only]
     allow_custom_workflows: false
+    autodiscover:
+      mode: disabled
     apply_requirements: [approved, mergeable, undiverged]
     import_requirements: [approved, mergeable, undiverged]
 workflows:
