@@ -20,6 +20,7 @@ TARGETS = {
     "infra": "infra-test",
     "state": "state-test",
     "state-plan": "state-plan-test",
+    "state-recovery": "state-recovery-test",
     "atlantis": "atlantis-test",
     "e2e": "e2e",
     "jenkins": "jenkins-test",

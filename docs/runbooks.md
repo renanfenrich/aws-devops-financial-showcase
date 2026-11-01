@@ -133,3 +133,12 @@ Do not substitute a plain credential-free `terraform plan`: the SDK still needs
 credential fields even for this empty graph. Do not enable the graph, initialize
 a remote backend, migrate state or attach the policy during G2-A. See the
 [state bootstrap guide](../infra/state-bootstrap/README.md) and its official sources.
+
+## Offline Terraform state recovery
+
+Run `make state-recovery-test` for the bounded synthetic local-state drill.
+It accepts no real-state paths and exercises native recovery/refusal behavior
+only in new private temporary directories. Read the [recovery runbook](state-recovery.md)
+for its acceptance contract and the still-proposed initial custody procedure.
+This does not authorize real state restoration, cloud access or backend migration;
+only a source-bound successful run may be reported as passing evidence.
