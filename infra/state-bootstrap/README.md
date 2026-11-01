@@ -103,6 +103,11 @@ procedure, backups and a recovery test. Existing foundation/local application
 state is not migrated by G2-A. Keep all state, raw plans and credentials outside
 Git and published artifacts.
 
+The [offline state-recovery drill](../../docs/state-recovery.md) defines
+`make state-recovery-test` using generated synthetic local state and native CLI
+rejection checks. Its proposed custody procedure does not authorize real state
+handling, backend activation or migration, and does not prove encrypted custody.
+
 Before production use, review access logging, CloudTrail state-object data
 events, monitoring and alarms. Bucket creation, retained object versions,
 requests and the KMS key/operations can incur charges when activated; neither

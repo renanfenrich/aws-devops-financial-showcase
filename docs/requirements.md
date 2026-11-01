@@ -17,7 +17,7 @@ responsibilities. This table paraphrases its requirements without reproducing it
 | Prometheus / Grafana | Metrics, alert rules, dashboard and bounded cardinality | Local runtime |
 | CloudWatch / CloudTrail / X-Ray | OTel-compatible design and future AWS export | Cloud integration planned |
 | Fault tolerance / scaling / balancing | API replicas, restart recovery and measured load | Local experiment; no cloud HA claim |
-| Backup / DR | PostgreSQL backup and separate-database restore | Local restore only |
+| Backup / DR | PostgreSQL separate-database restore; [synthetic Terraform state recovery/refusal](state-recovery.md) | Local only; encrypted custody and cloud DR unverified |
 | Operational automation | Scripted fault, alert, recovery and evidence collection | Bounded local exercise |
 | Cost optimization | No-provision default, resource limits, sequential heavy profiles | Local safeguards; no AWS bill measured |
 | EC2 / EKS / RDS / Lambda | G2 architecture and explicit activation gates | Planned |

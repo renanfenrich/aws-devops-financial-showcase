@@ -50,7 +50,7 @@ make e2e
 
 `make evidence GATE=core` runs the shared gates and records SHA, dirty-worktree
 status, versions, exit code, and fresh report hashes. Other gates are `infra`,
-`security`, `atlantis`, `e2e`, `jenkins`, `state`, and `state-plan`.
+`security`, `atlantis`, `e2e`, `jenkins`, `state`, `state-plan`, and `state-recovery`.
 A failed command remains failed evidence.
 `make jenkins-test` requires a clean committed snapshot and executes Jenkinsfile
 on a separate agent; the controller has zero executors and no Docker socket.
@@ -70,6 +70,9 @@ Terraform/Terragrunt validate AWS VPC/S3/IAM foundations with mock providers.
 `make state-plan-test` verifies the default zero-resource graph with the real
 provider, synthetic SDK inputs and networking physically disabled. It is a Docker
 check separate from the credential-free mocked tests and does not validate AWS.
+`make state-recovery-test` rehearses native local state backup/restore and rejection
+of corrupt, wrong-lineage and stale backups using disposable synthetic data. See
+the [state custody and recovery procedure](docs/state-recovery.md).
 Atlantis smoke proves its isolated server and command restrictions; GitHub webhook
 and PR-triggered plans remain pending.
 

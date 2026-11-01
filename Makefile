@@ -5,9 +5,9 @@ export UV_PYTHON := 3.14.10
 UV := $(CURDIR)/.tools/bin/uv
 .DEFAULT_GOAL := help
 
-.PHONY: help doctor bootstrap local-env check test unit-test integration-test infra-test state-test state-plan-test helm-check verify image security atlantis-test lab-up e2e jenkins-test evidence down
+.PHONY: help doctor bootstrap local-env check test unit-test integration-test infra-test state-test state-plan-test state-recovery-test helm-check verify image security atlantis-test lab-up e2e jenkins-test evidence down
 help:
-	@echo 'bootstrap | doctor | check | test | infra-test | state-test | state-plan-test | verify | image | lab-up | e2e | security | atlantis-test | jenkins-test | evidence | down'
+	@echo 'bootstrap | doctor | check | test | infra-test | state-test | state-plan-test | state-recovery-test | verify | image | lab-up | e2e | security | atlantis-test | jenkins-test | evidence | down'
 doctor:
 	python3 scripts/doctor.py
 bootstrap:
@@ -38,9 +38,11 @@ state-test:
 	bash scripts/infra-check.sh state-bootstrap
 state-plan-test:
 	$(UV) run --frozen python scripts/state_plan.py
+state-recovery-test:
+	$(UV) run --frozen python scripts/state_recovery.py
 helm-check:
 	bash scripts/lab-check.sh
-verify: check test infra-test helm-check
+verify: check test infra-test state-recovery-test helm-check
 image:
 	@revision="$$(git rev-parse HEAD)"; dirty=false; test -z "$$(git status --porcelain)" || dirty=true; \
 	docker build --label "org.opencontainers.image.revision=$$revision" --label "io.showcase.dirty=$$dirty" --tag financial-showcase-api:local .
