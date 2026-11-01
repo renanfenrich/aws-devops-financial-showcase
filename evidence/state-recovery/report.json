@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "mode": "synthetic-local-state",
+  "checks": {
+    "pinned_terraform": true,
+    "native_backup_export": true,
+    "corruption_rejected": true,
+    "native_restore_matches_backup": true,
+    "native_lineage_guard": true,
+    "lineage_refusal_preserves_state": true,
+    "native_serial_guard": true,
+    "serial_refusal_preserves_state": true,
+    "source_unchanged": true,
+    "backup_unchanged": true,
+    "private_permissions": true,
+    "temporary_state_removed": true
+  },
+  "passed": true,
+  "boundaries": {
+    "real_state_read": false,
+    "remote_backend": false,
+    "aws_verified": false,
+    "encrypted_custody_verified": false
+  },
+  "terraform_version": "1.17.1"
+}

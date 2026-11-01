@@ -95,3 +95,23 @@ binary. No tool or provider upgrade is introduced by this procedure.
 | [State push](https://developer.hashicorp.com/terraform/cli/commands/state/push) | Writes to the configured destination. Differing lineage and a higher destination serial block unsafe writes; the drill exercises those guards without `-force`. |
 | [Recover state from backup](https://developer.hashicorp.com/terraform/cli/state/recover) | Recovery includes understanding lock state, reading and writing state. Unlocking overrides concurrency protection and is not part of this drill. |
 | [Manage sensitive data](https://developer.hashicorp.com/terraform/language/manage-sensitive-data) | State may contain secrets; local state is plaintext, and `sensitive` redaction does not encrypt stored values. Real encrypted custody remains a separate prerequisite. |
+
+## Observed local verification
+
+Verified **2026-11-01 UTC** on clean code revision
+[`5afa652ce0fc0cfa74d2578d55c887a4808f9d50`](https://github.com/renanfenrich/aws-devops-financial-showcase/commit/5afa652ce0fc0cfa74d2578d55c887a4808f9d50).
+The publication commit adds evidence and documentation only. All three gate
+records have identical start/end source hashes and zero exit codes.
+
+| Gate | Observed result |
+| --- | --- |
+| `make evidence GATE=core` | 38 pytest items passed, including native CLI/environment-isolation and redaction regressions; existing Terraform/Terragrunt mocks, authorization, chart/alert and lint contracts passed. [Record](../evidence/state-recovery/core-gate.json). |
+| `make evidence GATE=state-recovery` | All 12 synthetic recovery checks passed with Terraform 1.17.1. [Checks](../evidence/state-recovery/report.json), [gate](../evidence/state-recovery/state-recovery-gate.json). |
+| `make evidence GATE=jenkins` | Actual isolated Jenkins pipeline SUCCESS on the same source SHA, 38.708 seconds. Its agent resolves the pinned CLI through PATH, without a checkout-local tool directory. [Build](../evidence/state-recovery/jenkins.json), [gate](../evidence/state-recovery/jenkins-gate.json). |
+
+The first Jenkins attempt failed before building because the workstation's Docker
+Buildx activity directory was read-only. Its failed gate remains in local evidence
+history. The successful retry used `BUILDX_CONFIG="$PWD/.cache/buildx"`, directing
+only the build client's configuration/activity to this checkout's ignored cache.
+No fixture state, backup, private CLI output or real credentials are published.
+The custody, cloud and recovery limitations above still apply.
