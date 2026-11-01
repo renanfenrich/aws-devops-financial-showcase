@@ -83,3 +83,24 @@ def test_native_failure_is_redacted_and_cleans_up_private_state(sandbox, monkeyp
     assert CANARY not in captured.out + captured.err + json.dumps(public)
     assert not list((sandbox / "scratch").iterdir())
     assert not list((sandbox / "artifacts").rglob("*.tfstate*"))
+
+
+@pytest.mark.parametrize("guard", ["lineage", "serial"])
+def test_generic_cli_failure_is_not_evidence_of_a_native_guard(sandbox, monkeypatch, capsys, guard):
+    native_run = subprocess.run
+
+    def fail_candidate(command, **kwargs):
+        if Path(command[-1]).name == f"wrong-{guard}.tfstate":
+            error = f"Error loading state file {command[-1]}: {CANARY}".encode()
+            return subprocess.CompletedProcess(command, 1, b"", error)
+        return native_run(command, **kwargs)
+
+    monkeypatch.setattr(subprocess, "run", fail_candidate)
+    assert recovery.main() == 1
+    public = json.loads((sandbox / "artifacts/state-recovery/report.json").read_text())
+    assert public["passed"] is False
+    assert f"native_{guard}_guard" not in public["checks"]
+    captured = capsys.readouterr()
+    assert CANARY not in captured.out + captured.err + json.dumps(public)
+    assert str(sandbox) not in captured.out + captured.err + json.dumps(public)
+    assert not list((sandbox / "scratch").iterdir())

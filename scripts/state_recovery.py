@@ -102,15 +102,23 @@ def rehearse(terraform, expected_version, checks):
                 json.loads(successful(restored, "state", "pull")) == exported,
                 "native_restore_matches_backup",
             )
-            for name, changes, reason in (
-                ("lineage", {"lineage": str(uuid.uuid4())}, b"lineage"),
-                ("serial", {"serial": fixture["serial"] - 1}, b"serial"),
+            for name, changes, diagnostic in (
+                (
+                    "lineage",
+                    {"lineage": str(uuid.uuid4())},
+                    b"cannot import state with lineage",
+                ),
+                (
+                    "serial",
+                    {"serial": fixture["serial"] - 1},
+                    b"cannot import state with serial",
+                ),
             ):
                 candidate = workspace / f"wrong-{name}.tfstate"
                 candidate.write_text(json.dumps({**exported, **changes}))
                 result = invoke(restored, "state", "push", str(candidate))
                 require(
-                    result.returncode != 0 and reason in result.stderr.lower(),
+                    result.returncode != 0 and diagnostic in result.stderr.lower(),
                     f"native_{name}_guard",
                 )
                 require(
